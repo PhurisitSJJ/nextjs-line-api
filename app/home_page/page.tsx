@@ -67,7 +67,17 @@ const LinePage = () => {
                     <Typography variant="body1" color="textSecondary" mt={1}>
                         ข้อความ : {profile.statusMessage || 'No status message'}
                     </Typography>
-                    <Typography variant="body1" color="textSecondary" mt={1}>
+                    <Typography
+                        variant="body1"
+                        color="textSecondary"
+                        mt={2}
+                        sx={{
+                            wordWrap: 'break-word', // ตัดข้อความเมื่อยาวเกิน
+                            whiteSpace: 'pre-wrap', // รักษารูปแบบบรรทัด
+                            maxWidth: '80%', // กำหนดความกว้างของข้อความ
+                            margin: '0 auto', // จัดข้อความให้อยู่ตรงกลาง
+                        }}
+                    >
                         IdToken : {idToken || 'ไม่พบ IdToken'}
                     </Typography>
                 </Box>
