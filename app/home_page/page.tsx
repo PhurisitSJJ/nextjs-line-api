@@ -13,6 +13,7 @@ interface Profile {
 
 const LinePage = () => {
     const [profile, setProfile] = useState<Profile | null>(null);
+    const [idToken, setIdToken] = useState<string | null>(null); // เก็บ IdToken
 
     useEffect(() => {
         liff.init({ liffId: '2006781477-NzeKaxpL' })
@@ -31,7 +32,12 @@ const LinePage = () => {
             } else {
                 const userProfile = await liff.getProfile();
                 setProfile(userProfile);
-                console.log('User Profile:', userProfile); // เพิ่มการแสดงข้อมูลใน console
+
+                const token = liff.getIDToken(); // ดึง IdToken
+                setIdToken(token);
+
+                console.log('User Profile:', userProfile);
+                console.log('IdToken:', token); // แสดง IdToken ใน console
             }
         } catch (e) {
             console.error('Error during login or profile retrieval:', e);
@@ -60,6 +66,9 @@ const LinePage = () => {
                     </Typography>
                     <Typography variant="body1" color="textSecondary" mt={1}>
                         ข้อความ : {profile.statusMessage || 'No status message'}
+                    </Typography>
+                    <Typography variant="body1" color="textSecondary" mt={1}>
+                        IdToken : {idToken || 'ไม่พบ IdToken'}
                     </Typography>
                 </Box>
             ) : (
