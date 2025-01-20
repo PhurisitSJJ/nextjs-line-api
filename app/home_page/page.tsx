@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import liff from '@line/liff';
 import { Container, Typography, Avatar, Box } from '@mui/material';
 
-// กำหนดโครงสร้างของ Profile
 interface Profile {
     userId: string;
     displayName: string;
@@ -14,7 +13,6 @@ interface Profile {
 
 const LinePage = () => {
     const [profile, setProfile] = useState<Profile | null>(null);
-    // const [idToken, setIdToken] = useState<string | null>(null);
 
     useEffect(() => {
         liff.init({ liffId: '2006781477-NzeKaxpL' })
@@ -29,12 +27,10 @@ const LinePage = () => {
     const handleLogin = async () => {
         try {
             if (!liff.isLoggedIn()) {
-                liff.login(); 
+                liff.login(); // Redirect to LINE login if not logged in
             } else {
                 const userProfile = await liff.getProfile();
-                // const userIdToken = liff.getIDToken();
                 setProfile(userProfile);
-                // setIdToken(userIdToken);
             }
         } catch (e) {
             console.error('Error during login', e);
@@ -44,14 +40,11 @@ const LinePage = () => {
     return (
         <Container>
             {profile ? (
-                <Box textAlign="center" mb={5}>
-                    <Typography variant="h5" mt={2}>
-                        แสดงข้อมูล Profile ของผู้ใช้ที่เข้าสู่ระบบด้วย Line
-                    </Typography>
+                <Box textAlign="center" mt={4}>
                     <Avatar
                         src={profile.pictureUrl || ''}
                         alt={profile.displayName}
-                        sx={{ width: 400, height: 400, margin: '0 auto', borderRadius: 0 }} // ปรับให้เป็นสี่เหลี่ยม
+                        sx={{ width: 400, height: 400, margin: '0 auto', borderRadius: 0 }} // รูปสี่เหลี่ยม
                     />
                     <Typography variant="h5" mt={2}>
                         {profile.displayName}
