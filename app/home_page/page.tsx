@@ -28,16 +28,16 @@ const LinePage = () => {
     const handleLogin = async () => {
         try {
             if (!liff.isLoggedIn()) {
-                liff.login(); // Redirect to LINE login if not logged in
+                liff.login(); 
             } else {
                 const userProfile = await liff.getProfile();
                 setProfile(userProfile);
 
-                const token = liff.getIDToken(); // ดึง IdToken
+                const token = liff.getIDToken(); 
                 setIdToken(token);
 
                 console.log('User Profile:', userProfile);
-                console.log('IdToken:', token); // แสดง IdToken ใน console
+                console.log('IdToken:', token); 
             }
         } catch (e) {
             console.error('Error during login or profile retrieval:', e);
@@ -55,10 +55,10 @@ const LinePage = () => {
                         src={profile.pictureUrl || ''}
                         alt={profile.displayName}
                         sx={{
-                            width: 400,
-                            height: 400,
+                            width: 200,
+                            height: 200,
                             margin: '0 auto',
-                            borderRadius: 0, // รูปสี่เหลี่ยม
+                            borderRadius: 0, 
                         }}
                     />
                     <Typography variant="h5" mt={2}>
@@ -72,10 +72,10 @@ const LinePage = () => {
                         color="textSecondary"
                         mt={2}
                         sx={{
-                            wordWrap: 'break-word', // ตัดข้อความเมื่อยาวเกิน
-                            whiteSpace: 'pre-wrap', // รักษารูปแบบบรรทัด
-                            maxWidth: '80%', // กำหนดความกว้างของข้อความ
-                            margin: '0 auto', // จัดข้อความให้อยู่ตรงกลาง
+                            wordWrap: 'break-word', 
+                            whiteSpace: 'pre-wrap', 
+                            maxWidth: '80%', 
+                            margin: '0 auto', 
                         }}
                     >
                         IdToken : {idToken || 'ไม่พบ IdToken'}
