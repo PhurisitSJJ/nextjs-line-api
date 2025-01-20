@@ -32,9 +32,9 @@ const LinePage = () => {
                 liff.login(); // Redirect to LINE login if not logged in
             } else {
                 const userProfile = await liff.getProfile();
-                const userIdToken = liff.getIDToken();
+                // const userIdToken = liff.getIDToken();
                 setProfile(userProfile);
-                setIdToken(userIdToken);
+                // setIdToken(userIdToken);
             }
         } catch (e) {
             console.error('Error during login', e);
