@@ -64,7 +64,7 @@ const LinePage = () => {
                 </Box>
             ) : (
                 <Typography variant="h6" textAlign="center" mt={4}>
-                    กำลังโหลดข้อมูล...
+                    เข้าสู่ระบบแล้ว กำลังโหลดข้อมูล...
                 </Typography>
             )}
         </Container>
