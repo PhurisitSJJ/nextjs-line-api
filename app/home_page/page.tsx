@@ -52,7 +52,9 @@ const LinePage = () => {
         setProfile(null); // รีเซ็ตข้อมูล profile
         setIdToken(null); // รีเซ็ต IdToken
         console.log('User logged out');
-        liff.login(); // เรียก login ใหม่
+        
+        // เปลี่ยนเส้นทางไปยังหน้า login_page
+        window.location.href = '/login_page'; // หรือใช้ window.location.replace('/login_page');
     };
 
     return (
