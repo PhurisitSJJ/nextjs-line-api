@@ -14,7 +14,7 @@ interface Profile {
 
 const LinePage = () => {
     const [profile, setProfile] = useState<Profile | null>(null);
-    const [idToken, setIdToken] = useState<string | null>(null);
+    // const [idToken, setIdToken] = useState<string | null>(null);
 
     useEffect(() => {
         liff.init({ liffId: '2006781477-NzeKaxpL' })
@@ -29,7 +29,7 @@ const LinePage = () => {
     const handleLogin = async () => {
         try {
             if (!liff.isLoggedIn()) {
-                liff.login(); // Redirect to LINE login if not logged in
+                liff.login(); 
             } else {
                 const userProfile = await liff.getProfile();
                 // const userIdToken = liff.getIDToken();
