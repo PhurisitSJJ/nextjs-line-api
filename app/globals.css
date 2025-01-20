@@ -19,3 +19,34 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* กำหนดให้หน้าเต็มความสูงของหน้าจอ */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* เนื้อหาของหน้า */
+.content {
+  flex: 1; /* ใช้พื้นที่ที่เหลือทั้งหมด */
+}
+
+/* สไตล์สำหรับ footer */
+html, body {
+  height: 100%;  /* ทำให้ body มีความสูงเต็มหน้าจอ */
+  margin: 0;     /* ลบ margin ของ body */
+  display: flex;
+  flex-direction: column; /* จัดเนื้อหาของ body ให้อยู่ในแนวคอลัมน์ */
+}
+
+main {
+  flex-grow: 1; /* ทำให้ main ขยายตัวเต็มพื้นที่ที่เหลือ */
+}
+
+footer {
+  background-color: #e0e0e0;
+  text-align: center;
+  padding: 16px;
+  margin-top: auto;  /* ใช้ margin-top:auto เพื่อผลักดัน footer ไปที่ด้านล่างสุด */
+}
+
