@@ -31,9 +31,10 @@ const LinePage = () => {
             } else {
                 const userProfile = await liff.getProfile();
                 setProfile(userProfile);
+                console.log('User Profile:', userProfile); // เพิ่มการแสดงข้อมูลใน console
             }
         } catch (e) {
-            console.error('Error during login', e);
+            console.error('Error during login or profile retrieval:', e);
         }
     };
 
@@ -42,18 +43,23 @@ const LinePage = () => {
             {profile ? (
                 <Box textAlign="center" mt={4}>
                     <Typography variant="h5" mt={2}>
-                       บัญชีผู้ใช้ที่เข้าสู่ระบบด้วย Line 
+                        บัญชีผู้ใช้ที่เข้าสู่ระบบด้วย Line
                     </Typography>
                     <Avatar
                         src={profile.pictureUrl || ''}
                         alt={profile.displayName}
-                        sx={{ width: 400, height: 400, margin: '0 auto', borderRadius: 0 }} // รูปสี่เหลี่ยม
+                        sx={{
+                            width: 400,
+                            height: 400,
+                            margin: '0 auto',
+                            borderRadius: 0, // รูปสี่เหลี่ยม
+                        }}
                     />
                     <Typography variant="h5" mt={2}>
-                       ชื่อผู้ใช้ : {profile.displayName}
+                        ชื่อผู้ใช้ : {profile.displayName}
                     </Typography>
                     <Typography variant="body1" color="textSecondary" mt={1}>
-                       ข้อความ : {profile.statusMessage || 'No status message'}
+                        ข้อความ : {profile.statusMessage || 'No status message'}
                     </Typography>
                 </Box>
             ) : (
