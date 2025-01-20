@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import liff from '@line/liff';
-import { Container, Typography, Avatar, Box } from '@mui/material';
+import { Container, Typography, Avatar, Box, Button } from '@mui/material';
 
 interface Profile {
     userId: string;
@@ -18,30 +18,41 @@ const LinePage = () => {
     useEffect(() => {
         liff.init({ liffId: '2006781477-NzeKaxpL' })
             .then(() => {
-                handleLogin();
+                checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
             })
             .catch((err) => {
                 console.error('LIFF initialization failed', err);
             });
     }, []);
 
-    const handleLogin = async () => {
-        try {
-            if (!liff.isLoggedIn()) {
-                liff.login(); 
-            } else {
+    // ฟังก์ชันตรวจสอบ session
+    const checkSession = async () => {
+        if (!liff.isLoggedIn()) {
+            console.log('User is not logged in.');
+            liff.login(); // ถ้าไม่ได้เข้าสู่ระบบ ให้เรียก login
+        } else {
+            try {
                 const userProfile = await liff.getProfile();
                 setProfile(userProfile);
 
-                const token = liff.getIDToken(); 
+                const token = liff.getIDToken(); // ดึง IdToken
                 setIdToken(token);
 
                 console.log('User Profile:', userProfile);
-                console.log('IdToken:', token); 
+                console.log('IdToken:', token); // แสดง IdToken
+            } catch (e) {
+                console.error('Error during profile retrieval:', e);
             }
-        } catch (e) {
-            console.error('Error during login or profile retrieval:', e);
         }
+    };
+
+    // ฟังก์ชัน logout
+    const handleLogout = () => {
+        liff.logout(); // ทำการ logout
+        setProfile(null); // รีเซ็ตข้อมูล profile
+        setIdToken(null); // รีเซ็ต IdToken
+        console.log('User logged out');
+        liff.login(); // เรียก login ใหม่
     };
 
     return (
@@ -80,6 +91,13 @@ const LinePage = () => {
                     >
                         IdToken : {idToken || 'ไม่พบ IdToken'}
                     </Typography>
+
+                    {/* ปุ่ม Logout */}
+                    <Box mt={4}>
+                        <Button variant="contained" color="secondary" onClick={handleLogout}>
+                            Logout
+                        </Button>
+                    </Box>
                 </Box>
             ) : (
                 <Typography variant="h6" textAlign="center" mt={4}>
