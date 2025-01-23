@@ -20,7 +20,15 @@ const LinePage = () => {
         setTracking("UseEffect: " + JSON.stringify(liff));
         try{
             setTracking("LoggedIn: " + liff.id);
-            liff.init({ liffId: '2006781477-NzeKaxpL' });
+            liff.init({ liffId: '2006781477-NzeKaxpL' })
+                .then(() => {
+                    setTracking("Init Then");
+                    checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
+                })
+                .catch((err) => {
+                    console.error('LIFF initialization failed', err);
+                    setTracking("UseEffect Error: ")
+                });
         }catch(err){
             setTracking("LoggedIn Err: " + JSON.stringify(err))
         }
