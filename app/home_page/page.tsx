@@ -32,6 +32,13 @@ const LinePage = () => {
 
     useEffect(() => {
         setTracking("liff useEffect: " + liff.id);
+        if(liff.id === null){
+            liff.init({ liffId: '2006781477-NzeKaxpL' })
+                .then(() => {
+                    setTracking("liff Init Then");
+                    checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
+                })
+        }
     }, [liff])
 
     // ฟังก์ชันตรวจสอบ session
