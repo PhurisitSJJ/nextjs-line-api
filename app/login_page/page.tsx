@@ -13,10 +13,12 @@ import liff from '@line/liff';
 const LoginPage = () => {
   const [tracking, setTracking] = useState<string>("Initial");
     useEffect(() => {
-      setTracking("useEffect: " + JSON.stringify(liff))
         liff.init({
             liffId: '2006781477-NzeKaxpL'
+        }).then(() => {
+          setTracking("Init Then: " + JSON.stringify(liff));
         })
+        setTracking("useEffect: " + JSON.stringify(liff))
     },[])
 
     const hendleLoginLineLiff = ()=>{
@@ -28,7 +30,7 @@ const LoginPage = () => {
     }
 
     return (
-        <Container maxWidth="xs" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
         Tracking State: {tracking}
       <Card sx={{ padding: 4, width: '100%', boxShadow: 3 }}>
         <Typography
