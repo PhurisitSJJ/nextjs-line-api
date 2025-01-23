@@ -28,25 +28,30 @@ const LinePage = () => {
     }, []);
 
     const initLine = async () => {
-        setTracking("initLine: " + liff.isSubWindow());
+        setTracking("initLine: ");
         if(liff.id === null){
-            await liff.init({ liffId: '2006781477-NzeKaxpL' });
+            liff.ready.then(() => {
+                setTracking("liff ready Then: " + JSON.stringify(liff));
+                checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
+            })
+            liff.init({ liffId: '2006781477-NzeKaxpL' });
         }else{
             checkSession();
+            
         }
     }
 
-    useEffect(() => {
-        setTracking("liff useEffect: " + liff.id + ", " + liff.isSubWindow());
-        // if(liff.id === null){
-        //     liff.init({ liffId: '2006781477-NzeKaxpL' })
-        //         .then(() => {
-        //             setTracking("liff Init Then");
-        //             checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
-        //         })
-        // }
-        initLine();
-    }, [liff])
+    // useEffect(() => {
+    //     setTracking("liff useEffect: " + liff.id + ", " + liff.isSubWindow());
+    //     // if(liff.id === null){
+    //     //     liff.init({ liffId: '2006781477-NzeKaxpL' })
+    //     //         .then(() => {
+    //     //             setTracking("liff Init Then");
+    //     //             checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
+    //     //         })
+    //     // }
+    //     initLine();
+    // }, [liff])
 
     const onRefreshHandler = () => {
         try{
