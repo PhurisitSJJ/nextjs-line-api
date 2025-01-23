@@ -45,28 +45,9 @@ const LinePage = () => {
         }
     }
 
-    // useEffect(() => {
-    //     setTracking("liff useEffect: " + liff.id + ", " + liff.isSubWindow());
-    //     // if(liff.id === null){
-    //     //     liff.init({ liffId: '2006781477-NzeKaxpL' })
-    //     //         .then(() => {
-    //     //             setTracking("liff Init Then");
-    //     //             checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
-    //     //         })
-    //     // }
-    //     initLine();
-    // }, [liff])
-
     const onRefreshHandler = () => {
         try{
             setTracking("onRefreshHandler Process")
-            // liff.init({ liffId: '2006781477-NzeKaxpL' })
-            //     .then(() => {
-            //         setTracking("liff Init Then");
-            //         checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
-            //         setTracking("onRefreshHandler Success")
-            //     })
-            // checkSession();
             initLine();
         }catch(err){
             setTracking("onRefreshHandler Err: " + JSON.stringify(err));
