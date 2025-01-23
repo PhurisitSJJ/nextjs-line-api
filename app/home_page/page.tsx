@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import liff from '@line/liff';
 import { Container, Typography, Avatar, Box, Button, } from '@mui/material';
+import { useSearchParams } from 'next/navigation';
 
 interface Profile {
     userId: string;
@@ -15,9 +16,10 @@ const LinePage = () => {
     const [profile, setProfile] = useState<Profile | null>(null);
     const [idToken, setIdToken] = useState<string | null>(null); // เก็บ IdToken
     const [tracking, setTracking] = useState<string>("Initial");
+    const searchParam = useSearchParams();
 
     useEffect(() => {
-        setTracking("UseEffect");
+        setTracking("UseEffect: " + searchParam.get("code") + ", " + searchParam.get("liffClientId") + ", " + searchParam.get("liffRedirectUri"));
         liff.init({ liffId: '2006781477-NzeKaxpL' })
             .then(() => {
                 setTracking("Init Then");
