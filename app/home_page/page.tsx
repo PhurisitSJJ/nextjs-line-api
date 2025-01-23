@@ -32,14 +32,24 @@ const LinePage = () => {
 
     useEffect(() => {
         setTracking("liff useEffect: " + liff.id);
-        if(liff.id === null){
-            liff.init({ liffId: '2006781477-NzeKaxpL' })
-                .then(() => {
-                    setTracking("liff Init Then");
-                    checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
-                })
-        }
+        // if(liff.id === null){
+        //     liff.init({ liffId: '2006781477-NzeKaxpL' })
+        //         .then(() => {
+        //             setTracking("liff Init Then");
+        //             checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
+        //         })
+        // }
     }, [liff])
+
+    const onRefreshHandler = () => {
+        setTracking("onRefreshHandler Process")
+        liff.init({ liffId: '2006781477-NzeKaxpL' })
+            .then(() => {
+                setTracking("liff Init Then");
+                checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
+                setTracking("onRefreshHandler Success")
+            })
+    }
 
     // ฟังก์ชันตรวจสอบ session
     const checkSession = async () => {
@@ -78,6 +88,11 @@ const LinePage = () => {
     return (
         <Container>
             <Box>Tracking State: {tracking}</Box>
+            <Box>
+                <Button variant="contained" color="secondary" onClick={onRefreshHandler}>
+                    Refresh
+                </Button>
+            </Box>
             {profile ? (
                 <Box textAlign="center" mt={4}>
                     <Typography variant="h5" mt={2}>
