@@ -34,6 +34,10 @@ const LinePage = () => {
         }
     }, []);
 
+    useEffect(() => {
+        setTracking("liff useEffect: " + liff.id);
+    }, [liff])
+
     // ฟังก์ชันตรวจสอบ session
     const checkSession = async () => {
         if (!liff.isLoggedIn()) {
