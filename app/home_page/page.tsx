@@ -18,20 +18,24 @@ const LinePage = () => {
 
     useEffect(() => {
         setTracking("UseEffect: " + JSON.stringify(liff));
-        if(liff.isLoggedIn()){
-            setTracking("LoggedIn");
-            liff.init({ liffId: '2006781477-NzeKaxpL' })
-                .then(() => {
-                    setTracking("Init Then");
-                    checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
-                })
-                .catch((err) => {
-                    console.error('LIFF initialization failed', err);
-                    setTracking("UseEffect Error: ")
-                });
-        }else{
-            setTracking("Not LoggedIn");
-            liff.login();
+        try{
+            if(liff.isLoggedIn()){
+                setTracking("LoggedIn");
+                liff.init({ liffId: '2006781477-NzeKaxpL' })
+                    .then(() => {
+                        setTracking("Init Then");
+                        checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
+                    })
+                    .catch((err) => {
+                        console.error('LIFF initialization failed', err);
+                        setTracking("UseEffect Error: ")
+                    });
+            }else{
+                setTracking("Not LoggedIn"); 
+                liff.login();
+            }
+        }catch(err){
+            setTracking("LoggedIn Err: " + JSON.stringify(err))
         }
     }, []);
 
