@@ -24,7 +24,7 @@ const LinePage = () => {
                 checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
             })
             .catch((err) => {
-                // console.error('LIFF initialization failed', err);
+                console.error('LIFF initialization failed', err);
                 setTracking("UseEffect Error: ")
             }).finally(() => {
                 setTracking("Init Finally")
@@ -50,8 +50,8 @@ const LinePage = () => {
                 console.log('IdToken:', token); // แสดง IdToken
                 setTracking("User profile setup");
             } catch (e) {
-                // console.error('Error during profile retrieval:', e);
-                setTracking("Error: ")
+                console.error('Error during profile retrieval:', e);
+                setTracking("Error: ");
             }
         }
     };
