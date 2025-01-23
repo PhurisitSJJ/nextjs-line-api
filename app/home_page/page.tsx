@@ -51,7 +51,7 @@ const LinePage = () => {
 
                 console.log('User Profile:', userProfile);
                 console.log('IdToken:', token); // แสดง IdToken
-                setTracking("User profile setup");
+                setTracking("User profile setup: " + JSON.stringify(liff));
             } catch (e) {
                 console.error('Error during profile retrieval:', e);
                 setTracking("Error: ");
