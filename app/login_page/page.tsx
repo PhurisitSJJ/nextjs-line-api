@@ -23,11 +23,7 @@ const LoginPage = () => {
 
     const hendleLoginLineLiff = ()=>{
         try{
-          liff.init({
-              liffId: '2006781477-NzeKaxpL'
-          }).then(() => {
             liff.login()
-          })
         } catch (e) {
             console.log(e)
         }
