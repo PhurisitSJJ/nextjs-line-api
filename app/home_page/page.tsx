@@ -21,7 +21,7 @@ const LinePage = () => {
             .then(() => {
                 checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
             })
-            .catch((err: any) => {
+            .catch((err) => {
                 console.error('LIFF initialization failed', err);
             });
     }, []);
