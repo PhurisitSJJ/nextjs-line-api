@@ -28,9 +28,9 @@ const LinePage = () => {
     }, []);
 
     const initLine = async () => {
+        setTracking("initLine: " + liff.isInClient());
         if(liff.id === null){
-            const res = await liff.init({ liffId: '2006781477-NzeKaxpL' });
-            setTracking("initLine: " + JSON.stringify(res));
+            await liff.init({ liffId: '2006781477-NzeKaxpL' });
         }else{
             checkSession();
         }
@@ -45,6 +45,7 @@ const LinePage = () => {
         //             checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
         //         })
         // }
+        initLine();
     }, [liff])
 
     const onRefreshHandler = () => {
