@@ -18,6 +18,9 @@ const LinePage = () => {
 
     useEffect(() => {
         setTracking("UseEffect: ");
+        liff.getProfile().then((value) => {
+            setTracking("getProfile: " + value.displayName);
+        })
         liff.init({ liffId: '2006781477-NzeKaxpL' })
             .then(() => {
                 setTracking("Init Then");
