@@ -28,7 +28,7 @@ const LinePage = () => {
     }, []);
 
     const initLine = async () => {
-        let res = await liff.init({ liffId: '2006781477-NzeKaxpL' });
+        const res = await liff.init({ liffId: '2006781477-NzeKaxpL' });
         setTracking("initLine: " + JSON.stringify(res));
         checkSession();
     }
