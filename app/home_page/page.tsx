@@ -42,13 +42,18 @@ const LinePage = () => {
     }, [liff])
 
     const onRefreshHandler = () => {
-        setTracking("onRefreshHandler Process")
-        liff.init({ liffId: '2006781477-NzeKaxpL' })
-            .then(() => {
-                setTracking("liff Init Then");
-                checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
-                setTracking("onRefreshHandler Success")
-            })
+        try{
+            setTracking("onRefreshHandler Process")
+            // liff.init({ liffId: '2006781477-NzeKaxpL' })
+            //     .then(() => {
+            //         setTracking("liff Init Then");
+            //         checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
+            //         setTracking("onRefreshHandler Success")
+            //     })
+            checkSession();
+        }catch(err){
+            setTracking("onRefreshHandler Err: " + JSON.stringify(err));
+        }
     }
 
     // ฟังก์ชันตรวจสอบ session
