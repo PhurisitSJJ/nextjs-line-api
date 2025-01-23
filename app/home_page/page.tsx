@@ -28,9 +28,12 @@ const LinePage = () => {
     }, []);
 
     const initLine = async () => {
-        const res = await liff.init({ liffId: '2006781477-NzeKaxpL' });
-        setTracking("initLine: " + JSON.stringify(res));
-        checkSession();
+        if(liff.id === null){
+            const res = await liff.init({ liffId: '2006781477-NzeKaxpL' });
+            setTracking("initLine: " + JSON.stringify(res));
+        }else{
+            checkSession();
+        }
     }
 
     useEffect(() => {
