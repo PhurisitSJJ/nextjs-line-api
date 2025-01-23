@@ -30,11 +30,14 @@ const LinePage = () => {
     const initLine = async () => {
         setTracking("initLine: ");
         if(liff.id === null){
-            liff.closeWindow();
             liff.ready.then(() => {
                 setTracking("liff ready Then: " + JSON.stringify(liff));
                 checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
             })
+            setTimeout(() => {
+                checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
+                setTracking("liff Timeout: " + JSON.stringify(liff));
+            }, 1000)
             liff.init({ liffId: '2006781477-NzeKaxpL' });
         }else{
             checkSession();
