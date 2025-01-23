@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     Container,
     Card,
@@ -11,8 +11,9 @@ import {
 import liff from '@line/liff';
 
 const LoginPage = () => {
-
+  const [tracking, setTracking] = useState<string>("Initial");
     useEffect(() => {
+      setTracking("useEffect: " + JSON.stringify(liff))
         liff.init({
             liffId: '2006781477-NzeKaxpL'
         })
@@ -28,6 +29,7 @@ const LoginPage = () => {
 
     return (
         <Container maxWidth="xs" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        Tracking State: {tracking}
       <Card sx={{ padding: 4, width: '100%', boxShadow: 3 }}>
         <Typography
           variant="h5"
