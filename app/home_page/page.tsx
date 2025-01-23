@@ -25,10 +25,6 @@ const LinePage = () => {
                     setTracking("Init Then");
                     checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
                 })
-                .catch((err) => {
-                    console.error('LIFF initialization failed', err);
-                    setTracking("UseEffect Error: ")
-                });
         }catch(err){
             setTracking("LoggedIn Err: " + JSON.stringify(err))
         }
