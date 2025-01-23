@@ -17,7 +17,7 @@ const LinePage = () => {
     const [tracking, setTracking] = useState<string>("Initial");
 
     useEffect(() => {
-        setTracking("UseEffect: ");
+        setTracking("UseEffect: " + JSON.stringify(liff));
         liff.getProfile().then((value) => {
             setTracking("getProfile: " + value.displayName);
         })
