@@ -28,7 +28,7 @@ const LinePage = () => {
     }, []);
 
     const initLine = async () => {
-        setTracking("initLine: " + liff.isInClient());
+        setTracking("initLine: " + liff.isSubWindow());
         if(liff.id === null){
             await liff.init({ liffId: '2006781477-NzeKaxpL' });
         }else{
@@ -37,7 +37,7 @@ const LinePage = () => {
     }
 
     useEffect(() => {
-        setTracking("liff useEffect: " + liff.id);
+        setTracking("liff useEffect: " + liff.id + ", " + liff.isSubWindow());
         // if(liff.id === null){
         //     liff.init({ liffId: '2006781477-NzeKaxpL' })
         //         .then(() => {
