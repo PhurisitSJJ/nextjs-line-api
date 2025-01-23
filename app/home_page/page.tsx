@@ -18,20 +18,21 @@ const LinePage = () => {
 
     useEffect(() => {
         setTracking("UseEffect: " + JSON.stringify(liff));
-        liff.getProfile().then((value) => {
-            setTracking("getProfile: " + value.displayName);
-        })
-        liff.init({ liffId: '2006781477-NzeKaxpL' })
-            .then(() => {
-                setTracking("Init Then");
-                checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
-            })
-            .catch((err) => {
-                console.error('LIFF initialization failed', err);
-                setTracking("UseEffect Error: ")
-            }).finally(() => {
-                setTracking("Init Finally")
-            });
+        if(liff.isLoggedIn()){
+            setTracking("LoggedIn");
+            liff.init({ liffId: '2006781477-NzeKaxpL' })
+                .then(() => {
+                    setTracking("Init Then");
+                    checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
+                })
+                .catch((err) => {
+                    console.error('LIFF initialization failed', err);
+                    setTracking("UseEffect Error: ")
+                });
+        }else{
+            setTracking("Not LoggedIn");
+            liff.login();
+        }
     }, []);
 
     // ฟังก์ชันตรวจสอบ session
