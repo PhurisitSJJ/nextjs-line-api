@@ -20,16 +20,18 @@ const LinePage = () => {
         setTracking("UseEffect: " + JSON.stringify(liff));
         try{
             setTracking("LoggedIn: " + liff.id);
-            // liff.init({ liffId: '2006781477-NzeKaxpL' })
-            //     .then(() => {
-            //         setTracking("Init Then");
-            //         checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
-            //     })
-            checkSession();
+            initLine();
+            // checkSession();
         }catch(err){
             setTracking("LoggedIn Err: " + JSON.stringify(err))
         }
     }, []);
+
+    const initLine = async () => {
+        let res = await liff.init({ liffId: '2006781477-NzeKaxpL' });
+        setTracking("initLine: " + JSON.stringify(res));
+        checkSession();
+    }
 
     useEffect(() => {
         setTracking("liff useEffect: " + liff.id);
@@ -51,7 +53,8 @@ const LinePage = () => {
             //         checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
             //         setTracking("onRefreshHandler Success")
             //     })
-            checkSession();
+            // checkSession();
+            initLine();
         }catch(err){
             setTracking("onRefreshHandler Err: " + JSON.stringify(err));
         }
