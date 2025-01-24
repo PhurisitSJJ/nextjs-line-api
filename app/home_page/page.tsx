@@ -45,14 +45,14 @@ const LinePage = () => {
         }
     }
 
-    const onRefreshHandler = () => {
-        try{
-            setTracking("onRefreshHandler Process")
-            initLine();
-        }catch(err){
-            setTracking("onRefreshHandler Err: " + JSON.stringify(err));
-        }
-    }
+    // const onRefreshHandler = () => {
+    //     try{
+    //         setTracking("onRefreshHandler Process")
+    //         initLine();
+    //     }catch(err){
+    //         setTracking("onRefreshHandler Err: " + JSON.stringify(err));
+    //     }
+    // }
 
     // ฟังก์ชันตรวจสอบ session
     const checkSession = async () => {
