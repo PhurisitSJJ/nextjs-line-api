@@ -23,6 +23,7 @@ const LinePage = () => {
             initLine();
             // checkSession();
         }catch(err){
+            console.log("Error: ", err)
             // setTracking("LoggedIn Err: " + JSON.stringify(err))
         }
     }, []);
