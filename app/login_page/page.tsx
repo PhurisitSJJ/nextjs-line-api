@@ -11,14 +11,14 @@ import {
 import liff from '@line/liff';
 
 const LoginPage = () => {
-  const [tracking, setTracking] = useState<string>("Initial");
+  // const [tracking, setTracking] = useState<string>("Initial");
     useEffect(() => {
         liff.init({
             liffId: '2006781477-NzeKaxpL'
         }).then(() => {
-          setTracking("Init Then: " + JSON.stringify(liff));
+          // setTracking("Init Then: " + JSON.stringify(liff));
         })
-        setTracking("useEffect: " + JSON.stringify(liff))
+        // setTracking("useEffect: " + JSON.stringify(liff))
     },[])
 
     const hendleLoginLineLiff = ()=>{

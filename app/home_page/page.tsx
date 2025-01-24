@@ -14,29 +14,29 @@ interface Profile {
 const LinePage = () => {
     const [profile, setProfile] = useState<Profile | null>(null);
     const [idToken, setIdToken] = useState<string | null>(null); // เก็บ IdToken
-    const [tracking, setTracking] = useState<string>("Initial");
+    // const [tracking, setTracking] = useState<string>("Initial");
 
     useEffect(() => {
-        setTracking("UseEffect: " + JSON.stringify(liff));
+        // setTracking("UseEffect: " + JSON.stringify(liff));
         try{
-            setTracking("LoggedIn: " + liff.id);
+            // setTracking("LoggedIn: " + liff.id);
             initLine();
             // checkSession();
         }catch(err){
-            setTracking("LoggedIn Err: " + JSON.stringify(err))
+            // setTracking("LoggedIn Err: " + JSON.stringify(err))
         }
     }, []);
 
     const initLine = async () => {
-        setTracking("initLine: ");
+        // setTracking("initLine: ");
         if(liff.id === null){
             liff.ready.then(() => {
-                setTracking("liff ready Then: " + JSON.stringify(liff));
+                // setTracking("liff ready Then: " + JSON.stringify(liff));
                 checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
             })
             setTimeout(() => {
                 checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
-                setTracking("liff Timeout: " + JSON.stringify(liff));
+                // setTracking("liff Timeout: " + JSON.stringify(liff));
             }, 1000)
             liff.init({ liffId: '2006781477-NzeKaxpL' });
         }else{
@@ -58,10 +58,10 @@ const LinePage = () => {
     const checkSession = async () => {
         if (!liff.isLoggedIn()) {
             console.log('User is not logged in.');
-            setTracking("LoggedIn fail")
+            // setTracking("LoggedIn fail")
             liff.login(); // ถ้าไม่ได้เข้าสู่ระบบ ให้เรียก login
         } else {
-            setTracking("LoggedIn Success")
+            // setTracking("LoggedIn Success")
             try {
                 const userProfile = await liff.getProfile();
                 setProfile(userProfile);
@@ -71,10 +71,10 @@ const LinePage = () => {
 
                 console.log('User Profile:', userProfile);
                 console.log('IdToken:', token); // แสดง IdToken
-                setTracking("User profile setup: " + JSON.stringify(liff) + ", " + liff.isSubWindow() + ", " + liff.isInClient());
+                // setTracking("User profile setup: " + JSON.stringify(liff) + ", " + liff.isSubWindow() + ", " + liff.isInClient());
             } catch (e) {
                 console.error('Error during profile retrieval:', e);
-                setTracking("Error: ");
+                // setTracking("Error: ");
             }
         }
     };
