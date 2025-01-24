@@ -90,12 +90,12 @@ const LinePage = () => {
 
     return (
         <Container>
-            <Box>Tracking State: {tracking}</Box>
+            {/* <Box>Tracking State: {tracking}</Box>
             <Box>
                 <Button variant="contained" color="secondary" onClick={onRefreshHandler}>
                     Refresh
                 </Button>
-            </Box>
+            </Box> */}
             {profile ? (
                 <Box textAlign="center" mt={4}>
                     <Typography variant="h5" mt={2}>

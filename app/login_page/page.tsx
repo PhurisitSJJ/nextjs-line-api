@@ -31,7 +31,7 @@ const LoginPage = () => {
 
     return (
         <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-        Tracking State: {tracking}
+        {/* Tracking State: {tracking} */}
       <Card sx={{ padding: 4, width: '100%', boxShadow: 3 }}>
         <Typography
           variant="h5"
