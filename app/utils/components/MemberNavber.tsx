@@ -15,6 +15,7 @@ const MemberNavbar: React.FC = () => {
     const router = useRouter();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    // const isMobile = useMediaQuery('(max-width:768px)'); ตัวอย่างถ้าเรากำหนดเอง
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const handleMenuClick = (path: string) => {

@@ -3,6 +3,11 @@
 import React, { useEffect } from 'react';
 import { Container, Card, Typography, TextField, Button} from '@mui/material';
 import liff from '@line/liff';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Login',
+};
 
 const LoginPage = () => {
   // const [tracking, setTracking] = useState<string>("Initial");
