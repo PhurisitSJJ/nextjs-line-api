@@ -65,7 +65,6 @@ const MemberNavbar: React.FC = () => {
                     </>
                 ) : (
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                        {/* Logo ด้านหน้าสุด */}
                         <Image src="/assets/logo/nim.png" alt="Logo" width={100} height={50} />
 
                         {/* เมนูรายการ */}
@@ -73,6 +72,7 @@ const MemberNavbar: React.FC = () => {
                             <Typography
                                 key={item.path}
                                 variant="h6"
+                                alignItems='left'
                                 sx={{
                                     color: 'white',
                                     cursor: 'pointer',
