@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import liff from '@line/liff';
 import { Container, Typography, Avatar, Box, Button, } from '@mui/material';
+import MemberNavbar from '@/app/utils/components/MemberNavber'
 
 interface Profile {
     userId: string;
@@ -18,11 +19,11 @@ const LinePage = () => {
 
     useEffect(() => {
         // setTracking("UseEffect: " + JSON.stringify(liff));
-        try{
+        try {
             // setTracking("LoggedIn: " + liff.id);
             initLine();
             // checkSession();
-        }catch(err){
+        } catch (err) {
             console.log("Error: ", err)
             // setTracking("LoggedIn Err: " + JSON.stringify(err))
         }
@@ -30,7 +31,7 @@ const LinePage = () => {
 
     const initLine = async () => {
         // setTracking("initLine: ");
-        if(liff.id === null){
+        if (liff.id === null) {
             liff.ready.then(() => {
                 // setTracking("liff ready Then: " + JSON.stringify(liff));
                 checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
@@ -40,20 +41,11 @@ const LinePage = () => {
                 // setTracking("liff Timeout: " + JSON.stringify(liff));
             }, 1000)
             liff.init({ liffId: '2006781477-NzeKaxpL' });
-        }else{
+        } else {
             checkSession();
-            
+
         }
     }
-
-    // const onRefreshHandler = () => {
-    //     try{
-    //         setTracking("onRefreshHandler Process")
-    //         initLine();
-    //     }catch(err){
-    //         setTracking("onRefreshHandler Err: " + JSON.stringify(err));
-    //     }
-    // }
 
     // ฟังก์ชันตรวจสอบ session
     const checkSession = async () => {
@@ -72,10 +64,8 @@ const LinePage = () => {
 
                 console.log('User Profile:', userProfile);
                 console.log('IdToken:', token); // แสดง IdToken
-                // setTracking("User profile setup: " + JSON.stringify(liff) + ", " + liff.isSubWindow() + ", " + liff.isInClient());
             } catch (e) {
                 console.error('Error during profile retrieval:', e);
-                // setTracking("Error: ");
             }
         }
     };
@@ -90,61 +80,57 @@ const LinePage = () => {
     };
 
     return (
-        <Container>
-            {/* <Box>Tracking State: {tracking}</Box>
-            <Box>
-                <Button variant="contained" color="secondary" onClick={onRefreshHandler}>
-                    Refresh
-                </Button>
-            </Box> */}
-            {profile ? (
-                <Box textAlign="center" mt={4}>
-                    <Typography variant="h5" mt={2}>
-                        บัญชีผู้ใช้ที่เข้าสู่ระบบด้วย Line
-                    </Typography>
-                    <Avatar
-                        src={profile.pictureUrl || ''}
-                        alt={profile.displayName}
-                        sx={{
-                            width: 200,
-                            height: 200,
-                            margin: '0 auto',
-                            borderRadius: 0, 
-                        }}
-                    />
-                    <Typography variant="h5" mt={2}>
-                        ชื่อผู้ใช้ : {profile.displayName}
-                    </Typography>
-                    <Typography variant="body1" color="textSecondary" mt={1}>
-                        ข้อความ : {profile.statusMessage || 'No status message'}
-                    </Typography>
-                    <Typography
-                        variant="body1"
-                        color="textSecondary"
-                        mt={2}
-                        sx={{
-                            wordWrap: 'break-word', 
-                            whiteSpace: 'pre-wrap', 
-                            maxWidth: '80%', 
-                            margin: '0 auto', 
-                        }}
-                    >
-                        IdToken : {idToken || 'ไม่พบ IdToken'}
-                    </Typography>
+        <>
+            <MemberNavbar />
+            <Container>
 
-                    {/* ปุ่ม Logout */}
-                    <Box mt={4}>
-                        <Button variant="contained" color="secondary" onClick={handleLogout}>
-                            Logout
-                        </Button>
+                {profile ? (
+                    <Box textAlign="center" mt={4}>
+                        <Typography variant="h5" mt={2}>
+                            บัญชีผู้ใช้ที่เข้าสู่ระบบด้วย Line
+                        </Typography>
+                        <Avatar
+                            src={profile.pictureUrl || ''}
+                            alt={profile.displayName}
+                            sx={{
+                                width: 200,
+                                height: 200,
+                                margin: '0 auto',
+                                borderRadius: 0,
+                            }} />
+                        <Typography variant="h5" mt={2}>
+                            ชื่อผู้ใช้ : {profile.displayName}
+                        </Typography>
+                        <Typography variant="body1" color="textSecondary" mt={1}>
+                            ข้อความ : {profile.statusMessage || 'No status message'}
+                        </Typography>
+                        <Typography
+                            variant="body1"
+                            color="textSecondary"
+                            mt={2}
+                            sx={{
+                                wordWrap: 'break-word',
+                                whiteSpace: 'pre-wrap',
+                                maxWidth: '80%',
+                                margin: '0 auto',
+                            }}
+                        >
+                            IdToken : {idToken || 'ไม่พบ IdToken'}
+                        </Typography>
+
+                        {/* ปุ่ม Logout */}
+                        <Box mt={4}>
+                            <Button variant="contained" color="secondary" onClick={handleLogout}>
+                                Logout
+                            </Button>
+                        </Box>
                     </Box>
-                </Box>
-            ) : (
-                <Typography variant="h6" textAlign="center" mt={4}>
-                    เข้าสู่ระบบแล้ว กำลังโหลดข้อมูล...
-                </Typography>
-            )}
-        </Container>
+                ) : (
+                    <Typography variant="h6" textAlign="center" mt={4}>
+                        กำลังโหลดข้อมูล...
+                    </Typography>
+                )}
+            </Container></>
     );
 };
 
