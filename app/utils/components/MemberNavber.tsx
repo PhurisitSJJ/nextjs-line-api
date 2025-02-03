@@ -1,5 +1,5 @@
 import liff from '@line/liff';
-import { AppBar, Toolbar, Box, Button, Typography, IconButton, Drawer, List, ListItem, ListItemText, ListItemButton } from '@mui/material';
+import { AppBar, Toolbar, Box, Button, Typography, IconButton, Drawer, List, ListItem, ListItemText, ListItemButton, Divider } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useRouter } from 'next/navigation';
@@ -34,7 +34,7 @@ const MemberNavbar: React.FC = () => {
     return (
         <AppBar position="static" sx={{ backgroundColor: '#1976d2' }}>
             <Toolbar sx={{ px: 2, display: 'flex', justifyContent: 'space-between' }}>
-                
+
                 {isMobile ? (
                     <>
                         <IconButton edge="start" color="inherit" onClick={() => setDrawerOpen(true)}>
@@ -42,14 +42,21 @@ const MemberNavbar: React.FC = () => {
                         </IconButton>
 
                         <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-                            <Box sx={{ display: 'flex', justifyContent: 'center', p: 2 }}>
+                            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', p: 2, bgcolor: 'white' }}>
                                 <Image src="/assets/logo/nim.png" alt="Logo" width={150} height={100} />
                             </Box>
+                            <Divider />
                             <List sx={{ width: 250 }}>
                                 {menuItems.map((item) => (
                                     <ListItem disablePadding key={item.path}>
-                                        <ListItemButton onClick={() => handleMenuClick(item.path)}>
-                                            <ListItemText primary={item.label} />
+                                        <ListItemButton
+                                            onClick={() => handleMenuClick(item.path)}
+                                            sx={{
+                                                '&:hover': { bgcolor: '#1976d2', color: 'white' },
+                                                transition: '0.3s',
+                                            }}
+                                        >
+                                            <ListItemText primary={item.label} sx={{ textAlign: 'center', fontWeight: 'bold' }} />
                                         </ListItemButton>
                                     </ListItem>
                                 ))}
@@ -60,7 +67,7 @@ const MemberNavbar: React.FC = () => {
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                         {/* Logo ด้านหน้าสุด */}
                         <Image src="/assets/logo/nim.png" alt="Logo" width={100} height={50} />
-                        
+
                         {/* เมนูรายการ */}
                         {menuItems.map((item) => (
                             <Typography
