@@ -66,7 +66,7 @@ const MemberNavbar: React.FC = () => {
                     </>
                 ) : (
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                        <Image src="/assets/logo/nim.png" alt="Logo" width={100} height={50} />
+                        <Image src="/assets/logo/nim.png" alt="Logo" width={70} height={40} />
 
                         {/* เมนูรายการ */}
                         {menuItems.map((item) => (
