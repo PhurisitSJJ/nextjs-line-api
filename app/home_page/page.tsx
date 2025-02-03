@@ -71,13 +71,13 @@ const LinePage = () => {
     };
 
     // ฟังก์ชัน logout
-    const handleLogout = () => {
-        liff.logout(); // ทำการ logout
-        setProfile(null); // รีเซ็ตข้อมูล profile
-        setIdToken(null); // รีเซ็ต IdToken
-        console.log('User logged out');
-        liff.login(); // เรียก login ใหม่
-    };
+    // const handleLogout = () => {
+    //     liff.logout(); // ทำการ logout
+    //     setProfile(null); // รีเซ็ตข้อมูล profile
+    //     setIdToken(null); // รีเซ็ต IdToken
+    //     console.log('User logged out');
+    //     liff.login(); // เรียก login ใหม่
+    // };
 
     return (
         <>
