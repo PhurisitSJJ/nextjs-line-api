@@ -1,13 +1,7 @@
 'use client'
 
 import React, { useEffect } from 'react';
-import {
-    Container,
-    Card,
-    Typography,
-    TextField,
-    Button,
-  } from '@mui/material';
+import { Container, Card, Typography, TextField, Button} from '@mui/material';
 import liff from '@line/liff';
 
 const LoginPage = () => {

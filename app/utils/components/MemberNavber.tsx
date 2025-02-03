@@ -1,28 +1,25 @@
 import liff from '@line/liff';
-import { AppBar, Container, Box, Button } from '@mui/material';
+import { AppBar, Toolbar, Container, Box, Button, Typography } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import * as React from 'react';
 
-
-const MemberNavvbar: React.FC = () => {
-    // const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-    // const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    //     setAnchorElNav(event.currentTarget);
-    // };
-
-    // const handleCloseNavMenu = () => {
-    //     setAnchorElNav(null);
-    // };
-
+const MemberNavbar: React.FC = () => {
     const handleLogout = () => {
-        liff.logout(); 
+        liff.logout();
         window.location.href = '/login_page';
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" sx={{ backgroundColor: '#1976d2' }}>
             <Container>
-                <Box sx={{ flexGrow: 0 }}>
+                <Toolbar>
+                    {/* ชื่อระบบ หรือข้อความใน Navbar */}
+                    <Typography variant="h6" sx={{ flexGrow: 1, color: 'white' }}>
+                        ระบบสมาชิก
+                    </Typography>
+
+                    {/* ปุ่ม Logout */}
+                    <Box>
                         <Button
                             variant="contained"
                             color="secondary"
@@ -32,14 +29,15 @@ const MemberNavvbar: React.FC = () => {
                                 color: 'white',
                                 '&:hover': { backgroundColor: '#ff4d4d' },
                             }}
-                            startIcon={<LogoutIcon />} // เพิ่มไอคอนในปุ่ม
+                            startIcon={<LogoutIcon />}
                         >
                             ออกจากระบบ
                         </Button>
                     </Box>
+                </Toolbar>
             </Container>
         </AppBar>
     );
 };
 
-export default MemberNavvbar;
+export default MemberNavbar;
