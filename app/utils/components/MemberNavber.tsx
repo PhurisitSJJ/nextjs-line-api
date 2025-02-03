@@ -59,7 +59,7 @@ const MemberNavbar: React.FC = () => {
                 ) : (
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                         {/* Logo ด้านหน้าสุด */}
-                        <Image src="@/logo/nimseeseng.png" alt="Logo" width={50} height={50} />
+                        <Image src="/assets/logo/nimseeseng.png" alt="Logo" width={50} height={50} />
                         
                         {/* เมนูรายการ */}
                         {menuItems.map((item) => (
