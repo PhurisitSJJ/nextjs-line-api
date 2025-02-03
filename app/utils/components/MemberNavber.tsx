@@ -39,34 +39,59 @@ const MemberNavbar: React.FC = () => {
             <Toolbar sx={{ px: 2, display: 'flex', justifyContent: 'space-between' }}>
 
                 {/* โลโก้ + เมนู */}
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    {isMobile && (
+                {isMobile ? (
+                    <>
                         <IconButton edge="start" color="inherit" onClick={() => setDrawerOpen(true)}>
                             <MenuIcon />
                         </IconButton>
-                    )}
 
-                    <Image src="/assets/logo/nim.png" alt="Logo" width={70} height={40} />
+                        <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+                            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', p: 2, bgcolor: 'white' }}>
+                                <Image src="/assets/logo/nim.png" alt="Logo" width={150} height={100} />
+                            </Box>
+                            <Divider />
+                            <List sx={{ width: 250 }}>
+                                {menuItems.map((item) => (
+                                    <ListItem disablePadding key={item.path}>
+                                        <ListItemButton
+                                            onClick={() => handleMenuClick(item.path)}
+                                            sx={{
+                                                '&:hover': { bgcolor: '#1976d2', color: 'white' },
+                                                transition: '0.3s',
+                                            }}
+                                        >
+                                            <ListItemText primary={item.label} sx={{ textAlign: 'left', fontWeight: 'bold' }} />
+                                        </ListItemButton>
+                                    </ListItem>
+                                ))}
+                            </List>
+                        </Drawer>
+                    </>
+                ) : (
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                        <Image src="/assets/logo/nim.png" alt="Logo" width={70} height={40} />
 
-                    {!isMobile && menuItems.map((item) => (
-                        <Typography
-                            key={item.path}
-                            variant="h6"
-                            sx={{
-                                color: 'white',
-                                cursor: 'pointer',
-                                transition: '0.3s',
-                                '&:hover': {
-                                    color: '#ffcc00',
-                                    transform: 'scale(1.1)',
-                                },
-                            }}
-                            onClick={() => handleMenuClick(item.path)}
-                        >
-                            {item.label}
-                        </Typography>
-                    ))}
-                </Box>
+                        {/* เมนูรายการ */}
+                        {menuItems.map((item) => (
+                            <Typography
+                                key={item.path}
+                                variant="h6"
+                                sx={{
+                                    color: 'white',
+                                    cursor: 'pointer',
+                                    transition: '0.3s',
+                                    '&:hover': {
+                                        color: '#ffcc00',
+                                        transform: 'scale(1.1)',
+                                    },
+                                }}
+                                onClick={() => handleMenuClick(item.path)}
+                            >
+                                {item.label}
+                            </Typography>
+                        ))}
+                    </Box>
+                )}
 
                 {/* ปุ่มออกจากระบบ */}
                 {isMobile ? (
@@ -89,30 +114,6 @@ const MemberNavbar: React.FC = () => {
                 )}
 
             </Toolbar>
-
-            {/* Drawer สำหรับเมนู (Mobile) */}
-            <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', p: 2, bgcolor: 'white' }}>
-                    <Image src="/assets/logo/nim.png" alt="Logo" width={150} height={100} />
-                </Box>
-                <Divider />
-                <List sx={{ width: 250 }}>
-                    {menuItems.map((item) => (
-                        <ListItem disablePadding key={item.path}>
-                            <ListItemButton
-                                onClick={() => handleMenuClick(item.path)}
-                                sx={{
-                                    '&:hover': { bgcolor: '#1976d2', color: 'white' },
-                                    transition: '0.3s',
-                                }}
-                            >
-                                <ListItemText primary={item.label} sx={{ textAlign: 'left', fontWeight: 'bold' }} />
-                            </ListItemButton>
-                        </ListItem>
-                    ))}
-                </List>
-            </Drawer>
-
         </AppBar>
     );
 };
