@@ -117,13 +117,6 @@ const LinePage = () => {
                         >
                             IdToken : {idToken || 'ไม่พบ IdToken'}
                         </Typography>
-
-                        {/* ปุ่ม Logout */}
-                        <Box mt={4}>
-                            <Button variant="contained" color="secondary" onClick={handleLogout}>
-                                Logout
-                            </Button>
-                        </Box>
                     </Box>
                 ) : (
                     <Typography variant="h6" textAlign="center" mt={4}>
