@@ -4,11 +4,6 @@ import { useEffect, useState } from 'react';
 import liff from '@line/liff';
 import { Container, Typography, Avatar, Box } from '@mui/material';
 import MemberNavbar from '@/app/utils/components/MemberNavber'
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Home',
-};
 
 interface Profile {
     userId: string;
