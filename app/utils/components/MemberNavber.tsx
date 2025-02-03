@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import Image from 'next/image';
 
 const MemberNavbar: React.FC = () => {
     const router = useRouter();
@@ -41,6 +42,9 @@ const MemberNavbar: React.FC = () => {
                         </IconButton>
 
                         <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+                            <Box sx={{ display: 'flex', justifyContent: 'center', p: 2 }}>
+                                <Image src="/logo.png" alt="Logo" width={100} height={50} />
+                            </Box>
                             <List sx={{ width: 250 }}>
                                 {menuItems.map((item) => (
                                     <ListItem disablePadding key={item.path}>
@@ -53,7 +57,11 @@ const MemberNavbar: React.FC = () => {
                         </Drawer>
                     </>
                 ) : (
-                    <Box sx={{ display: 'flex', gap: 4 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                        {/* Logo ด้านหน้าสุด */}
+                        <Image src="/logo.png" alt="Logo" width={50} height={50} />
+                        
+                        {/* เมนูรายการ */}
                         {menuItems.map((item) => (
                             <Typography
                                 key={item.path}
