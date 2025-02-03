@@ -12,7 +12,7 @@ const MemberNavbar: React.FC = () => {
     return (
         <AppBar position="static" sx={{ backgroundColor: '#1976d2' }}>
             <Toolbar sx={{ px: 2, display: 'flex', justifyContent: 'space-between' }}>
-                {/* เมนูด้านซ้าย */}
+                
                 <Box sx={{ display: 'flex', gap: 4 }}>
                     <Typography variant="h6" sx={{ color: 'white', cursor: 'pointer' }}>
                         หน้าหลัก
@@ -28,7 +28,6 @@ const MemberNavbar: React.FC = () => {
                     </Typography>
                 </Box>
 
-                {/* ปุ่ม Logout ด้านขวา */}
                 <Button
                     variant="contained"
                     color="secondary"
