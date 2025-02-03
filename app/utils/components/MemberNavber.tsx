@@ -75,8 +75,10 @@ const MemberNavbar: React.FC = () => {
                         {menuItems.map((item) => (
                             <Typography
                                 key={item.path}
-                                variant="h6"
+                                component="p"
                                 sx={{
+                                    fontSize: '16px',
+                                    // fontWeight: 'bold',
                                     color: 'white',
                                     cursor: 'pointer',
                                     transition: '0.3s',
