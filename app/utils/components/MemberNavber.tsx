@@ -13,12 +13,15 @@ const MemberNavbar: React.FC = () => {
         <AppBar position="static" sx={{ backgroundColor: '#1976d2' }}>
             <Toolbar sx={{ px: 2, display: 'flex', justifyContent: 'space-between' }}>
                 {/* เมนูด้านซ้าย */}
-                <Box sx={{ display: 'flex', gap: 3 }}>
+                <Box sx={{ display: 'flex', gap: 4 }}>
                     <Typography variant="h6" sx={{ color: 'white', cursor: 'pointer' }}>
                         หน้าหลัก
                     </Typography>
                     <Typography variant="h6" sx={{ color: 'white', cursor: 'pointer' }}>
                         ค้นหา
+                    </Typography>
+                    <Typography variant="h6" sx={{ color: 'white', cursor: 'pointer' }}>
+                        รายการข้อมูล
                     </Typography>
                     <Typography variant="h6" sx={{ color: 'white', cursor: 'pointer' }}>
                         เพิ่มข้อมูล
