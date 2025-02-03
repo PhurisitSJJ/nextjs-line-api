@@ -43,7 +43,7 @@ const MemberNavbar: React.FC = () => {
 
                         <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
                             <Box sx={{ display: 'flex', justifyContent: 'center', p: 2 }}>
-                                <Image src="/assets/logo/nim-light.png" alt="Logo" width={150} height={100} />
+                                <Image src="/assets/logo/nim.png" alt="Logo" width={150} height={100} />
                             </Box>
                             <List sx={{ width: 250 }}>
                                 {menuItems.map((item) => (
@@ -59,7 +59,7 @@ const MemberNavbar: React.FC = () => {
                 ) : (
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                         {/* Logo ด้านหน้าสุด */}
-                        <Image src="/assets/logo/nim-light.png" alt="Logo" width={100} height={50} />
+                        <Image src="/assets/logo/nim.png" alt="Logo" width={100} height={50} />
                         
                         {/* เมนูรายการ */}
                         {menuItems.map((item) => (
