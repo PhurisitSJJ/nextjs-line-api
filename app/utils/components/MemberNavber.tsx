@@ -6,10 +6,10 @@ import * as React from 'react';
 
 const MemberNavbar: React.FC = () => {
     const router = useRouter();
-    const [selectedMenu, setSelectedMenu] = React.useState<string>("/home_page"); // เก็บค่าหน้าปัจจุบัน
+    // const [selectedMenu, setSelectedMenu] = React.useState<string>("/home_page"); // เก็บค่าหน้าปัจจุบัน
 
     const handleMenuClick = (path: string) => {
-        setSelectedMenu(path);
+        // setSelectedMenu(path);
         router.push(path);
     };
 
@@ -33,7 +33,7 @@ const MemberNavbar: React.FC = () => {
                             key={item.path}
                             variant="h6"
                             sx={{
-                                color: selectedMenu === item.path ? '#FFD700' : 'white', // เมนูที่ถูกเลือกเป็นสีทอง
+                                color: 'white', 
                                 cursor: 'pointer',
                                 transition: '0.3s',
                                 '&:hover': {
