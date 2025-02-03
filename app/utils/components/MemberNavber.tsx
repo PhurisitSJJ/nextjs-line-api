@@ -93,9 +93,8 @@ const MemberNavbar: React.FC = () => {
                     </Box>
                 )}
 
-                {/* ปุ่มออกจากระบบ */}
                 {isMobile ? (
-                    <IconButton color="inherit" onClick={handleLogout}>
+                    <IconButton edge="end" color="inherit" onClick={handleLogout}>
                         <LogoutIcon />
                     </IconButton>
                 ) : (
