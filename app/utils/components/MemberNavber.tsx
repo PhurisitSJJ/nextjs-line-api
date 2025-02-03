@@ -56,7 +56,7 @@ const MemberNavbar: React.FC = () => {
                                                 transition: '0.3s',
                                             }}
                                         >
-                                            <ListItemText primary={item.label} sx={{ textAlign: 'center', fontWeight: 'bold' }} />
+                                            <ListItemText primary={item.label} sx={{ textAlign: 'left', fontWeight: 'bold' }} />
                                         </ListItemButton>
                                     </ListItem>
                                 ))}
