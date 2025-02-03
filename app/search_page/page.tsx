@@ -25,7 +25,7 @@ const SearchPage: React.FC = () => {
                 {/* กล่องค้นหา */}
                 <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mb: 4 }}>
                     <TextField
-                        label="ค้นหา"
+                        label="ค้นหาข้อมูล"
                         variant="outlined"
                         fullWidth
                         sx={{ maxWidth: 400 }}
@@ -42,7 +42,7 @@ const SearchPage: React.FC = () => {
                     </Button>
                 </Box>
 
-                {/* แสดงผลการค้นหา */}
+                
                 <Box>
                     {results.length > 0 ? (
                         results.map((item, index) => (
