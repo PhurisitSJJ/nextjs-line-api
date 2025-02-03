@@ -3,7 +3,7 @@
 import { Container } from "@mui/material";
 import MemberNavbar from "@/app/utils/components/MemberNavber";
 
-const AddDataPage: React.FC = () => {
+const AddDataPage = () => {
 
     return (
         <>

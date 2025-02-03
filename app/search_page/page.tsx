@@ -5,7 +5,7 @@ import MemberNavbar from '@/app/utils/components/MemberNavber'
 import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react';
 
-const SearchPage: React.FC = () => {
+const SearchPage = () => {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState<string[]>([]); // สมมติเป็น array ของผลลัพธ์
 

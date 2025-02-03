@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import liff from '@line/liff';
-import { Container, Typography, Avatar, Box, Button, } from '@mui/material';
+import { Container, Typography, Avatar, Box } from '@mui/material';
 import MemberNavbar from '@/app/utils/components/MemberNavber'
 
 interface Profile {
@@ -69,15 +69,6 @@ const LinePage = () => {
             }
         }
     };
-
-    // ฟังก์ชัน logout
-    // const handleLogout = () => {
-    //     liff.logout(); // ทำการ logout
-    //     setProfile(null); // รีเซ็ตข้อมูล profile
-    //     setIdToken(null); // รีเซ็ต IdToken
-    //     console.log('User logged out');
-    //     liff.login(); // เรียก login ใหม่
-    // };
 
     return (
         <>
