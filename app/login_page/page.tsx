@@ -11,28 +11,28 @@ import liff from '@line/liff';
 const LoginPage = () => {
   const router = useRouter();
   useEffect(() => {
-      liff.init({
-          liffId: '2006781477-NzeKaxpL'
-      }).then(() => {
-      })
-  },[])
-  
+    liff.init({
+      liffId: '2006781477-NzeKaxpL'
+    }).then(() => {
+    })
+  }, [])
+
   const handleLogin = () => {
     router.push('/home_page');
   }
 
-  const hendleLoginLineLiff = ()=>{
-      try{
-          liff.login()
-      } catch (e) {
-          console.log(e)
-      }
+  const hendleLoginLineLiff = () => {
+    try {
+      liff.login()
+    } catch (e) {
+      console.log(e)
+    }
   }
 
 
   return (
-    <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh',px: 2 }}>
-      
+    <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', px: 2 }}>
+
       <Box
         sx={{
           display: 'flex',
@@ -56,8 +56,8 @@ const LoginPage = () => {
         type="tel"
         margin="normal"
         sx={{
-          width: "100%", 
-          maxWidth: "400px", 
+          width: "100%",
+          maxWidth: "400px",
           "& .MuiOutlinedInput-root": {
             height: "50px",
             borderRadius: "8px",
@@ -78,8 +78,8 @@ const LoginPage = () => {
         type="password"
         margin="normal"
         sx={{
-          width: "100%", 
-          maxWidth: "400px", 
+          width: "100%",
+          maxWidth: "400px",
           "& .MuiOutlinedInput-root": {
             height: "50px",
             borderRadius: "8px",
@@ -95,7 +95,7 @@ const LoginPage = () => {
         }}
       />
 
-      <Box sx={{ width: "400px", display: "flex", justifyContent: "end" }}>
+      <Box sx={{ width: "100%", display: "flex", justifyContent: "end" }}>
         <Typography
           variant="body2"
           sx={{
@@ -115,8 +115,8 @@ const LoginPage = () => {
         variant="contained"
         sx={{
           mb: 2,
-          width: "100%", 
-          maxWidth: "400px", 
+          width: "100%",
+          maxWidth: "400px",
           height: "50px",
           borderRadius: "8px",
           backgroundColor: "#BF0005",
@@ -146,7 +146,7 @@ const LoginPage = () => {
           padding: "5px",
           "&:hover": { backgroundColor: "#00b300" },
         }}
-      onClick={hendleLoginLineLiff}
+        onClick={hendleLoginLineLiff}
       >
         <Image
           src="/assets/line/line.png"
