@@ -2,15 +2,15 @@
 
 // import { useEffect, useState } from 'react';
 // import liff from '@line/liff';
-import { Container, Typography, Avatar, Box } from '@mui/material';
+import { Container, Typography, } from '@mui/material';
 import MemberNavbar from '@/app/utils/components/MemberNavber'
 
-interface Profile {
-    userId: string;
-    displayName: string;
-    statusMessage?: string;
-    pictureUrl?: string;
-}
+// interface Profile {
+//     userId: string;
+//     displayName: string;
+//     statusMessage?: string;
+//     pictureUrl?: string;
+// }
 
 const LinePage = () => {
     // const [profile, setProfile] = useState<Profile | null>(null);

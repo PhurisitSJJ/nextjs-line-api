@@ -1,4 +1,3 @@
-import liff from '@line/liff';
 import { 
     AppBar, Toolbar, Box, Button, Typography, IconButton, Drawer, 
     List, ListItem, ListItemText, ListItemButton, Divider 
@@ -10,6 +9,7 @@ import React, { useState } from 'react';
 import { useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Image from 'next/image';
+// import liff from '@line/liff';
 
 const MemberNavbar: React.FC = () => {
     const router = useRouter();
