@@ -31,7 +31,7 @@ const LoginPage = () => {
 
 
   return (
-    <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', px: 2 }}>
+    <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', px: 2 }}>
 
       <Box
         sx={{
@@ -151,8 +151,6 @@ const LoginPage = () => {
         <Image
           src="/assets/line/line.png"
           alt="Line Icon"
-          width="40"
-          height="40"
           style={{ filter: "invert(1)" }}
         />
       </IconButton>

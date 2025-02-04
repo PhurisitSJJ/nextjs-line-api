@@ -8,8 +8,8 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import Image from 'next/image';
 import liff from '@line/liff';
+import Image from 'next/image';
 
 const MemberNavbar = () => {
     const router = useRouter();
