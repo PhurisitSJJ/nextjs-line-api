@@ -2,14 +2,19 @@
 
 import { Container, Typography, TextField, Button, Box, InputAdornment, Divider, IconButton } from '@mui/material';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image'
 import CallIcon from '@mui/icons-material/Call';
 import LockIcon from '@mui/icons-material/Lock';
-import React, { useEffect } from 'react';
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image'
 import liff from '@line/liff';
 
 const LoginPage = () => {
   const router = useRouter();
+  const [showPassword, setShowPassword] = useState(false);
+
+
+
   useEffect(() => {
     liff.init({
       liffId: '2006781477-NzeKaxpL'
@@ -18,7 +23,7 @@ const LoginPage = () => {
   }, [])
 
   const handleLogin = () => {
-    router.push('/home_page');
+    router.push('/register_page');
   }
 
   const hendleLoginLineLiff = () => {
@@ -82,7 +87,7 @@ const LoginPage = () => {
 
       <TextField
         placeholder="รหัสผ่าน"
-        type="password"
+        type={showPassword ? "text" : "password"}
         margin="normal"
         sx={{
           width: "100%",
@@ -97,6 +102,16 @@ const LoginPage = () => {
           startAdornment: (
             <InputAdornment position="start">
               <LockIcon />
+            </InputAdornment>
+          ),
+          endAdornment: (
+            <InputAdornment position="end">
+              <IconButton
+                onClick={() => setShowPassword(!showPassword)}
+                edge="end"
+              >
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
             </InputAdornment>
           ),
         }}
@@ -137,7 +152,7 @@ const LoginPage = () => {
       <Box sx={{ width: "100%", display: "flex", alignItems: "center" }}>
         <Divider sx={{ flexGrow: 1 }} />
         <Typography variant="body2" sx={{ mx: 2, fontSize: "14px", color: "gray" }}>
-          หรือ
+          or
         </Typography>
         <Divider sx={{ flexGrow: 1 }} />
       </Box>
