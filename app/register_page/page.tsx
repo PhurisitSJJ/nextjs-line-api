@@ -36,12 +36,12 @@ const RegisterPage = () => {
 
             <Box
                 sx={{
+                    mb: 2,
+                    p: 2,
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    p: 2,
                     bgcolor: 'white',
-                    mb: 3
                 }}
             >
                 <Image
@@ -124,7 +124,7 @@ const RegisterPage = () => {
                 type={showConfrimPassword ? "text" : "password"}
                 margin="normal"
                 sx={{
-                    mb: 9,
+                    mb: 8,
                     width: "100%",
                     maxWidth: "400px",
                     "& .MuiOutlinedInput-root": {
