@@ -1,87 +1,158 @@
 'use client'
 
+import { Container, Typography, TextField, Button, Box, InputAdornment, Divider, IconButton } from '@mui/material';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image'
+import CallIcon from '@mui/icons-material/Call';
+import LockIcon from '@mui/icons-material/Lock';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import React, { useEffect } from 'react';
-import { Container, Card, Typography, TextField, Button} from '@mui/material';
 import liff from '@line/liff';
 
 const LoginPage = () => {
-  // const [tracking, setTracking] = useState<string>("Initial");
-    useEffect(() => {
-        liff.init({
-            liffId: '2006781477-NzeKaxpL'
-        }).then(() => {
-          // setTracking("Init Then: " + JSON.stringify(liff));
-        })
-        // setTracking("useEffect: " + JSON.stringify(liff))
-    },[])
+  const router = useRouter();
+  // useEffect(() => {
+  //     liff.init({
+  //         liffId: '2006781477-NzeKaxpL'
+  //     }).then(() => {
+  //     })
+  // },[])
 
-    const hendleLoginLineLiff = ()=>{
-        try{
-            liff.login()
-        } catch (e) {
-            console.log(e)
-        }
-    }
+  // const hendleLoginLineLiff = ()=>{
+  //     try{
+  //         liff.login()
+  //     } catch (e) {
+  //         console.log(e)
+  //     }
+  // }
 
-    return (
-        <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-        {/* Tracking State: {tracking} */}
-      <Card sx={{ padding: 4, width: '100%', boxShadow: 3 }}>
+  const handleLogin = () => {
+    router.push('/home_page');
+  }
+
+  return (
+    <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          p: 2,
+          bgcolor: 'white',
+          mb: 5
+        }}
+      >
+        <Image
+          src="/assets/logo/nim.png"
+          alt="Logo"
+          width={200}
+          height={100}
+        />
+      </Box>
+
+      <TextField
+        placeholder="เบอร์โทรศัพท์"
+        type="tel"
+        margin="normal"
+        sx={{
+          width: "400px",
+          "& .MuiOutlinedInput-root": {
+            height: "50px",
+            borderRadius: "8px",
+          },
+        }}
+        InputProps={{
+          style: { backgroundColor: "#f0f0f0" },
+          startAdornment: (
+            <InputAdornment position="start">
+              <CallIcon />
+            </InputAdornment>
+          ),
+        }}
+      />
+
+      <TextField
+        placeholder="รหัสผ่าน"
+        type="password"
+        margin="normal"
+        sx={{
+          width: "400px",
+          "& .MuiOutlinedInput-root": {
+            height: "50px",
+            borderRadius: "8px",
+          },
+        }}
+        InputProps={{
+          style: { backgroundColor: "#f0f0f0" },
+          startAdornment: (
+            <InputAdornment position="start">
+              <LockIcon />
+            </InputAdornment>
+          ),
+        }}
+      />
+
+      <Box sx={{ width: "400px", display: "flex", justifyContent: "end" }}>
         <Typography
-          variant="h5"
-          component="h1"
-          align="center"
-          gutterBottom
-          sx={{ fontWeight: 'bold', marginBottom: 2 }}
+          variant="body2"
+          sx={{
+            mb: 4,
+            color: "#6B6B6B",
+            cursor: "pointer",
+            "&:hover": { textDecoration: "underline" }
+          }}
+        // onClick={}
         >
-          LOGIN
+          ลืมรหัสผ่าน
         </Typography>
-        {/* <form onSubmit={handleLogin}> */}
-          <TextField
-            label="ชื่อผู้ใช้"
-            type="username"
-            fullWidth
-            required
-            margin="normal"
-            // value={username}
-            // onChange={(e) => setUsername(e.target.value)}
-            InputProps={{ style: { backgroundColor: '#f0f0f0' } }}
-          />
+      </Box>
 
-          <TextField
-            label="รหัสผ่าน"
-            type="password"
-            fullWidth
-            required
-            margin="normal"
-            // value={password}
-            // onChange={(e) => setPassword(e.target.value)}
-            InputProps={{ style: { backgroundColor: '#f0f0f0' } }}
-          />
+      <Button
+        type="submit"
+        variant="contained"
+        sx={{
+          mb: 2,
+          width: "400px",
+          height: "50px",
+          borderRadius: "8px",
+          backgroundColor: "#BF0005",
+          "&:hover": { backgroundColor: "#D53F44", },
+        }}
+        onClick={handleLogin}
+      >
+        เข้าสู่ระบบ
+      </Button>
 
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            fullWidth
-            sx={{ marginTop: 2, textTransform: 'none', fontWeight: 'bold', backgroundColor: '#1e88e5', '&:hover': { backgroundColor: '#1565c0' } }}
-          >
-            เข้าสู่ระบบ
-          </Button>
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            fullWidth
-            sx={{marginTop: 2, textTransform: 'none', fontWeight: 'bold', backgroundColor: '#00c300', color: '#fff', '&:hover': { backgroundColor: '#009e00'} }}
-            onClick={hendleLoginLineLiff}
-          >
-            Login with line 
-          </Button>
-        {/* </form> */}
-      </Card>
+      <Box sx={{ width: "100%", display: "flex", alignItems: "center" }}>
+        <Divider sx={{ flexGrow: 1 }} />
+        <Typography variant="body2" sx={{ mx: 2, fontSize: "14px", color: "gray" }}>
+          หรือ
+        </Typography>
+        <Divider sx={{ flexGrow: 1 }} />
+      </Box>
+
+      <IconButton
+        sx={{
+          mt: 2,
+          backgroundColor: "#00c300",
+          color: "white",
+          borderRadius: "8px",
+          padding: "5px",
+          "&:hover": { backgroundColor: "#00b300" },
+        }}
+      // onClick={hendleLoginLineLiff}
+      >
+        <Image
+          src="/assets/line/line.png"
+          alt="Line Icon"
+          width="40"
+          height="40"
+          style={{ filter: "invert(1)" }}
+        />
+      </IconButton>
     </Container>
-    );
+  );
 };
 
 export default LoginPage;

@@ -24,8 +24,8 @@ const MemberNavbar: React.FC = () => {
     };
 
     const handleLogout = () => {
-        liff.logout();
-        window.location.href = '/login_page';
+        // liff.logout();
+        router.push('/login_page');
     };
 
     const menuItems = [
@@ -39,7 +39,6 @@ const MemberNavbar: React.FC = () => {
         <AppBar position="static" sx={{ backgroundColor: '#1976d2' }}>
             <Toolbar sx={{ px: 2, display: 'flex', justifyContent: 'space-between' }}>
 
-                {/* โลโก้ + เมนู */}
                 {isMobile ? (
                     <>
                         <IconButton edge="start" color="inherit" onClick={() => setDrawerOpen(true)}>
@@ -98,7 +97,7 @@ const MemberNavbar: React.FC = () => {
 
                 {isMobile ? (
                     <IconButton edge="end" color="inherit" onClick={handleLogout}>
-                        <LogoutIcon />
+                        <LogoutIcon/>
                     </IconButton>
                 ) : (
                     <Button

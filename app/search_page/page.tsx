@@ -38,10 +38,8 @@ const SearchPage = () => {
                         onClick={handleSearch}
                         startIcon={<SearchIcon />}
                     >
-                        ค้นหา
                     </Button>
                 </Box>
-
                 
                 <Box>
                     {results.length > 0 ? (
