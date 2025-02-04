@@ -5,33 +5,34 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image'
 import CallIcon from '@mui/icons-material/Call';
 import LockIcon from '@mui/icons-material/Lock';
-// import React, { useEffect } from 'react';
-// import liff from '@line/liff';
+import React, { useEffect } from 'react';
+import liff from '@line/liff';
 
 const LoginPage = () => {
   const router = useRouter();
-  // useEffect(() => {
-  //     liff.init({
-  //         liffId: '2006781477-NzeKaxpL'
-  //     }).then(() => {
-  //     })
-  // },[])
-
-  // const hendleLoginLineLiff = ()=>{
-  //     try{
-  //         liff.login()
-  //     } catch (e) {
-  //         console.log(e)
-  //     }
-  // }
-
+  useEffect(() => {
+      liff.init({
+          liffId: '2006781477-NzeKaxpL'
+      }).then(() => {
+      })
+  },[])
+  
   const handleLogin = () => {
     router.push('/home_page');
   }
 
-  return (
-    <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+  const hendleLoginLineLiff = ()=>{
+      try{
+          liff.login()
+      } catch (e) {
+          console.log(e)
+      }
+  }
 
+
+  return (
+    <Container maxWidth="xs" sx={{ mt: 4, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      
       <Box
         sx={{
           display: 'flex',
@@ -134,13 +135,15 @@ const LoginPage = () => {
       <IconButton
         sx={{
           mt: 2,
+          width: "40px",
+          height: "40px",
           backgroundColor: "#00c300",
           color: "white",
           borderRadius: "8px",
           padding: "5px",
           "&:hover": { backgroundColor: "#00b300" },
         }}
-      // onClick={hendleLoginLineLiff}
+      onClick={hendleLoginLineLiff}
       >
         <Image
           src="/assets/line/line.png"

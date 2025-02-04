@@ -1,73 +1,71 @@
 'use client';
 
-// import { useEffect, useState } from 'react';
-// import liff from '@line/liff';
-import { Container, Typography, } from '@mui/material';
 import MemberNavbar from '@/app/utils/components/MemberNavber'
+import { Avatar, Box, Container, Typography, } from '@mui/material';
+import { useEffect, useState } from 'react';
+import liff from '@line/liff';
 
-// interface Profile {
-//     userId: string;
-//     displayName: string;
-//     statusMessage?: string;
-//     pictureUrl?: string;
-// }
+interface Profile {
+    userId: string;
+    displayName: string;
+    statusMessage?: string;
+    pictureUrl?: string;
+}
 
 const LinePage = () => {
-    // const [profile, setProfile] = useState<Profile | null>(null);
-    // const [idToken, setIdToken] = useState<string | null>(null); // เก็บ IdToken
+    const [profile, setProfile] = useState<Profile | null>(null);
+    const [idToken, setIdToken] = useState<string | null>(null); // เก็บ IdToken
 
-    // useEffect(() => {
-    //     try {
-    //         initLine();
-    //     } catch (err) {
-    //         console.log("Error: ", err)
-    //     }
-    // }, []);
+    useEffect(() => {
+        try {
+            initLine();
+        } catch (err) {
+            console.log("Error: ", err)
+        }
+    }, []);
 
-    // const initLine = async () => {
-    //     if (liff.id === null) {
-    //         liff.ready.then(() => {
-    //             checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
-    //         })
-    //         setTimeout(() => {
-    //             checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
-    //         }, 1000)
-    //         liff.init({ liffId: '2006781477-NzeKaxpL' });
-    //     } else {
-    //         checkSession();
+    const initLine = async () => {
+        if (liff.id === null) {
+            liff.ready.then(() => {
+                checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
+            })
+            setTimeout(() => {
+                checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
+            }, 1000)
+            liff.init({ liffId: '2006781477-NzeKaxpL' });
+        } else {
+            checkSession();
 
-    //     }
-    // }
+        }
+    }
 
     // // ฟังก์ชันตรวจสอบ session
-    // const checkSession = async () => {
-    //     if (!liff.isLoggedIn()) {
-    //         console.log('User is not logged in.');
-    //         liff.login(); // ถ้าไม่ได้เข้าสู่ระบบ ให้เรียก login
-    //     } else {
-    //         try {
-    //             const userProfile = await liff.getProfile();
-    //             setProfile(userProfile);
+    const checkSession = async () => {
+        if (!liff.isLoggedIn()) {
+            console.log('User is not logged in.');
+            // liff.login(); // ถ้าไม่ได้เข้าสู่ระบบ ให้เรียก login
+        } else {
+            try {
+                const userProfile = await liff.getProfile();
+                setProfile(userProfile);
 
-    //             const token = liff.getIDToken(); // ดึง IdToken
-    //             setIdToken(token);
+                const token = liff.getIDToken(); // ดึง IdToken
+                setIdToken(token);
 
-    //             console.log('User Profile:', userProfile);
-    //             console.log('IdToken:', token); // แสดง IdToken
-    //         } catch (e) {
-    //             console.error('Error during profile retrieval:', e);
-    //         }
-    //     }
-    // };
+                console.log('User Profile:', userProfile);
+                console.log('IdToken:', token); // แสดง IdToken
+            } catch (e) {
+                console.error('Error during profile retrieval:', e);
+            }
+        }
+    };
 
     return (
         <>
             <MemberNavbar />
             <Container sx={{ mt: 4 }}>
-                <Typography textAlign="center" >
-                    START
-                </Typography>
-                {/* {profile ? (
+                
+                {profile ? (
                     <Box textAlign="center" mt={4}>
                         <Typography variant="h5" mt={2}>
                             บัญชีผู้ใช้ที่เข้าสู่ระบบด้วย Line
@@ -105,7 +103,7 @@ const LinePage = () => {
                     <Typography variant="h6" textAlign="center" mt={4}>
                         กำลังโหลดข้อมูล...
                     </Typography>
-                )} */}
+                )}
             </Container></>
     );
 };

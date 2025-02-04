@@ -9,9 +9,9 @@ import React, { useState } from 'react';
 import { useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Image from 'next/image';
-// import liff from '@line/liff';
+import liff from '@line/liff';
 
-const MemberNavbar: React.FC = () => {
+const MemberNavbar = () => {
     const router = useRouter();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -24,7 +24,7 @@ const MemberNavbar: React.FC = () => {
     };
 
     const handleLogout = () => {
-        // liff.logout();
+        liff.logout();
         router.push('/login_page');
     };
 
