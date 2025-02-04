@@ -38,8 +38,8 @@ const LoginPage = () => {
       alignItems: 'center',
       height: '100vh',
       px: 2,
-      '@media (min-width:600px)': {
-        maxWidth: '600px',
+      '@media (min-width:400px)': {
+        maxWidth: '400px',
       },
     }}>
 
