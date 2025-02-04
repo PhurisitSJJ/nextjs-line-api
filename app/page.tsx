@@ -23,7 +23,7 @@ const LoginPage = () => {
   }, [])
 
   const handleLogin = () => {
-    router.push('/register_page');
+    router.push('/register');
   }
 
   const hendleLoginLineLiff = () => {

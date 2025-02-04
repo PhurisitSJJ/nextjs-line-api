@@ -15,7 +15,7 @@ const RegisterPage = () => {
     const [isChecked, setIsChecked] = useState(false);
 
     const handleRegister = () => {
-        router.push('/home_page');
+        router.push('/home');
     }
 
     const handleCheckboxChange = (event: { target: { checked: boolean | ((prevState: boolean) => boolean); }; }) => {
