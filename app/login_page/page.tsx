@@ -5,9 +5,8 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image'
 import CallIcon from '@mui/icons-material/Call';
 import LockIcon from '@mui/icons-material/Lock';
-import FacebookIcon from '@mui/icons-material/Facebook';
 import React, { useEffect } from 'react';
-import liff from '@line/liff';
+// import liff from '@line/liff';
 
 const LoginPage = () => {
   const router = useRouter();

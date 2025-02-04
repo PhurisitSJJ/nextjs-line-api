@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import liff from '@line/liff';
+// import { useEffect, useState } from 'react';
+// import liff from '@line/liff';
 import { Container, Typography, Avatar, Box } from '@mui/material';
 import MemberNavbar from '@/app/utils/components/MemberNavber'
 
