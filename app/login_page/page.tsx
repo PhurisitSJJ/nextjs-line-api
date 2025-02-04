@@ -138,8 +138,8 @@ const LoginPage = () => {
       <IconButton
         sx={{
           mt: 2,
-          width: "40px",
-          height: "40px",
+          width: "50px",
+          height: "50px",
           backgroundColor: "#00c300",
           color: "white",
           borderRadius: "8px",
