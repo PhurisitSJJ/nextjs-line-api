@@ -137,7 +137,7 @@ const LoginPage = () => {
       <Box sx={{ width: "100%", display: "flex", alignItems: "center" }}>
         <Divider sx={{ flexGrow: 1 }} />
         <Typography variant="body2" sx={{ mx: 2, fontSize: "14px", color: "gray" }}>
-          หรือ
+          or
         </Typography>
         <Divider sx={{ flexGrow: 1 }} />
       </Box>
