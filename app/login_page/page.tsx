@@ -31,7 +31,17 @@ const LoginPage = () => {
 
 
   return (
-    <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', px: 2 }}>
+    <Container maxWidth="xs" sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      px: 2,
+      '@media (min-width:600px)': {
+        maxWidth: '600px',
+      },
+    }}>
 
       <Box
         sx={{
