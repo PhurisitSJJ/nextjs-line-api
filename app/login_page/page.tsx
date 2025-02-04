@@ -31,7 +31,7 @@ const LoginPage = () => {
 
 
   return (
-    <Container maxWidth="xs" sx={{ mt: 4, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh',px: 2 }}>
       
       <Box
         sx={{
@@ -56,7 +56,8 @@ const LoginPage = () => {
         type="tel"
         margin="normal"
         sx={{
-          width: "400px",
+          width: "100%", 
+          maxWidth: "400px", 
           "& .MuiOutlinedInput-root": {
             height: "50px",
             borderRadius: "8px",
@@ -77,7 +78,8 @@ const LoginPage = () => {
         type="password"
         margin="normal"
         sx={{
-          width: "400px",
+          width: "100%", 
+          maxWidth: "400px", 
           "& .MuiOutlinedInput-root": {
             height: "50px",
             borderRadius: "8px",
@@ -113,7 +115,8 @@ const LoginPage = () => {
         variant="contained"
         sx={{
           mb: 2,
-          width: "400px",
+          width: "100%", 
+          maxWidth: "400px", 
           height: "50px",
           borderRadius: "8px",
           backgroundColor: "#BF0005",
