@@ -38,9 +38,6 @@ const LoginPage = () => {
       alignItems: 'center',
       height: '100vh',
       px: 2,
-      '@media (min-width:400px)': {
-        maxWidth: '400px',
-      },
     }}>
 
       <Box
