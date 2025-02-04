@@ -12,7 +12,7 @@ interface Profile {
     pictureUrl?: string;
 }
 
-const LinePage = () => {
+const HomePage = () => {
     const [profile, setProfile] = useState<Profile | null>(null);
     const [idToken, setIdToken] = useState<string | null>(null); // เก็บ IdToken
 
@@ -108,4 +108,4 @@ const LinePage = () => {
     );
 };
 
-export default LinePage;
+export default HomePage;

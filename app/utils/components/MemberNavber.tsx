@@ -25,7 +25,7 @@ const MemberNavbar = () => {
 
     const handleLogout = () => {
         liff.logout();
-        router.push('/login_page');
+        router.push('/');
     };
 
     const menuItems = [
