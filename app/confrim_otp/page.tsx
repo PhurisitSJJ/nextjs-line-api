@@ -69,7 +69,7 @@ const ConfrimOtpPage = () => {
                     fontWeight: "bold",
                 }}
             >
-                " 099-999-99xx "
+                ${" 099-999-99xx "}
             </Typography>
 
             <TextField
