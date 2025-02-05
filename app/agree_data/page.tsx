@@ -35,7 +35,7 @@ const AgreeDataPage = () => {
                 maxWidth: "400px",
                 alignSelf: 'stretch',
                 // maxHeight: "80vh",  // กำหนดความสูงสูงสุด
-                // overflowY: "auto",  // เปิดให้สามารถเลื่อนขึ้นลงได้
+                overflowY: "auto",  // เปิดให้สามารถเลื่อนขึ้นลงได้
             }}>
                 
                 <Typography
