@@ -15,7 +15,11 @@ const RegisterPage = () => {
     const [isChecked, setIsChecked] = useState(false);
 
     const handleRegister = () => {
-        router.push('/home');
+        if (isChecked) {
+            router.push('/confrim_otp');
+        } else {
+            alert("คุณต้องยินยอมก่อนจึงจะสามารถดำเนินการต่อได้");
+        }
     }
 
     const handleCheckboxChange = (event: { target: { checked: boolean | ((prevState: boolean) => boolean); }; }) => {
@@ -75,10 +79,14 @@ const RegisterPage = () => {
                     "& .MuiOutlinedInput-root": {
                         height: "50px",
                         borderRadius: "8px",
+                        backgroundColor: "white",
+                        transition: "background-color 0.3s ease",
+                    },
+                    "& .MuiOutlinedInput-root.Mui-focused": {
+                        backgroundColor: "#f0f0f0",
                     },
                 }}
                 InputProps={{
-                    style: { backgroundColor: "#f0f0f0" },
                     startAdornment: (
                         <InputAdornment position="start">
                             <CallIcon />
@@ -97,10 +105,14 @@ const RegisterPage = () => {
                     "& .MuiOutlinedInput-root": {
                         height: "50px",
                         borderRadius: "8px",
+                        backgroundColor: "white",
+                        transition: "background-color 0.3s ease",
+                    },
+                    "& .MuiOutlinedInput-root.Mui-focused": {
+                        backgroundColor: "#f0f0f0",
                     },
                 }}
                 InputProps={{
-                    style: { backgroundColor: "#f0f0f0" },
                     startAdornment: (
                         <InputAdornment position="start">
                             <LockIcon />
@@ -130,10 +142,14 @@ const RegisterPage = () => {
                     "& .MuiOutlinedInput-root": {
                         height: "50px",
                         borderRadius: "8px",
+                        backgroundColor: "white",
+                        transition: "background-color 0.3s ease",
+                    },
+                    "& .MuiOutlinedInput-root.Mui-focused": {
+                        backgroundColor: "#f0f0f0",
                     },
                 }}
                 InputProps={{
-                    style: { backgroundColor: "#f0f0f0" },
                     startAdornment: (
                         <InputAdornment position="start">
                             <LockIcon />

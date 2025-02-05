@@ -13,8 +13,6 @@ const LoginPage = () => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
 
-
-
   useEffect(() => {
     liff.init({
       liffId: '2006781477-NzeKaxpL'
@@ -73,10 +71,14 @@ const LoginPage = () => {
           "& .MuiOutlinedInput-root": {
             height: "50px",
             borderRadius: "8px",
+            backgroundColor: "white",
+            transition: "background-color 0.3s ease",
+          },
+          "& .MuiOutlinedInput-root.Mui-focused": {
+            backgroundColor: "#f0f0f0",
           },
         }}
         InputProps={{
-          style: { backgroundColor: "#f0f0f0" },
           startAdornment: (
             <InputAdornment position="start">
               <CallIcon />
@@ -95,10 +97,14 @@ const LoginPage = () => {
           "& .MuiOutlinedInput-root": {
             height: "50px",
             borderRadius: "8px",
+            backgroundColor: "white",
+            transition: "background-color 0.3s ease",
+          },
+          "& .MuiOutlinedInput-root.Mui-focused": {
+            backgroundColor: "#f0f0f0",
           },
         }}
         InputProps={{
-          style: { backgroundColor: "#f0f0f0" },
           startAdornment: (
             <InputAdornment position="start">
               <LockIcon />
@@ -117,7 +123,7 @@ const LoginPage = () => {
         }}
       />
 
-      <Box sx={{ width: "100%", display: "flex", justifyContent: "end" }}>
+      <Box sx={{ width: "400px", display: "flex", justifyContent: "end" }}>
         <Typography
           variant="body2"
           sx={{
@@ -149,7 +155,7 @@ const LoginPage = () => {
         เข้าสู่ระบบ
       </Button>
 
-      <Box sx={{ width: "100%", display: "flex", alignItems: "center" }}>
+      <Box sx={{ width: "400px", display: "flex", alignItems: "center" }}>
         <Divider sx={{ flexGrow: 1 }} />
         <Typography variant="body2" sx={{ mx: 2, fontSize: "14px", color: "gray" }}>
           or

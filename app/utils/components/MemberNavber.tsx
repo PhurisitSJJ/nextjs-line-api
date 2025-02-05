@@ -32,7 +32,6 @@ const MemberNavbar = () => {
         { label: "หน้าหลัก", path: "/home" },
         { label: "ค้นหา", path: "/search" },
         { label: "รายการข้อมูล", path: "/list" },
-        { label: "เพิ่มข้อมูล", path: "/add" }
     ];
 
     return (
