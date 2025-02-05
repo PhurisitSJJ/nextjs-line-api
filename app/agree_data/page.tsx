@@ -24,6 +24,7 @@ const AgreeDataPage = () => {
             alignItems: 'center',
             height: '100vh',
             px: 2,
+            overflowY: "auto",
         }}>
             <Card sx={{
                 p: 2,
@@ -32,6 +33,8 @@ const AgreeDataPage = () => {
                 textAlign: 'center',
                 width: "100%",
                 maxWidth: "400px",
+                maxHeight: "80vh",  // กำหนดความสูงสูงสุด
+                overflowY: "auto",  // เปิดให้สามารถเลื่อนขึ้นลงได
             }}>
                 
                 <Typography
