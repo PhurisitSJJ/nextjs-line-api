@@ -36,6 +36,7 @@ const RegisterPage = () => {
             alignItems: 'center',
             height: '100vh',
             px: 2,
+            overflowY: "auto",
         }}>
 
             <Box

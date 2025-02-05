@@ -22,7 +22,7 @@ const AgreeDataPage = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            minHeight: '100vh',
+            height: '100vh',
             px: 2,
             overflowY: "auto",
         }}>
@@ -33,8 +33,6 @@ const AgreeDataPage = () => {
                 textAlign: 'center',
                 width: "100%",
                 maxWidth: "400px",
-                alignSelf: 'stretch',
-                // maxHeight: "80vh",  // กำหนดความสูงสูงสุด
                 overflowY: "auto",  // เปิดให้สามารถเลื่อนขึ้นลงได้
             }}>
                 
