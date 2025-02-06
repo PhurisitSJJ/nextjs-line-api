@@ -123,7 +123,7 @@ const LoginPage = () => {
         }}
       />
 
-      <Box sx={{ width: "400px", display: "flex", justifyContent: "end" }}>
+      <Box sx={{ width: "100%", maxWidth: "400px", display: "flex", justifyContent: "end" }}>
         <Typography
           variant="body2"
           sx={{
