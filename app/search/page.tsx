@@ -22,7 +22,7 @@ const SearchPage = () => {
             <MemberNavbar />
             <Container maxWidth="xs"
                 sx={{
-                    pt: 10,
+                    pt: 5,
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'top',
