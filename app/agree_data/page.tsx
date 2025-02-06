@@ -76,7 +76,7 @@ const AgreeDataPage = () => {
                     เว็บไซต์ของเรามีการใช้คุกกี้เพื่อเปิดใช้งานฟังก์ชันในบางพื้นที่ เพื่อให้ผู้ที่เข้าชมเว็บไซต์ของเราใช้งานได้ง่ายขึ้น
                 </Typography>
 
-                <FormControl component="fieldset" sx={{ mt: 4 }}>
+                <FormControl component="fieldset" sx={{ mt: 3 }}>
                     <RadioGroup
                         row
                         value={agree}
