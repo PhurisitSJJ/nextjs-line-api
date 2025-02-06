@@ -39,7 +39,7 @@ const AgreeDataPage = () => {
                 <Typography
                     variant="h6"
                     sx={{
-                        mb: 5,
+                        mb: 3,
                         color: "#333",
                         fontSize: "16px",
                         fontWeight: "bold",
