@@ -155,7 +155,7 @@ const LoginPage = () => {
         เข้าสู่ระบบ
       </Button>
 
-      <Box sx={{ width: "400px", display: "flex", alignItems: "center" }}>
+      <Box sx={{ width: "100%", maxWidth: "400px", display: "flex", alignItems: "center" }}>
         <Divider sx={{ flexGrow: 1 }} />
         <Typography variant="body2" sx={{ mx: 2, fontSize: "14px", color: "gray" }}>
           or
