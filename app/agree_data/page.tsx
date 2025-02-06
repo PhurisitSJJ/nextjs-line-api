@@ -99,7 +99,7 @@ const AgreeDataPage = () => {
                     type="submit"
                     variant="contained"
                     sx={{
-                        mt: 2,
+                        mt: 1,
                         width: "100%",
                         maxWidth: "400px",
                         height: "50px",

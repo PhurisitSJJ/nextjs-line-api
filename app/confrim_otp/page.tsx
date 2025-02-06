@@ -95,7 +95,6 @@ const ConfrimOtpPage = () => {
             <Typography
                 variant="body2"
                 sx={{
-                    mb: 2,
                     fontSize: "14px",
                     color: "#6B6B6B",
                     cursor: "pointer",
@@ -110,6 +109,7 @@ const ConfrimOtpPage = () => {
                 type="submit"
                 variant="contained"
                 sx={{
+                    mt: 1,
                     width: "100%",
                     maxWidth: "400px",
                     height: "50px",
