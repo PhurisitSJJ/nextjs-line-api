@@ -72,8 +72,8 @@ const RegisterPage = () => {
             <TextField
                 placeholder="เบอร์โทรศัพท์"
                 type="tel"
-                margin="normal"
                 sx={{
+                    mb: 2,
                     width: "100%",
                     maxWidth: "400px",
                     "& .MuiOutlinedInput-root": {
@@ -98,8 +98,8 @@ const RegisterPage = () => {
             <TextField
                 placeholder="รหัสผ่าน"
                 type={showPassword ? "text" : "password"}
-                margin="normal"
                 sx={{
+                    mb: 2,
                     width: "100%",
                     maxWidth: "400px",
                     "& .MuiOutlinedInput-root": {
@@ -134,9 +134,8 @@ const RegisterPage = () => {
             <TextField
                 placeholder="ยืนยันรหัสผ่าน"
                 type={showConfrimPassword ? "text" : "password"}
-                margin="normal"
                 sx={{
-                    mb: 8,
+                    mb: 6,
                     width: "100%",
                     maxWidth: "400px",
                     "& .MuiOutlinedInput-root": {
@@ -167,7 +166,13 @@ const RegisterPage = () => {
                     ),
                 }}
             />
-            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start', width: '100%', maxWidth: '400px' }}>
+            <Box sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'start',
+                width: '100%',
+                maxWidth: '400px'
+            }}>
                 <Typography
                     variant="body1"
                     sx={{
@@ -198,7 +203,7 @@ const RegisterPage = () => {
                         />
                     }
                     label={
-                        <Typography variant="body2" sx={{ fontSize: '14px', color: 'gray' }}>
+                        <Typography variant="body2" sx={{ fontSize: '14px', color: 'black' }}>
                             ยินยอม
                         </Typography>
                     }

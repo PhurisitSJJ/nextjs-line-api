@@ -1,18 +1,17 @@
 'use client';
 
-import { Container, TextField, Button, Box, Typography } from '@mui/material';
+import { Container, TextField, Button, Box, Typography, InputAdornment } from '@mui/material';
 import MemberNavbar from '@/app/utils/components/MemberNavber'
 import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react';
 
 const SearchPage = () => {
     const [query, setQuery] = useState("");
-    const [results, setResults] = useState<string[]>([]); // สมมติเป็น array ของผลลัพธ์
+    const [results, setResults] = useState<string[]>([]);
 
     const handleSearch = () => {
-        // ตัวอย่าง: ค้นหาข้อมูล (สมมติว่าหาใน Array ธรรมดา)
         const sampleData = ["ข่าวสาร 1", "ข่าวสาร 2", "ข้อมูล 3", "บทความ 4"];
-        const filteredResults = sampleData.filter(item => 
+        const filteredResults = sampleData.filter(item =>
             item.toLowerCase().includes(query.toLowerCase())
         );
         setResults(filteredResults);
@@ -21,26 +20,76 @@ const SearchPage = () => {
     return (
         <>
             <MemberNavbar />
-            <Container sx={{ mt: 4 }}>
-                {/* กล่องค้นหา */}
-                <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mb: 4 }}>
+            <Container maxWidth="xs"
+                sx={{
+                    pt: 10,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'top',
+                    height: '100vh',
+                    px: 2,
+                }}>
+
+                <Typography
+                    variant="h5"
+                    sx={{
+                        mb: 2,
+                        color: "#6B6B6B",
+                        fontSize: "20px",
+                    }}
+                >
+                    ติดตามสถานะพัสดุของคุณ
+                </Typography>
+
+                <Box sx={{
+                    display: "flex",
+                    gap: 2,
+                    mb: 4,
+                    
+                }}>
                     <TextField
-                        label="ค้นหาข้อมูล"
-                        variant="outlined"
-                        fullWidth
-                        sx={{ maxWidth: 400 }}
+                        placeholder="กรุณากรอกเลขพ้สดุของคุณ"
+                        type="text"
+                        sx={{
+                            width: "100%",
+                            maxWidth: "400px",
+                            "& .MuiOutlinedInput-root": {
+                                height: "50px",
+                                borderRadius: "8px",
+                                backgroundColor: "white",
+                                transition: "background-color 0.3s ease",
+                            },
+                            "& .MuiOutlinedInput-root.Mui-focused": {
+                                backgroundColor: "#f0f0f0",
+                            },
+                        }}
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <SearchIcon />
+                                </InputAdornment>
+                            ),
+                        }}
                     />
-                    <Button 
-                        variant="contained" 
-                        color="primary" 
+                    <Button
+                        type="submit"
+                        variant="contained"
+                        sx={{
+                            width: "100%",
+                            maxWidth: "50px",
+                            height: "50px",
+                            borderRadius: "8px",
+                            backgroundColor: "#BF0005",
+                            "&:hover": { backgroundColor: "#D53F44", },
+                        }}
                         onClick={handleSearch}
-                        startIcon={<SearchIcon />}
                     >
+                        ค้นหา
                     </Button>
                 </Box>
-                
+
                 <Box>
                     {results.length > 0 ? (
                         results.map((item, index) => (

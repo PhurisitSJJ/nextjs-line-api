@@ -35,7 +35,7 @@ const MemberNavbar = () => {
     ];
 
     return (
-        <AppBar position="static" sx={{ backgroundColor: '#1976d2' }}>
+        <AppBar position="static" sx={{ backgroundColor: '#BF0005' }}>
             <Toolbar sx={{ px: 2, display: 'flex', justifyContent: 'space-between' }}>
 
                 {isMobile ? (

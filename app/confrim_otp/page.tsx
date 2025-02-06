@@ -69,14 +69,14 @@ const ConfrimOtpPage = () => {
                     fontWeight: "bold",
                 }}
             >
-                {" 099-999-99xx "}
+                {`"099-999-99xx"`}
             </Typography>
 
             <TextField
                 placeholder="โปรดใส่รหัส OTP "
                 type="text"
-                margin="normal"
                 sx={{
+                    mt: 1,
                     mb: 5,
                     width: "100%",
                     maxWidth: "400px",

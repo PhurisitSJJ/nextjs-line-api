@@ -64,8 +64,8 @@ const LoginPage = () => {
       <TextField
         placeholder="เบอร์โทรศัพท์"
         type="tel"
-        margin="normal"
         sx={{
+          mb: 2,
           width: "100%",
           maxWidth: "400px",
           "& .MuiOutlinedInput-root": {
@@ -90,8 +90,8 @@ const LoginPage = () => {
       <TextField
         placeholder="รหัสผ่าน"
         type={showPassword ? "text" : "password"}
-        margin="normal"
         sx={{
+          mb:1,
           width: "100%",
           maxWidth: "400px",
           "& .MuiOutlinedInput-root": {
