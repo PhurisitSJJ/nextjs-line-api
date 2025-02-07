@@ -10,7 +10,7 @@ const AgreeDataPage = () => {
 
     const handleConfirm = () => {
         if (agree === "agree") {
-            router.push('/home');
+            router.push('/homepage');
         } else {
             alert("คุณต้องยินยอมก่อนจึงจะสามารถดำเนินการต่อได้");
         }
@@ -35,7 +35,7 @@ const AgreeDataPage = () => {
                 maxWidth: "400px",
                 overflowY: "auto",  // เปิดให้สามารถเลื่อนขึ้นลงได้
             }}>
-                
+
                 <Typography
                     variant="h6"
                     sx={{
@@ -43,6 +43,7 @@ const AgreeDataPage = () => {
                         color: "#333",
                         fontSize: "16px",
                         fontWeight: "bold",
+                        fontFamily: 'Anuphan',
                     }}
                 >
                     การยินยอมเปิดเผยข้อมูล
@@ -54,14 +55,15 @@ const AgreeDataPage = () => {
                     sx={{
                         color: "#6B6B6B",
                         fontSize: "12px",
-                        textAlign: "justify",   
-                        hyphens: "auto",        
-                        wordBreak: "break-word", 
-                        lineHeight: "1.7",      
+                        textAlign: "justify",
+                        hyphens: "auto",
+                        wordBreak: "break-word",
+                        lineHeight: "1.7",
+                        fontFamily: 'Anuphan',
                     }}
                 >
-                    ข้อกำหนดและเงื่อนไข <br />
-                    ข้อกำหนดและเงื่อนไขต่างๆ ดังต่อไปนี้ แสดงข้อกำหนดและเงื่อนไขในการใช้งานเว็บไซต์
+                    ข้อกำหนดและเงื่อนไข ดังต่อไปนี้<br />
+                    แสดงข้อกำหนดและเงื่อนไขในการใช้งานเว็บไซต์
                     https://www.thaicom.net ของ บริษัท ไทยคม จำกัด (มหาชน) ในการเข้าชมเว็บไซต์นี้ บริษัทฯ ถือว่าคุณยอมรับข้อกำหนดและเงื่อนไขเหล่านี้
                     โปรดระงับใช้เว็บไซต์ต่อไปหากคุณไม่ยอมรับข้อกำหนดและเงื่อนไขทั้งหมดที่ระบุไว้ในหน้านี้
                     คำที่ใช้ต่อไปนี้ ใช้กับข้อกำหนดและเงื่อนไข คำชี้แจงสิทธิ์ส่วนบุคคล ประกาศความรับผิดชอบ และข้อตกลงทั้งหมด
@@ -76,7 +78,7 @@ const AgreeDataPage = () => {
                     เว็บไซต์ของเรามีการใช้คุกกี้เพื่อเปิดใช้งานฟังก์ชันในบางพื้นที่ เพื่อให้ผู้ที่เข้าชมเว็บไซต์ของเราใช้งานได้ง่ายขึ้น
                 </Typography>
 
-                <FormControl component="fieldset" sx={{ mt: 3 }}>
+                <FormControl component="fieldset" sx={{ mt: 3, }}>
                     <RadioGroup
                         row
                         value={agree}
@@ -86,14 +88,18 @@ const AgreeDataPage = () => {
                             value="agree"
                             control={<Radio color="primary" />}
                             label="ยินยอม"
+                            sx={{ alignItems: 'center' }}
+                            componentsProps={{ typography: { sx: { fontFamily: 'Anuphan',fontSize: '16px' } } }}
                         />
                         <FormControlLabel
                             value="disagree"
                             control={<Radio color="primary" />}
                             label="ไม่ยินยอม"
+                            componentsProps={{ typography: { sx: { fontFamily: 'Anuphan',fontSize: '16px' } } }}
                         />
                     </RadioGroup>
                 </FormControl>
+
 
                 <Button
                     type="submit"
@@ -105,6 +111,7 @@ const AgreeDataPage = () => {
                         height: "50px",
                         borderRadius: "8px",
                         backgroundColor: "#BF0005",
+                        fontFamily: 'Anuphan',
                         "&:hover": { backgroundColor: "#D53F44", },
                     }}
                     onClick={handleConfirm}

@@ -1,6 +1,9 @@
-import { 
-    AppBar, Toolbar, Box, Button, Typography, IconButton, Drawer, 
-    List, ListItem, ListItemText, ListItemButton, Divider 
+
+
+
+import {
+    AppBar, Toolbar, Box, Button, Typography, IconButton, Drawer,
+    List, ListItem, ListItemText, ListItemButton, Divider
 } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -15,7 +18,6 @@ const MemberNavbar = () => {
     const router = useRouter();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    // const isMobile = useMediaQuery('(max-width:768px)'); ตัวอย่างถ้าเรากำหนดเอง
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const handleMenuClick = (path: string) => {
@@ -29,9 +31,9 @@ const MemberNavbar = () => {
     };
 
     const menuItems = [
-        { label: "หน้าหลัก", path: "/home" },
-        { label: "ค้นหา", path: "/search" },
+        { label: "หน้าหลัก", path: "/homepage" },
         { label: "รายการข้อมูล", path: "/list" },
+        { label: "บัญชี", path: "/profile" },
     ];
 
     return (
@@ -40,10 +42,14 @@ const MemberNavbar = () => {
 
                 {isMobile ? (
                     <>
-                        <IconButton edge="start" color="inherit" onClick={() => setDrawerOpen(true)}>
-                            <MenuIcon />
-                        </IconButton>
+                        <Box sx={{ display: 'flex', alignItems: 'left', gap: 2 }}>
+                            <IconButton edge="start" color="inherit" onClick={() => setDrawerOpen(true)}>
+                                <MenuIcon />
+                            </IconButton>
+                            <Image src="/assets/logo/nim.png" alt="Logo" width={70} height={40} />
+                        </Box>
 
+                        {/* Drawer สำหรับ Mobile */}
                         <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
                             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', p: 2, bgcolor: 'white' }}>
                                 <Image src="/assets/logo/nim.png" alt="Logo" width={150} height={100} />
@@ -55,15 +61,36 @@ const MemberNavbar = () => {
                                         <ListItemButton
                                             onClick={() => handleMenuClick(item.path)}
                                             sx={{
-                                                '&:hover': { bgcolor: '#1976d2', color: 'white' },
+                                                '&:hover': { bgcolor: '#BF0005', color: 'white' },
                                                 transition: '0.3s',
                                             }}
                                         >
-                                            <ListItemText primary={item.label} sx={{ textAlign: 'left', fontWeight: 'bold' }} />
+                                            <ListItemText
+                                                primary={item.label}
+                                                primaryTypographyProps={{ sx: { fontFamily: 'Anuphan', textAlign: 'left' } }}
+                                            />
                                         </ListItemButton>
                                     </ListItem>
                                 ))}
                             </List>
+
+                            <Divider />
+                            <Box sx={{ p: 1, textAlign: 'center' }}>
+                                <Button
+                                    variant="contained"
+                                    color="secondary"
+                                    onClick={handleLogout}
+                                    sx={{
+                                        width: '100%',
+                                        fontFamily: 'Anuphan',
+                                        backgroundColor: "#BF0005",
+                                        "&:hover": { backgroundColor: "#D53F44", },
+                                    }}
+                                    startIcon={<LogoutIcon />}
+                                >
+                                    ออกจากระบบ
+                                </Button>
+                            </Box>
                         </Drawer>
                     </>
                 ) : (
@@ -77,7 +104,7 @@ const MemberNavbar = () => {
                                 component="p"
                                 sx={{
                                     fontSize: '16px',
-                                    // fontWeight: 'bold',
+                                    fontFamily: 'Anuphan',
                                     color: 'white',
                                     cursor: 'pointer',
                                     transition: '0.3s',
@@ -94,18 +121,15 @@ const MemberNavbar = () => {
                     </Box>
                 )}
 
-                {isMobile ? (
-                    <IconButton edge="end" color="inherit" onClick={handleLogout}>
-                        <LogoutIcon/>
-                    </IconButton>
-                ) : (
+                {!isMobile && (
                     <Button
                         variant="contained"
                         color="secondary"
                         onClick={handleLogout}
                         sx={{
-                            color: 'white',
-                            '&:hover': { backgroundColor: '#ff4d4d' },
+                            fontFamily: 'Anuphan',
+                            backgroundColor: "#BF0005",
+                            "&:hover": { backgroundColor: "#D53F44", },
                         }}
                         startIcon={<LogoutIcon />}
                     >

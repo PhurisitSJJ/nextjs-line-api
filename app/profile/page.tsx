@@ -100,7 +100,7 @@ const HomePage = () => {
                         </Typography>
                     </Box>
                 ) : (
-                    <Typography variant="h6" textAlign="center" mt={4}>
+                    <Typography variant="h6" textAlign="center" mt={4} sx={{fontFamily: 'Anuphan',}}>
                         กำลังโหลดข้อมูล...
                     </Typography>
                 )}

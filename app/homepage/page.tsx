@@ -5,7 +5,7 @@ import MemberNavbar from '@/app/utils/components/MemberNavber'
 import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react';
 
-const SearchPage = () => {
+const HomePage = () => {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState<string[]>([]);
 
@@ -36,6 +36,7 @@ const SearchPage = () => {
                         mb: 2,
                         color: "#6B6B6B",
                         fontSize: "20px",
+                        fontFamily: 'Anuphan'
                     }}
                 >
                     ติดตามสถานะพัสดุของคุณ
@@ -54,6 +55,7 @@ const SearchPage = () => {
                             width: "100%",
                             maxWidth: "400px",
                             "& .MuiOutlinedInput-root": {
+                                fontFamily: 'Anuphan',
                                 height: "50px",
                                 borderRadius: "8px",
                                 backgroundColor: "white",
@@ -77,6 +79,7 @@ const SearchPage = () => {
                         type="submit"
                         variant="contained"
                         sx={{
+                            fontFamily: 'Anuphan',
                             width: "100%",
                             maxWidth: "50px",
                             height: "50px",
@@ -93,12 +96,12 @@ const SearchPage = () => {
                 <Box>
                     {results.length > 0 ? (
                         results.map((item, index) => (
-                            <Typography key={index} variant="h6" sx={{ mb: 1 }}>
+                            <Typography key={index} variant="h6" sx={{ mb: 1, fontFamily: 'Anuphan', }}>
                                 {item}
                             </Typography>
                         ))
                     ) : (
-                        <Typography variant="body1" color="textSecondary">
+                        <Typography variant="body1" color="textSecondary" sx={{fontFamily: 'Anuphan',}}>
                             ไม่มีข้อมูลที่ค้นหา
                         </Typography>
                     )}
@@ -108,4 +111,4 @@ const SearchPage = () => {
     );
 };
 
-export default SearchPage;
+export default HomePage;

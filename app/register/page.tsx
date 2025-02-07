@@ -63,7 +63,8 @@ const RegisterPage = () => {
                     color: "#6B6B6B",
                     width: "100%",
                     display: "flex",
-                    justifyContent: "center"
+                    justifyContent: "center",
+                    fontFamily: 'Anuphan',
                 }}
             >
                 ลงทะเบียน
@@ -77,6 +78,7 @@ const RegisterPage = () => {
                     width: "100%",
                     maxWidth: "400px",
                     "& .MuiOutlinedInput-root": {
+                        fontFamily: 'Anuphan',
                         height: "50px",
                         borderRadius: "8px",
                         backgroundColor: "white",
@@ -103,6 +105,7 @@ const RegisterPage = () => {
                     width: "100%",
                     maxWidth: "400px",
                     "& .MuiOutlinedInput-root": {
+                        fontFamily: 'Anuphan',
                         height: "50px",
                         borderRadius: "8px",
                         backgroundColor: "white",
@@ -139,6 +142,7 @@ const RegisterPage = () => {
                     width: "100%",
                     maxWidth: "400px",
                     "& .MuiOutlinedInput-root": {
+                        fontFamily: 'Anuphan',
                         height: "50px",
                         borderRadius: "8px",
                         backgroundColor: "white",
@@ -172,12 +176,14 @@ const RegisterPage = () => {
                 alignItems: 'start',
                 width: '100%',
                 maxWidth: '400px'
+                
             }}>
                 <Typography
                     variant="body1"
                     sx={{
                         color: "#000000",
                         fontSize: "14px",
+                        fontFamily: 'Anuphan',
                     }}
                 >
                     ข้าพเจ้าได้อ่านเเละยอมรับเงื่อนไขดังกล่าว
@@ -187,6 +193,7 @@ const RegisterPage = () => {
                     sx={{
                         color: "#6B6B6B",
                         fontSize: "12px",
+                        fontFamily: 'Anuphan',
                     }}
                 >
                     (ข้อกำหนดและเงื่อนไขการบริการ) & ประกาศความเป็นส่วนตัวสำหรับลูกค้า
@@ -203,7 +210,7 @@ const RegisterPage = () => {
                         />
                     }
                     label={
-                        <Typography variant="body2" sx={{ fontSize: '14px', color: 'black' }}>
+                        <Typography variant="body2" sx={{ fontSize: '14px', color: 'black',fontFamily: 'Anuphan', }}>
                             ยินยอม
                         </Typography>
                     }
@@ -220,6 +227,7 @@ const RegisterPage = () => {
                     height: "50px",
                     borderRadius: "8px",
                     backgroundColor: "#BF0005",
+                    fontFamily: 'Anuphan',
                     "&:hover": { backgroundColor: "#D53F44", },
                 }}
                 onClick={handleRegister}

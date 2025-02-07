@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { anuphan } from "@/app/ui/fonts/font";
 import "./globals.css";
-
 
 export const metadata: Metadata = {
   title: "NIM-SEE-SENG",
@@ -13,7 +11,7 @@ export default function RootLayout({ children }: Readonly<{
 }>) {
   return (
     <html lang="th">
-      <body className={`${anuphan.variable} antialiased`}>
+      <body >
         {children}
       </body>
     </html>

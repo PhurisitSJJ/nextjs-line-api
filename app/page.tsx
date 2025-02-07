@@ -69,6 +69,7 @@ const LoginPage = () => {
           width: "100%",
           maxWidth: "400px",
           "& .MuiOutlinedInput-root": {
+            fontFamily: 'Anuphan',
             height: "50px",
             borderRadius: "8px",
             backgroundColor: "white",
@@ -95,6 +96,7 @@ const LoginPage = () => {
           width: "100%",
           maxWidth: "400px",
           "& .MuiOutlinedInput-root": {
+            fontFamily: 'Anuphan',
             height: "50px",
             borderRadius: "8px",
             backgroundColor: "white",
@@ -130,6 +132,7 @@ const LoginPage = () => {
             mb: 4,
             color: "#6B6B6B",
             cursor: "pointer",
+            fontFamily: 'Anuphan',
             "&:hover": { textDecoration: "underline" }
           }}
         // onClick={}
@@ -148,6 +151,7 @@ const LoginPage = () => {
           height: "50px",
           borderRadius: "8px",
           backgroundColor: "#BF0005",
+          fontFamily: 'Anuphan',
           "&:hover": { backgroundColor: "#D53F44", },
         }}
         onClick={handleLogin}

@@ -44,6 +44,7 @@ const ConfrimOtpPage = () => {
                 sx={{
                     mb: 1.5,
                     color: "#6B6B6B",
+                    fontFamily: 'Anuphan',
                 }}
             >
                 OTP
@@ -55,6 +56,7 @@ const ConfrimOtpPage = () => {
                     mb: 1,
                     color: "#6B6B6B",
                     fontSize: "14px",
+                    fontFamily: 'Anuphan',
                 }}
             >
                 กรอกรหัส OTP ที่ได้จากเบอร์โทรศัพท์
@@ -67,6 +69,7 @@ const ConfrimOtpPage = () => {
                     color: "#6B6B6B",
                     fontSize: "14px",
                     fontWeight: "bold",
+                    fontFamily: 'Anuphan',
                 }}
             >
                 {`" 099-999-99xx "`}
@@ -81,6 +84,7 @@ const ConfrimOtpPage = () => {
                     width: "100%",
                     maxWidth: "400px",
                     "& .MuiOutlinedInput-root": {
+                        fontFamily: 'Anuphan',
                         height: "50px",
                         borderRadius: "8px",
                         backgroundColor: "white",
@@ -98,6 +102,7 @@ const ConfrimOtpPage = () => {
                     fontSize: "14px",
                     color: "#6B6B6B",
                     cursor: "pointer",
+                    fontFamily: 'Anuphan',
                     "&:hover": { textDecoration: "underline" }
                 }}
             // onClick={}
@@ -115,6 +120,7 @@ const ConfrimOtpPage = () => {
                     height: "50px",
                     borderRadius: "8px",
                     backgroundColor: "#BF0005",
+                    fontFamily: 'Anuphan',
                     "&:hover": { backgroundColor: "#D53F44", },
                 }}
                 onClick={handleConfrimOTP}

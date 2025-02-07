@@ -1,7 +1,7 @@
-import { Anuphan } from "next/font/google";
+import AnuphanFont from "next/font/local";
 
-export const anuphan = Anuphan({
-    variable: "--font-anuphan", 
-    subsets: ["latin", "thai"], 
-    weight: ["400", "700"], 
-  });
+export const anuphan = AnuphanFont({
+  src: '../public/fonts/Anuphan-Regular.ttf',
+  display: 'swap',
+  variable: '--font-anuphan', 
+});
