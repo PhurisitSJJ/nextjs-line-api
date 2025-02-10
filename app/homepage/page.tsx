@@ -155,16 +155,15 @@ const HomePage = () => {
                                     display: "flex",
                                     flexDirection: "column",
                                     alignItems: "center",
-                                    justifyContent: "center",
+                                    justifyContent: "space-between",
                                     p: 2,
                                     textAlign: "center",
-                                    height: "100%",
-                                    maxHeight: "80%",
+                                    height: "170px",
                                     borderRadius: "8px",
                                     transition: "0.3s",
                                     cursor: "pointer",
                                     "&:hover": { boxShadow: 3, backgroundColor: "#D53F44", color: "#FFF" },
-                                    "&:hover img": { filter: "brightness(0) invert(1)"},
+                                    "&:hover img": { filter: "brightness(0) invert(1)" },
                                 }}
                             >
                                 <CardMedia
@@ -172,7 +171,7 @@ const HomePage = () => {
                                     image={item.img}
                                     alt={item.title}
                                     sx={{
-                                        mt: 2,
+                                        mt: 1,
                                         width: "80px",
                                         height: "80px",
                                         objectFit: "contain",
@@ -187,8 +186,6 @@ const HomePage = () => {
                         </Grid>
                     ))}
                 </Grid>
-
-
             </Container>
         </>
     );
