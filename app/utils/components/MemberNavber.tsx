@@ -32,18 +32,18 @@ const MemberNavbar = () => {
 
     const menuItems = [
         { label: "หน้าหลัก", path: "/homepage" },
-        { label: "รายการข้อมูล", path: "/list" },
+        { label: "สมาชิก", path: "/member" },
         { label: "บัญชี", path: "/profile" },
     ];
 
     return (
-        <AppBar position="static" sx={{ backgroundColor: '#BF0005' }}>
-            <Toolbar sx={{ px: 2, display: 'flex', justifyContent: 'space-between' }}>
+        <AppBar position="static" sx={{ backgroundColor: '#FFF', borderBottom: '2px solid #BF0005'}}>
+            <Toolbar sx={{ px: 2, display: 'flex', justifyContent: 'space-between'}}>
 
                 {isMobile ? (
                     <>
                         <Box sx={{ display: 'flex', alignItems: 'left', gap: 2 }}>
-                            <IconButton edge="start" color="inherit" onClick={() => setDrawerOpen(true)}>
+                            <IconButton edge="start"  onClick={() => setDrawerOpen(true)}>
                                 <MenuIcon />
                             </IconButton>
                             <Image src="/assets/logo/nim.png" alt="Logo" width={70} height={40} />
@@ -97,7 +97,6 @@ const MemberNavbar = () => {
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                         <Image src="/assets/logo/nim.png" alt="Logo" width={70} height={40} />
 
-                        {/* เมนูรายการ */}
                         {menuItems.map((item) => (
                             <Typography
                                 key={item.path}
@@ -105,11 +104,11 @@ const MemberNavbar = () => {
                                 sx={{
                                     fontSize: '16px',
                                     fontFamily: 'Anuphan',
-                                    color: 'white',
+                                    color: '#000',
                                     cursor: 'pointer',
                                     transition: '0.3s',
                                     '&:hover': {
-                                        color: '#ffcc00',
+                                        color: '#BF0005',
                                         transform: 'scale(1.1)',
                                     },
                                 }}

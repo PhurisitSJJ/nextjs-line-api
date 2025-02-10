@@ -3,7 +3,7 @@
 import { Container } from "@mui/material";
 import MemberNavbar from "@/app/utils/components/MemberNavber";
 
-const ListDataPage = () => {
+const ScanJoinPage = () => {
 
     return (
         <>
@@ -15,4 +15,4 @@ const ListDataPage = () => {
     );
 };
 
-export default ListDataPage;
+export default ScanJoinPage;

@@ -1,13 +1,48 @@
 'use client';
 
-import { Container, TextField, Button, Box, Typography, InputAdornment } from '@mui/material';
+import { Container, TextField, Button, Box, Typography, InputAdornment, Card, Grid, CardMedia, CardContent } from '@mui/material';
 import MemberNavbar from '@/app/utils/components/MemberNavber'
 import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const HomePage = () => {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState<string[]>([]);
+    const router = useRouter();
+
+    const listMenu = [
+        {
+            title: "สร้างใบส่งสินค้า",
+            img: "/assets/icon_page/add_data.png",
+            path: "/delivery",
+        },
+        {
+            title: "กำหนดข้อมูล",
+            img: "/assets/icon_page/data.png",
+            path: "/settings",
+        },
+        {
+            title: "สินค้ารอส่ง",
+            img: "/assets/icon_page/box_2.png",
+            path: "/orders",
+        },
+        {
+            title: "พ้สดุของฉัน",
+            img: "/assets/icon_page/search_box.png",
+            path: "/my_packges",
+        },
+        {
+            title: "เพิ่มผู้ใช้งาน",
+            img: "/assets/icon_page/add_user.png",
+            path: "/add_user",
+        },
+        {
+            title: "แสกน เพื่อเข้าร่วม",
+            img: "/assets/icon_page/scan_add.png",
+            path: "/scan_join",
+        },
+    ]
 
     const handleSearch = () => {
         const sampleData = ["ข่าวสาร 1", "ข่าวสาร 2", "ข้อมูล 3", "บทความ 4"];
@@ -20,7 +55,7 @@ const HomePage = () => {
     return (
         <>
             <MemberNavbar />
-            <Container maxWidth="xs"
+            <Container
                 sx={{
                     pt: 5,
                     display: 'flex',
@@ -30,20 +65,27 @@ const HomePage = () => {
                     px: 2,
                 }}>
 
-                <Typography
-                    variant="h5"
-                    sx={{
-                        mb: 2,
-                        color: "#6B6B6B",
-                        fontSize: "20px",
-                        fontFamily: 'Anuphan'
-                    }}
-                >
-                    ติดตามสถานะพัสดุของคุณ
-                </Typography>
-
+                <Box sx={{
+                    display: 'flex',
+                    justifyContent: 'start',
+                    alignItems: 'center',
+                }}>
+                    <Typography
+                        variant="h5"
+                        sx={{
+                            mb: 2,
+                            color: "#6B6B6B",
+                            fontSize: "20px",
+                            fontFamily: 'Anuphan'
+                        }}
+                    >
+                        ติดตามสถานะพัสดุของคุณ
+                    </Typography>
+                </Box>
                 <Box sx={{
                     display: "flex",
+                    justifyContent: 'start',
+                    alignItems: 'center',
                     gap: 2,
                     mb: 4,
 
@@ -101,11 +143,51 @@ const HomePage = () => {
                             </Typography>
                         ))
                     ) : (
-                        <Typography variant="body1" color="textSecondary" sx={{fontFamily: 'Anuphan',}}>
-                            ไม่มีข้อมูลที่ค้นหา
-                        </Typography>
+                        null
                     )}
                 </Box>
+                <Grid container spacing={2} sx={{ pb: 5 }}>
+                    {listMenu.map((item, index) => (
+                        <Grid item xs={6} sm={4} key={index} >
+                            <Card
+                                onClick={() => router.push(item.path)}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    p: 2,
+                                    textAlign: "center",
+                                    height: "100%",
+                                    borderRadius: "8px",
+                                    transition: "0.3s",
+                                    cursor: "pointer",
+                                    "&:hover": { boxShadow: 3, backgroundColor: "#D53F44", color: "#FFF" },
+                                    "&:hover img": { filter: "brightness(0) invert(1)"},
+                                }}
+                            >
+                                <CardMedia
+                                    component="img"
+                                    image={item.img}
+                                    alt={item.title}
+                                    sx={{
+                                        width: "80px",
+                                        height: "80px",
+                                        objectFit: "contain",
+                                        mb: 1,
+                                    }}
+                                />
+                                <CardContent>
+                                    <Typography variant="body1" sx={{ fontFamily: 'Anuphan', fontSize: '20px' }}>
+                                        {item.title}
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                        </Grid>
+                    ))}
+                </Grid>
+
+
             </Container>
         </>
     );
