@@ -111,10 +111,11 @@ const CreateDeliveryPage = () => {
                             border: "1px solid #ccc",
                             backgroundColor: "#FFF",
                             transition: "background-color 0.3s ease",
-                            
+
                         }}
-                        onFocus={(e) => e.target.style.backgroundColor = "#f0f0f0"} 
-                        
+                        onFocus={(e) => e.target.style.backgroundColor = "#f0f0f0"}
+                        onBlur={(e) => e.target.style.backgroundColor = "#FFF"}
+
                     />
                 </Box>
 
