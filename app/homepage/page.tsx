@@ -159,6 +159,7 @@ const HomePage = () => {
                                     p: 2,
                                     textAlign: "center",
                                     height: "100%",
+                                    maxHeight: "80%",
                                     borderRadius: "8px",
                                     transition: "0.3s",
                                     cursor: "pointer",
@@ -171,14 +172,14 @@ const HomePage = () => {
                                     image={item.img}
                                     alt={item.title}
                                     sx={{
+                                        mt: 2,
                                         width: "80px",
                                         height: "80px",
                                         objectFit: "contain",
-                                        mb: 1,
                                     }}
                                 />
                                 <CardContent>
-                                    <Typography variant="body1" sx={{ fontFamily: 'Anuphan', fontSize: '20px' }}>
+                                    <Typography variant="body1" sx={{ fontFamily: 'Anuphan', fontSize: '16px' }}>
                                         {item.title}
                                     </Typography>
                                 </CardContent>
