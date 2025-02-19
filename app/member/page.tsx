@@ -8,7 +8,9 @@ const MemberPage = () => {
     return (
         <>
             <MemberNavbar />
-            <Container sx={{
+            <Container 
+                maxWidth="xs"
+                sx={{
                     pt: 5,
                     display: 'flex',
                     flexDirection: 'column',

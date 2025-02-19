@@ -20,7 +20,7 @@ const HomePage = () => {
         {
             title: "กำหนดข้อมูล",
             img: "/assets/icon_page/data.png",
-            path: "/settings",
+            path: "/config",
         },
         {
             title: "สินค้ารอส่ง",

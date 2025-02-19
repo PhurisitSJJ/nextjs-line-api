@@ -19,7 +19,8 @@ const DeliveryPage = () => {
     return (
         <>
             <MemberNavbar />
-            <Container maxWidth="xs"
+            <Container 
+                maxWidth="xs"
                 sx={{
                     pt: 5,
                     display: 'flex',
@@ -37,9 +38,11 @@ const DeliveryPage = () => {
                         maxWidth: "400px",
                         height: "70px",
                         borderRadius: "8px",
-                        backgroundColor: "#BF0005",
-                        fontFamily: 'Anuphan',
-                        "&:hover": { backgroundColor: "#D53F44", },
+                        color: "#BF0005",
+                        backgroundColor: "#FFF",
+                        fontFamily: "Anuphan",
+                        border: "1px solid #BF0005",
+                        "&:hover": { backgroundColor: "#BF0005", color: "#FFF" },
                     }}
                     onClick={handleCreateNewDerivery}
                 >
@@ -50,7 +53,7 @@ const DeliveryPage = () => {
                     type="submit"
                     variant="contained"
                     sx={{
-                        mt: 3,
+                        mt: 2,
                         width: "100%",
                         maxWidth: "400px",
                         height: "70px",
@@ -65,8 +68,6 @@ const DeliveryPage = () => {
                 >
                     Template
                 </Button>
-
-
             </Container>
         </>
     );
