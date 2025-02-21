@@ -14,7 +14,7 @@ interface Profile {
 
 const ProfilePage = () => {
     const [profile, setProfile] = useState<Profile | null>(null);
-    const [idToken, setIdToken] = useState<string | null>(null); // เก็บ IdToken
+    const [idToken, setIdToken] = useState<string | null>(null);
 
     useEffect(() => {
         try {

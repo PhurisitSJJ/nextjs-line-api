@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Typography, List, ListItemButton, ListItemText, Divider, Box } from "@mui/material";
+import { Container, Typography, List, ListItemButton, ListItemText, Divider } from "@mui/material";
 import MemberNavbar from "@/app/utils/components/MemberNavber";
 import { useRouter } from "next/navigation";
 import ArrowIcon from '@mui/icons-material/ArrowForwardIos';
