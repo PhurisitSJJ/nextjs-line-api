@@ -30,6 +30,10 @@ const MemberNavbar = () => {
         router.push('/');
     };
 
+    const handleHomePage = () => {
+        router.push('/homepage');
+    };
+
     const menuItems = [
         { label: "หน้าหลัก", path: "/homepage" },
         { label: "สมาชิก", path: "/member" },
@@ -46,10 +50,9 @@ const MemberNavbar = () => {
                             <IconButton edge="start"  onClick={() => setDrawerOpen(true)}>
                                 <MenuIcon />
                             </IconButton>
-                            <Image src="/assets/logo/nim.png" alt="Logo" width={70} height={40} />
+                            <Image src="/assets/logo/nim.png" alt="Logo" width={70} height={40} onClick={handleHomePage}/>
                         </Box>
 
-                        {/* Drawer สำหรับ Mobile */}
                         <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
                             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', p: 2, bgcolor: 'white' }}>
                                 <Image src="/assets/logo/nim.png" alt="Logo" width={150} height={100} />

@@ -43,7 +43,7 @@ const AddAddressSenderPage = () => {
                             fontFamily: 'Anuphan'
                         }}
                     >
-                        ที่อยู่ใหม่
+                        เพิ่มที่อยู่ใหม่
                     </Typography>
                 </Box>
                 <Box sx={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>

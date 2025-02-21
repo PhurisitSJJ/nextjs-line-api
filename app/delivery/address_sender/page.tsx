@@ -116,6 +116,7 @@ const AddressSenderPage = () => {
                                         height: "30px",
                                         borderRadius: "8px",
                                         color: "#BF0005",
+                                        backgroundColor: "#FFF",
                                         border: "1px solid #BF0005",
                                         fontFamily: "Anuphan",
                                         fontSize: "12px",

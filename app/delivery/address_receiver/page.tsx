@@ -9,8 +9,8 @@ const AddressReceiverPage = () => {
     const router = useRouter();
 
     const productList = [
-        { name: "ขนมปัง ฟาร์มเฮ้า", tel: "0995512020", addressDetail: "123/65 บ้านวังวง", locationInfo: "ต.วังทอง อ.เมือง จ.เชียงใหม่ 50100", type: "บ้าน"},
-        { name: "ขนมปัง ฟาร์มเฮ้า", tel: "0891237081", addressDetail: "1/10 บ้านทรายทอง", locationInfo: " ต.ทรายแดง อ.ทรายเข้าตา จ.กรุงเทพมหานคร 10000", type: "บ้าน"},
+        { id: "001",name: "ขนมปัง ฟาร์มเฮ้า", tel: "0995512020", addressDetail: "123/65 บ้านวังวง", locationInfo: "ต.วังทอง อ.เมือง จ.เชียงใหม่ 50100", type: "บ้าน"},
+        { id: "001", name: "ขนมปัง ฟาร์มเฮ้า", tel: "0891237081", addressDetail: "1/10 บ้านทรายทอง", locationInfo: " ต.ทรายแดง อ.ทรายเข้าตา จ.กรุงเทพมหานคร 10000", type: "บ้าน"},
     ];
 
     const handleAddAddressReceiver = () => {
@@ -103,6 +103,7 @@ const AddressReceiverPage = () => {
                                         height: "30px",
                                         borderRadius: "8px",
                                         color: "#BF0005",
+                                        backgroundColor: "#FFF",
                                         border: "1px solid #BF0005",
                                         fontFamily: "Anuphan",
                                         fontSize: "12px",

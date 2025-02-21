@@ -2,17 +2,13 @@
 
 import { Box, Card, Container, Divider, IconButton, Typography } from "@mui/material";
 import MemberNavbar from "@/app/utils/components/MemberNavber";
-import { useRouter } from "next/navigation";
 
 
 const ViewDeliveryPage = () => {
-    const router = useRouter();
 
     const productList = [
         { name: "ขนม", size: "30x30x40", quantity: 1, weight: "20.02", unit: "กล่อง" },
-        { name: "พริกหยวก", size: "40x40x50", quantity: 2, weight: "40.4", unit: "กล่อง" },
-        { name: "ส้มสายน้ำผึ้ง", size: "20x20x20", quantity: 2, weight: "30.4", unit: "กล่อง" },
-        { name: "ปีโป้", size: "20x20x20", quantity: 5, weight: "10.5", unit: "กล่อง" },
+        { name: "พริกหยวก", size: "40x40x50", quantity: 2, weight: "40.5", unit: "กล่อง" },
     ];
 
     return (
@@ -54,7 +50,7 @@ const ViewDeliveryPage = () => {
                             flex: 1
                         }}
                     >
-                        สมหญิง สุขใจ
+                        สมชาย เพื่อนสมปอง
                     </Typography>
                 </Box>
 
@@ -90,7 +86,7 @@ const ViewDeliveryPage = () => {
                             flex: 1
                         }}
                     >
-                        1/10 บ้านสุขใจ ต.แกดำ อ.แกดำ จ.มหาสารคาม 44190
+                        123/65 บ้านวังวง ต.วังทอง อ.เมือง จ.เชียงใหม่ 50100
                     </Typography>
                 </Box>
 
@@ -180,7 +176,9 @@ const ViewDeliveryPage = () => {
                     {productList.map((product, index) => (
                         <Card
                             key={index}
-                            sx={{ p: 2, border: "1px solid #D2D2D2", borderRadius: "8px", boxShadow: 1, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                            sx={{ p: 2, border: "1px solid #D2D2D2", borderRadius: "8px", boxShadow: 1, display: "flex", alignItems: "center", justifyContent: "space-between" }}
+                            // onClick={handleEditOrder}
+                        >
                             <Box>
                                 <Typography variant="h6" sx={{ fontFamily: "Anuphan", color: "blue", fontWeight: "bold", fontSize: "18px", mb: 0.2 }}>
                                     {product.name}

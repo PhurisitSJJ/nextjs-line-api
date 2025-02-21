@@ -7,9 +7,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const HomePage = () => {
+    const router = useRouter();
     const [query, setQuery] = useState("");
     const [results, setResults] = useState<string[]>([]);
-    const router = useRouter();
 
     const listMenu = [
         {
@@ -159,6 +159,7 @@ const HomePage = () => {
                                     p: 2,
                                     textAlign: "center",
                                     height: "170px",
+                                    border: "1px solid #D2D2D2",
                                     borderRadius: "8px",
                                     transition: "0.3s",
                                     cursor: "pointer",

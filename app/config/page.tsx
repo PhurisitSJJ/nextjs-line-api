@@ -21,7 +21,7 @@ const SettingsPage = () => {
     }
 
     const handleOpenSettings = () => {
-        router.push('/config/settings');
+        router.push('/settings');
     }
 
     return (

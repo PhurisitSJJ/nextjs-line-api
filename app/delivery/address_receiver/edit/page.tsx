@@ -23,29 +23,10 @@ const EditAddressReceiverPage = () => {
             <MemberNavbar />
             <Container
                 maxWidth="xs"
-                sx={{
-                    pt: 5,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'top',
-                    height: '100vh',
-                    px: 2,
-                }}>
+                sx={{ pt: 5, display: 'flex', flexDirection: 'column', justifyContent: 'top', height: '100vh', px: 2 }}>
 
-                <Box sx={{
-                    display: 'flex',
-                    justifyContent: 'start',
-                    alignItems: 'center',
-                }}>
-                    <Typography
-                        variant="h5"
-                        sx={{
-                            mb: 2,
-                            color: "#6B6B6B",
-                            fontSize: "20px",
-                            fontFamily: 'Anuphan'
-                        }}
-                    >
+                <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center'}}>
+                    <Typography variant="h5" sx={{ mb: 2, color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan'}}>
                         แก้ไขที่อยู่
                     </Typography>
                 </Box>
@@ -53,10 +34,7 @@ const EditAddressReceiverPage = () => {
                     <TextField
                         placeholder="ชื่อ - นามสกุล"
                         type="text"
-                        sx={{
-                            mb: 2,
-                            width: "100%",
-                            maxWidth: "400px",
+                        sx={{ mb: 2, width: "100%", maxWidth: "400px",
                             "& .MuiOutlinedInput-root": {
                                 fontFamily: 'Anuphan',
                                 height: "50px",
@@ -69,13 +47,8 @@ const EditAddressReceiverPage = () => {
                             },
                         }}
                     />
-                    <TextField
-                        placeholder="เบอร์โทรศัพท์"
-                        type="tel"
-                        sx={{
-                            mb: 2,
-                            width: "100%",
-                            maxWidth: "400px",
+                    <TextField placeholder="เบอร์โทรศัพท์" type="tel"
+                        sx={{ mb: 2, width: "100%", maxWidth: "400px",
                             "& .MuiOutlinedInput-root": {
                                 fontFamily: 'Anuphan',
                                 height: "50px",
@@ -88,13 +61,8 @@ const EditAddressReceiverPage = () => {
                             },
                         }}
                     />
-                    <TextField
-                        placeholder="บ้านเลขที่, ซอย, หมู่, ถนน"
-                        type="text"
-                        sx={{
-                            mb: 2,
-                            width: "100%",
-                            maxWidth: "400px",
+                    <TextField placeholder="บ้านเลขที่, ซอย, หมู่, ถนน" type="text"
+                        sx={{ mb: 2, width: "100%", maxWidth: "400px",
                             "& .MuiOutlinedInput-root": {
                                 fontFamily: 'Anuphan',
                                 height: "50px",
@@ -108,13 +76,8 @@ const EditAddressReceiverPage = () => {
                         }}
                     />
 
-                    <TextField
-                        placeholder="จังหวัด, เขต/อำเภอ, แขวง/ตำบล, รหัสไปรษณีย์"
-                        type="text"
-                        sx={{
-                            mb: 2,
-                            width: "100%",
-                            maxWidth: "400px",
+                    <TextField placeholder="จังหวัด, เขต/อำเภอ, แขวง/ตำบล, รหัสไปรษณีย์" type="text"
+                        sx={{ mb: 2, width: "100%", maxWidth: "400px",
                             "& .MuiOutlinedInput-root": {
                                 fontFamily: 'Anuphan',
                                 height: "50px",
@@ -130,14 +93,7 @@ const EditAddressReceiverPage = () => {
                 </Box>
 
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: "center", mb: 1 }}>
-                    <Typography
-                        variant="body1"
-                        sx={{
-                            color: "#6B6B6B",
-                            fontSize: "16px",
-                            fontFamily: 'Anuphan'
-                        }}
-                    >
+                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan' }}>
                         เลือกเป็นที่อยู่ตั้งต้น :
                     </Typography>
 
@@ -155,14 +111,7 @@ const EditAddressReceiverPage = () => {
                     />
                 </Box>
                 <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
-                    <Typography
-                        variant="body1"
-                        sx={{
-                            color: "#6B6B6B",
-                            fontSize: "16px",
-                            fontFamily: "Anuphan",
-                        }}
-                    >
+                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: "Anuphan"}}>
                         เลือกที่อยู่เป็น :
                     </Typography>
 
@@ -172,15 +121,8 @@ const EditAddressReceiverPage = () => {
                                 key={label}
                                 onClick={() => setSelected(label)}
                                 variant="contained"
-                                sx={{
-                                    maxWidth: "90px",
-                                    height: "30px",
-                                    borderRadius: "8px",
-                                    backgroundColor: selected === label ? "#BF0005" : "#FFF",
-                                    color: selected === label ? "#FFF" : "#BF0005",
-                                    border: "1px solid #BF0005",
-                                    fontFamily: "Anuphan",
-                                    fontSize: "12px",
+                                sx={{ maxWidth: "90px", height: "30px", borderRadius: "8px", backgroundColor: selected === label ? "#BF0005" : "#FFF",
+                                    color: selected === label ? "#FFF" : "#BF0005", border: "1px solid #BF0005", fontFamily: "Anuphan", fontSize: "12px",
                                     "&:hover": {
                                         backgroundColor: "#BF0005",
                                         color: "#FFF",
@@ -193,16 +135,8 @@ const EditAddressReceiverPage = () => {
                     </Box>
                 </Box>
                 <Box>
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        sx={{
-                            width: "100%",
-                            maxWidth: "400px",
-                            height: "50px",
-                            borderRadius: "8px",
-                            backgroundColor: "#BF0005",
-                            fontFamily: 'Anuphan',
+                    <Button type="submit" variant="contained"
+                        sx={{ width: "100%", maxWidth: "400px", height: "50px", borderRadius: "8px", backgroundColor: "#BF0005", fontFamily: 'Anuphan',
                             "&:hover": { backgroundColor: "#D53F44", },
                         }}
                         onClick={handleConfrimAddress}
