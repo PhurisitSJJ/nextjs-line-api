@@ -158,13 +158,14 @@ const HomePage = () => {
                                     justifyContent: "space-between",
                                     p: 2,
                                     textAlign: "center",
-                                    height: "170px",
+                                    height: "140px",
                                     border: "1px solid #D2D2D2",
                                     borderRadius: "8px",
                                     transition: "0.3s",
                                     cursor: "pointer",
-                                    "&:hover": { boxShadow: 3, backgroundColor: "#D53F44", color: "#FFF" },
+                                    "&:hover": { backgroundColor: "#BF0005", color: "#FFF", border: "1px solid #BF0005"},
                                     "&:hover img": { filter: "brightness(0) invert(1)" },
+                                    "&:hover .MuiTypography-root": { color: "#FFF" },
                                 }}
                             >
                                 <CardMedia
@@ -172,14 +173,15 @@ const HomePage = () => {
                                     image={item.img}
                                     alt={item.title}
                                     sx={{
-                                        mt: 1,
-                                        width: "80px",
-                                        height: "80px",
+                                        mt: 1.5,
+                                        width: "60px",
+                                        height: "60px",
                                         objectFit: "contain",
                                     }}
                                 />
                                 <CardContent>
-                                    <Typography variant="body1" sx={{ fontFamily: 'Anuphan', fontSize: '16px' }}>
+                                    <Typography variant="body1" 
+                                    sx={{ mt: -1, fontFamily: 'Anuphan', fontSize: '14px', color: "#6B6B6B", }}>
                                         {item.title}
                                     </Typography>
                                 </CardContent>

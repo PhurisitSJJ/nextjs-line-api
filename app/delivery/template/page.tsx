@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Button, Container, TextField, Typography } from "@mui/material";
+import { Box, Button, Container, Divider, TextField, Typography } from "@mui/material";
 import MemberNavbar from "@/app/utils/components/MemberNavber";
 import { useState } from "react";
 
@@ -21,17 +21,8 @@ const TemplateDeliveryPage = () => {
     return (
         <>
             <MemberNavbar />
-            <Container
-                maxWidth="xs"
-                sx={{
-                    pt: 5,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'top',
-                    height: '100vh',
-                    px: 2,
-                }}>
-
+            <Container maxWidth="xs"
+                sx={{ pt: 5, display: 'flex', flexDirection: 'column', justifyContent: 'top', height: '100vh', px: 2, }}>
                 <Box sx={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', mb: 1.5, }}>
                     <Typography variant="body1" sx={{ mb: 0.5, color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan' }}>
                         วันที่
@@ -56,7 +47,7 @@ const TemplateDeliveryPage = () => {
                     />
                 </Box>
 
-                <Box sx={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', mb: 3, }}>
+                <Box sx={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                     <Typography variant="body1" sx={{ mb: 0.5, color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan' }}>
                         ค้นหา
                     </Typography>
@@ -81,23 +72,26 @@ const TemplateDeliveryPage = () => {
                         }}
                     />
                 </Box>
+
+                <Divider sx={{ mt: 2, mb: 2, border: "1px solid #BF0005"}}/>
                 
                 
                 {searchText && (
-                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, pb: 5 }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2,  }}>
                         {filteredList.length > 0 ? (
                             filteredList.map((item, index) => (
-                                <Box key={index} sx={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', mb: 1.5 }}>
-                                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1 }}>
-                                        <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan' }}>
+                                <Box key={index} sx={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                                    <Box sx={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', mb: 1}}>
+                                        <Typography variant="body1" sx={{ mb: 0.5, color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan' }}>
                                             ผู้ส่ง
                                         </Typography>
                                         <TextField
                                             value={item.sender}
                                             type="text"
+                                            disabled
                                             sx={{
                                                 width: "100%",
-                                                maxWidth: "350px",
+                                                maxWidth: "400px",
                                                 "& .MuiOutlinedInput-root": {
                                                     fontFamily: 'Anuphan',
                                                     height: "50px",
@@ -110,16 +104,18 @@ const TemplateDeliveryPage = () => {
                                             }}
                                         />
                                     </Box>
-                                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                                        <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan' }}>
+
+                                    <Box sx={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                                        <Typography variant="body1" sx={{ mb: 0.5, color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan' }}>
                                             ผู้รับ
                                         </Typography>
                                         <TextField
                                             value={item.receiver}
                                             type="text"
+                                            disabled 
                                             sx={{
                                                 width: "100%",
-                                                maxWidth: "350px",
+                                                maxWidth: "400px",
                                                 "& .MuiOutlinedInput-root": {
                                                     fontFamily: 'Anuphan',
                                                     height: "50px",
@@ -132,7 +128,7 @@ const TemplateDeliveryPage = () => {
                                             }}
                                         />
                                     </Box>
-                                    <Box sx={{ display: 'flex', justifyContent: 'end', mt: 2, gap: 2 }}>
+                                    <Box sx={{ display: 'flex', justifyContent: 'end', mt: 1, gap: 2 }}>
                                         <Button
                                             variant="contained"
                                             sx={{

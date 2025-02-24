@@ -18,145 +18,71 @@ const ViewDeliveryPage = () => {
     return (
         <>
             <MemberNavbar />
-            <Container
-                maxWidth="xs"
-                sx={{
-                    pt: 5,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'top',
-                    height: '100vh',
-                    px: 2,
-                }}>
-
-                <Typography
-                    variant="h5"
-                    sx={{
-                        mb: 2,
-                        color: "#6B6B6B",
-                        fontSize: "20px",
-                        fontFamily: 'Anuphan'
-                    }}
-                >
+            <Container maxWidth="xs" sx={{ pt: 5, display: 'flex', flexDirection: 'column', justifyContent: 'top', height: '100vh', px: 2}}>
+                <Typography variant="h5"
+                    sx={{ mb: 2, color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan'}}>
                     ข้อมูลผู้ส่ง
                 </Typography>
 
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', mb: 1, gap: 1 }}>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan', minWidth: '100px' }}>
+                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', minWidth: '100px' }}>
                         ชื่อผู้ส่ง :
                     </Typography>
-                    <Typography
-                        variant="h5"
-                        sx={{
-                            color: "#6B6B6B",
-                            fontSize: "16px",
-                            fontFamily: 'Anuphan',
-                            flex: 1
-                        }}
-                    >
+                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', flex: 1 }}>
                         สมหญิง สุขใจ
                     </Typography>
                 </Box>
 
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', mb: 1, gap: 1 }}>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan', minWidth: '100px' }}>
+                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', minWidth: '100px' }}>
                         เบอร์โทรศัพท์ :
                     </Typography>
-                    <Typography
-                        variant="h5"
-                        sx={{
-                            color: "#6B6B6B",
-                            fontSize: "16px",
-                            fontFamily: 'Anuphan',
-                            flex: 1
-                        }}
-                    >
+                    <Typography variant="body1"
+                        sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', flex: 1 }}>
                         0981237081
                     </Typography>
                 </Box>
 
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'start', gap: 1 }}>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan', minWidth: '100px' }}>
+                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', minWidth: '100px' }}>
                         ที่อยู่ :
                     </Typography>
-                    <Typography
-                        variant="h5"
-                        sx={{
-                            color: "#6B6B6B",
-                            fontSize: "16px",
-                            fontFamily: 'Anuphan',
-                            whiteSpace: "normal",
-                            wordBreak: "break-word",
-                            flex: 1
-                        }}
-                    >
+                    <Typography variant="body1"
+                        sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', whiteSpace: "normal", wordBreak: "break-word", flex: 1}}>
                         1/10 บ้านสุขใจ ต.แกดำ อ.แกดำ จ.มหาสารคาม 44190
                     </Typography>
                 </Box>
 
                 <Divider sx={{ mt: 2, mb: 2, border: "1px solid #BF0005" }} />
 
-                <Typography
-                    variant="h5"
-                    sx={{
-                        mb: 2,
-                        color: "#6B6B6B",
-                        fontSize: "20px",
-                        fontFamily: 'Anuphan'
-                    }}
-                >
+                <Typography variant="h5" sx={{ mb: 2, color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan'}}>
                     ข้อมูลผู้รับ
                 </Typography>
 
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', mb: 1, gap: 1 }}>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan', minWidth: '100px' }}>
+                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', minWidth: '100px' }}>
                         ชื่อผู้รับ :
                     </Typography>
-                    <Typography
-                        variant="h5"
-                        sx={{
-                            color: "#6B6B6B",
-                            fontSize: "16px",
-                            fontFamily: 'Anuphan',
-                            flex: 1
-                        }}
-                    >
+                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', flex: 1}}>
                         ขนมปัง ฟาร์มเฮ้า
                     </Typography>
                 </Box>
 
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', mb: 1, gap: 1 }}>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan', minWidth: '100px' }}>
+                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', minWidth: '100px' }}>
                         เบอร์โทรศัพท์ :
                     </Typography>
-                    <Typography
-                        variant="h5"
-                        sx={{
-                            color: "#6B6B6B",
-                            fontSize: "16px",
-                            fontFamily: 'Anuphan',
-                            flex: 1
-                        }}
-                    >
+                    <Typography variant="body1"sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', flex: 1 }}>
                         0895687897
                     </Typography>
                 </Box>
 
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'start', gap: 1 }}>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan', minWidth: '100px' }}>
+                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', minWidth: '100px' }}>
                         ที่อยู่ :
                     </Typography>
-                    <Typography
-                        variant="h5"
-                        sx={{
-                            color: "#6B6B6B",
-                            fontSize: "16px",
-                            fontFamily: 'Anuphan',
-                            whiteSpace: "normal",
-                            wordBreak: "break-word",
-                            flex: 1
-                        }}
-                    >
+                    <Typography variant="body1"
+                        sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', whiteSpace: "normal", wordBreak: "break-word", flex: 1 }}>
                         1/10 บ้านทรายทอง ต.ทรายแดง อ.ทรายเข้าตา จ.กรุงเทพมหานคร 10000
                     </Typography>
                 </Box>

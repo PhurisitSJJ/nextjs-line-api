@@ -135,7 +135,7 @@ const AddAddressReceiverPage = () => {
                             fontFamily: 'Anuphan'
                         }}
                     >
-                        เลือกเป็นที่อยู่เริ่มต้น :
+                        เลือกเป็นที่อยู่ตั้งต้น :
                     </Typography>
 
                     <Switch
