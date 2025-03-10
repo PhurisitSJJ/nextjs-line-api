@@ -10,10 +10,15 @@ import CallIcon from '@mui/icons-material/Call';
 import PlaceIcon from '@mui/icons-material/Place';
 import ClearIcon from "@mui/icons-material/Clear";
 import IconButton from "@mui/material/IconButton";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useRouter } from "next/navigation";
 
 const OrdersPage = () => {
     const router = useRouter();
+
+    const handleBack = () => {
+        router.push('/homepage');
+    }
 
     const handleViewOrders = () => {
         router.push('/orders/view')
@@ -46,7 +51,26 @@ const OrdersPage = () => {
         <>
             <MemberNavbar />
             <Container maxWidth="xs" sx={{ pt: 5, display: 'flex', flexDirection: 'column', height: '100vh', px: 2 }}>
-
+                <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center', mb: 2 }}>
+                    <Button
+                        startIcon={<ArrowBackIcon />}
+                        onClick={handleBack}
+                        sx={{
+                            color: "#BF0005",
+                            fontSize: "16px",
+                            fontFamily: 'Anuphan',
+                            "&:hover": { color: "#2200FF" },
+                            "&:hover .MuiTypography-root": { color: "#2200FF" },
+                        }}
+                    >
+                        <Typography variant="h5" sx={{ color: "#BF0005", fontSize: "16px", fontFamily: 'Anuphan', }}>
+                            ย้อนกลับ
+                        </Typography>
+                    </Button>
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                        / สินค้ารอส่ง
+                    </Typography>
+                </Box>
                 <Box sx={{ display: "flex", alignItems: 'center', gap: 2, mb: 2 }}>
                     <TextField
                         type="date"

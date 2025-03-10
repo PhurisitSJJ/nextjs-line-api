@@ -4,9 +4,16 @@ import { useState } from "react";
 import { Container, Typography, Button, Box } from "@mui/material";
 import MemberNavbar from "@/app/utils/components/MemberNavber";
 import CheckIcon from '@mui/icons-material/Check';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useRouter } from "next/navigation";
 
 const LanguagePage = () => {
+    const router = useRouter();
     const [language, setLanguage] = useState("th");
+
+    const handleBack = () => {
+        router.push('/settings');
+    }
 
     const handleSelectLanguage = (lang: string) => {
         setLanguage(lang);
@@ -16,9 +23,26 @@ const LanguagePage = () => {
         <>
             <MemberNavbar />
             <Container maxWidth="xs" sx={{ pt: 5, display: 'flex', flexDirection: 'column', height: '100vh', px: 2 }}>
-                <Typography variant="h6" sx={{ color: "#6B6B6B", fontFamily: 'Anuphan', mb: 1.5 }}>
-                    เลือกภาษา
-                </Typography>
+                <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center', mb: 2 }}>
+                    <Button
+                        startIcon={<ArrowBackIcon />}
+                        onClick={handleBack}
+                        sx={{
+                            color: "#BF0005",
+                            fontSize: "16px",
+                            fontFamily: 'Anuphan',
+                            "&:hover": { color: "#2200FF" },
+                            "&:hover .MuiTypography-root": { color: "#2200FF" },
+                        }}
+                    >
+                        <Typography variant="h5" sx={{ color: "#BF0005", fontSize: "16px", fontFamily: 'Anuphan', }}>
+                            ย้อนกลับ
+                        </Typography>
+                    </Button>
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                        / เลือกภาษา
+                    </Typography>
+                </Box>
 
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
                     <Button

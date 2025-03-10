@@ -1,17 +1,42 @@
 'use client';
 
-import { Card, Container, Typography } from "@mui/material";
+import { Box, Button, Card, Container, Typography } from "@mui/material";
 import MemberNavbar from "@/app/utils/components/MemberNavber";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useRouter } from "next/navigation";
 
 
 const TermsAndConditionsPage = () => {
+    const router = useRouter();
+
+    const handleBack = () => {
+        router.push('/settings');
+    }
+
     return (
         <>
             <MemberNavbar />
             <Container maxWidth="xs" sx={{ pt: 5, display: 'flex', flexDirection: 'column', height: '100vh', px: 2, pb: 5 }}>
-                <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
-                    ข้อกำหนดและเงื่อนไขการบริการ
-                </Typography>
+                <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center', mb: 2 }}>
+                    <Button
+                        startIcon={<ArrowBackIcon />}
+                        onClick={handleBack}
+                        sx={{
+                            color: "#BF0005",
+                            fontSize: "16px",
+                            fontFamily: 'Anuphan',
+                            "&:hover": { color: "#2200FF" },
+                            "&:hover .MuiTypography-root": { color: "#2200FF" },
+                        }}
+                    >
+                        <Typography variant="h5" sx={{ color: "#BF0005", fontSize: "16px", fontFamily: 'Anuphan', }}>
+                            ย้อนกลับ
+                        </Typography>
+                    </Button>
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                        / ข้อกำหนดและเงื่อนไขการบริการ
+                    </Typography>
+                </Box>
 
                 <Card sx={{
                     p: 2,
@@ -20,7 +45,7 @@ const TermsAndConditionsPage = () => {
                     textAlign: 'center',
                     width: "100%",
                     maxWidth: "400px",
-                    overflowY: "auto",  
+                    overflowY: "auto",
                 }}>
                     <Typography
                         variant="body1"
@@ -34,16 +59,16 @@ const TermsAndConditionsPage = () => {
                             fontFamily: 'Anuphan',
                         }}
                     >
-                        ข้อกำหนดและเงื่อนไขต่างๆ ดังต่อไปนี้<br />  
+                        ข้อกำหนดและเงื่อนไขต่างๆ ดังต่อไปนี้<br />
                         แสดงข้อกำหนดและเงื่อนไขในการใช้งานเว็บไซต์ https://www.thaicom.net ของบริษัทไทยคม จำกัด (มหาชน)
-                        ในการเข้าชมเว็บไซต์นี้ บริษัทฯ ถือว่าคุณยอมรับข้อกำหนดและเงื่อนไขเหล่านี้ โปรดระงับใช้ www.thaicom.net 
+                        ในการเข้าชมเว็บไซต์นี้ บริษัทฯ ถือว่าคุณยอมรับข้อกำหนดและเงื่อนไขเหล่านี้ โปรดระงับใช้ www.thaicom.net
                         ต่อไปหากคุณไม่ยอมรับข้อกำหนดและเงื่อนไขทั้งหมดที่ระบุไว้ในหน้านี้
-                        คำที่ใช้ต่อไปนี้ ใช้กับข้อกำหนดและเงื่อนไข คำชี้แจงสิทธิ์ส่วนบุคคล ประกาศความรับผิดชอบ และข้อตกลงทั้งหมด 
-                        คำว่า “ลูกค้า” “คุณ” และ “ของคุณ” หมายถึงบุคคลที่เข้าสู่เว็บไซต์นี้ และยอมรับข้อกำหนดและเงื่อนไขของบริษัท 
+                        คำที่ใช้ต่อไปนี้ ใช้กับข้อกำหนดและเงื่อนไข คำชี้แจงสิทธิ์ส่วนบุคคล ประกาศความรับผิดชอบ และข้อตกลงทั้งหมด
+                        คำว่า “ลูกค้า” “คุณ” และ “ของคุณ” หมายถึงบุคคลที่เข้าสู่เว็บไซต์นี้ และยอมรับข้อกำหนดและเงื่อนไขของบริษัท
                         “บริษัท” “ตัวเราเอง” “เรา” “ของเรา” และ “พวกเรา” หมายถึง บริษัท ไทยคม จำกัด (มหาชน) “บุคคล”
                         หรือ “เรา” หมายถึงทั้งลูกค้าและบริษัทเอง ข้อกำหนดทั้งหมดอ้างถึงข้อเสนอการยอมรับและการพิจารณาการชำระเงิน
                         ที่จำเป็นเพื่อดำเนินการกระบวนการช่วยเหลือลูกค้าของเรา ในลักษณะที่เหมาะสมที่สุด เพื่อวัตถุประสงค์ที่ชัดเจน
-                        ในการตอบสนองความต้องการของลูกค้า ในส่วนที่เกี่ยวกับการให้บริการตามที่ระบุไว้ของบริษัท 
+                        ในการตอบสนองความต้องการของลูกค้า ในส่วนที่เกี่ยวกับการให้บริการตามที่ระบุไว้ของบริษัท
                         และอยู่ภายใต้กฎหมายที่มีอยู่ในประเทศไทย การใช้คำต่างๆข้างต้นหรือคำอื่น ๆ ใด ไม่ว่าจะเป็นเอกพจน์และหรือพหูพจน์
                         การใช้ตัวอักษรพิมพ์ใหญ่และหรือเขา เธอหรือพวกเขาจะถูกนำมาใช้แทนกันและดังนั้นจึงอ้างถึงสิ่งเดียวกัน
                         คุกกี้

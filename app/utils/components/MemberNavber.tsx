@@ -46,7 +46,7 @@ const MemberNavbar = () => {
 
                 {isMobile ? (
                     <>
-                        <Box sx={{ display: 'flex', alignItems: 'left', gap: 2 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'left', gap: 2, cursor: "pointer" }}>
                             <IconButton edge="start"  onClick={() => setDrawerOpen(true)}>
                                 <MenuIcon />
                             </IconButton>
@@ -97,8 +97,8 @@ const MemberNavbar = () => {
                         </Drawer>
                     </>
                 ) : (
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                        <Image src="/assets/logo/nim.png" alt="Logo" width={70} height={40} />
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 4, cursor:"pointer" }}>
+                        <Image src="/assets/logo/nim.png" alt="Logo" width={70} height={40} onClick={handleHomePage}/>
 
                         {menuItems.map((item) => (
                             <Typography

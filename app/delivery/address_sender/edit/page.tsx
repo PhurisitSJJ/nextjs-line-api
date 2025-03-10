@@ -2,13 +2,31 @@
 
 import { Box, Button, Container, Switch, TextField, Typography } from "@mui/material";
 import MemberNavbar from "@/app/utils/components/MemberNavber";
-import { useState } from "react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 const EditAddressSenderPage = () => {
     const router = useRouter();
     const [checked, setChecked] = useState(true);
-    const [selected, setSelected] = useState("บ้าน");
+
+    const [name, setName] = useState('');
+    const [tel, setTel] = useState('');
+    const [addressDetail, setAddressDetail] = useState('');
+    const [locationInfo, setLocationInfo] = useState('');
+    const [type, setType] = useState('');
+
+    useEffect(() => {
+        setName('สมหญิง สุขใจ');
+        setTel('0891237081');
+        setAddressDetail('123/65 บ้านสุขใจ');
+        setLocationInfo('ต.แกดำ อ.แกดำ จ.มหาสารคาม 44190');
+        setType('บ้าน');
+    }, []);
+
+    const handleBack = () => {
+        router.push('/delivery/address_sender');
+    }
 
     const handleConfrimAddress = () => {
         router.push('/delivery/address_sender');
@@ -21,37 +39,31 @@ const EditAddressSenderPage = () => {
     return (
         <>
             <MemberNavbar />
-            <Container
-                maxWidth="xs"
-                sx={{
-                    pt: 5,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'top',
-                    height: '100vh',
-                    px: 2,
-                }}>
-
-                <Box sx={{
-                    display: 'flex',
-                    justifyContent: 'start',
-                    alignItems: 'center',
-                }}>
-                    <Typography
-                        variant="h5"
+            <Container maxWidth="xs" sx={{ pt: 5, display: 'flex', flexDirection: 'column', justifyContent: 'top', height: '100vh', px: 2, }}>
+                <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center', mb: 2 }}>
+                    <Button
+                        startIcon={<ArrowBackIcon />}
+                        onClick={handleBack}
                         sx={{
-                            mb: 2,
-                            color: "#6B6B6B",
-                            fontSize: "20px",
-                            fontFamily: 'Anuphan'
+                            color: "#BF0005",
+                            fontSize: "16px",
+                            fontFamily: 'Anuphan',
+                            "&:hover": { color: "#2200FF" },
+                            "&:hover .MuiTypography-root": { color: "#2200FF" },
                         }}
                     >
-                        แก้ไขที่อยู่
+                        <Typography variant="h5" sx={{ color: "#BF0005", fontSize: "16px", fontFamily: 'Anuphan', }}>
+                            ย้อนกลับ
+                        </Typography>
+                    </Button>
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                        / แก้ไขที่อยู่
                     </Typography>
                 </Box>
                 <Box sx={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                     <TextField
-                        placeholder="ชื่อ - นามสกุล"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                         type="text"
                         sx={{
                             mb: 2,
@@ -70,7 +82,8 @@ const EditAddressSenderPage = () => {
                         }}
                     />
                     <TextField
-                        placeholder="เบอร์โทรศัพท์"
+                        value={tel}
+                        onChange={(e) => setTel(e.target.value)}
                         type="tel"
                         sx={{
                             mb: 2,
@@ -89,7 +102,8 @@ const EditAddressSenderPage = () => {
                         }}
                     />
                     <TextField
-                        placeholder="บ้านเลขที่, ซอย, หมู่, ถนน"
+                        value={addressDetail}
+                        onChange={(e) => setAddressDetail(e.target.value)}
                         type="text"
                         sx={{
                             mb: 2,
@@ -109,7 +123,8 @@ const EditAddressSenderPage = () => {
                     />
 
                     <TextField
-                        placeholder="จังหวัด, เขต/อำเภอ, แขวง/ตำบล, รหัสไปรษณีย์"
+                        value={locationInfo}
+                        onChange={(e) => setLocationInfo(e.target.value)}
                         type="text"
                         sx={{
                             mb: 2,
@@ -129,15 +144,9 @@ const EditAddressSenderPage = () => {
                     />
                 </Box>
 
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: "center", mb: 1 }}>
-                    <Typography
-                        variant="body1"
-                        sx={{
-                            color: "#6B6B6B",
-                            fontSize: "16px",
-                            fontFamily: 'Anuphan'
-                        }}
-                    >
+                <Box sx={{ mb: 1, display: 'flex', justifyContent: 'space-between', alignItems: "center", width: "100%", maxWidth: "400px" }}>
+                    <Typography variant="body1"
+                        sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan' }}>
                         เลือกเป็นที่อยู่ตั้งต้น :
                     </Typography>
 
@@ -154,15 +163,8 @@ const EditAddressSenderPage = () => {
                         }}
                     />
                 </Box>
-                <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
-                    <Typography
-                        variant="body1"
-                        sx={{
-                            color: "#6B6B6B",
-                            fontSize: "16px",
-                            fontFamily: "Anuphan",
-                        }}
-                    >
+                <Box sx={{ mb: 2, display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", maxWidth: "400px" }}>
+                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: "Anuphan", }}>
                         เลือกที่อยู่เป็น :
                     </Typography>
 
@@ -170,14 +172,14 @@ const EditAddressSenderPage = () => {
                         {["ที่ทำงาน", "บ้าน"].map((label) => (
                             <Button
                                 key={label}
-                                onClick={() => setSelected(label)}
+                                onClick={() => setType(label)} 
                                 variant="contained"
                                 sx={{
                                     maxWidth: "90px",
                                     height: "30px",
                                     borderRadius: "8px",
-                                    backgroundColor: selected === label ? "#BF0005" : "#FFF",
-                                    color: selected === label ? "#FFF" : "#BF0005",
+                                    backgroundColor: type === label ? "#BF0005" : "#FFF",
+                                    color: type === label ? "#FFF" : "#BF0005",
                                     border: "1px solid #BF0005",
                                     fontFamily: "Anuphan",
                                     fontSize: "12px",
@@ -210,7 +212,6 @@ const EditAddressSenderPage = () => {
                         ยืนยัน
                     </Button>
                 </Box>
-
             </Container>
         </>
     );

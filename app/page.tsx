@@ -24,6 +24,10 @@ const LoginPage = () => {
     router.push('/register');
   }
 
+  const handleForgetPassword = () => {
+    router.push('/forget_password');
+  }
+
   const hendleLoginLineLiff = () => {
     try {
       liff.login()
@@ -34,31 +38,9 @@ const LoginPage = () => {
 
 
   return (
-    <Container maxWidth="xs" sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: '100vh',
-      px: 2,
-    }}>
-
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          p: 2,
-          bgcolor: 'white',
-          mb: 5
-        }}
-      >
-        <Image
-          src="/assets/logo/nim.png"
-          alt="Logo"
-          width={200}
-          height={100}
-        />
+    <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', px: 2, }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', p: 2, bgcolor: 'white', mb: 5 }} >
+        <Image src="/assets/logo/nim.png" alt="Logo" width={200} height={100} />
       </Box>
 
       <TextField
@@ -126,17 +108,9 @@ const LoginPage = () => {
       />
 
       <Box sx={{ width: "100%", maxWidth: "400px", display: "flex", justifyContent: "end" }}>
-        <Typography
-          variant="body2"
-          sx={{
-            mb: 4,
-            color: "#6B6B6B",
-            cursor: "pointer",
-            fontFamily: 'Anuphan',
-            "&:hover": { textDecoration: "underline" }
-          }}
-        // onClick={}
-        >
+        <Typography variant="body2"
+          onClick={handleForgetPassword}
+          sx={{ mb: 4, color: "#6B6B6B", cursor: "pointer", fontFamily: 'Anuphan', "&:hover": { textDecoration: "underline" } }}>
           ลืมรหัสผ่าน
         </Typography>
       </Box>
@@ -180,13 +154,7 @@ const LoginPage = () => {
         }}
         onClick={hendleLoginLineLiff}
       >
-        <Image
-          src="/assets/line/line.png"
-          alt="Line Icon"
-          width={40}
-          height={40}
-          style={{ filter: "invert(1)" }}
-        />
+        <Image src="/assets/line/line.png" alt="Line Icon" width={40} height={40} style={{ filter: "invert(1)" }} />
       </IconButton>
     </Container>
   );

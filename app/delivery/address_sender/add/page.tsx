@@ -2,6 +2,8 @@
 
 import { Box, Button, Container, Switch, TextField, Typography } from "@mui/material";
 import MemberNavbar from "@/app/utils/components/MemberNavber";
+import Address from "@/app/utils/components/sender/Address";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -10,6 +12,10 @@ const AddAddressSenderPage = () => {
     const router = useRouter();
     const [checked, setChecked] = useState(true);
     const [selected, setSelected] = useState("บ้าน");
+
+    const handleBack = () => {
+        router.push('/delivery/address_sender');
+    }
 
     const handleConfrimAddress = () => {
         router.push('/delivery/address_sender');
@@ -22,28 +28,25 @@ const AddAddressSenderPage = () => {
     return (
         <>
             <MemberNavbar />
-            <Container
-                maxWidth="xs"
-                sx={{
-                    pt: 5,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'top',
-                    height: '100vh',
-                    px: 2,
-                }}>
-
-                <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
-                    <Typography
-                        variant="h5"
+            <Container maxWidth="xs" sx={{ pt: 5, display: 'flex', flexDirection: 'column', justifyContent: 'top', height: '100vh', px: 2 }}>
+                <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center', mb: 2 }}>
+                    <Button
+                        startIcon={<ArrowBackIcon />}
+                        onClick={handleBack}
                         sx={{
-                            mb: 2,
-                            color: "#6B6B6B",
-                            fontSize: "20px",
-                            fontFamily: 'Anuphan'
+                            color: "#BF0005",
+                            fontSize: "16px",
+                            fontFamily: 'Anuphan',
+                            "&:hover": { color: "#2200FF" },
+                            "&:hover .MuiTypography-root": { color: "#2200FF" },
                         }}
                     >
-                        เพิ่มที่อยู่ใหม่
+                        <Typography variant="h5" sx={{ color: "#BF0005", fontSize: "16px", fontFamily: 'Anuphan', }}>
+                            ย้อนกลับ
+                        </Typography>
+                    </Button>
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                        / เพิ่มที่อยู่ผู้ส่งใหม่
                     </Typography>
                 </Box>
                 <Box sx={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
@@ -104,7 +107,7 @@ const AddAddressSenderPage = () => {
                             },
                         }}
                     />
-
+                    
                     <TextField
                         placeholder="จังหวัด, เขต/อำเภอ, แขวง/ตำบล, รหัสไปรษณีย์"
                         type="text"
@@ -126,15 +129,8 @@ const AddAddressSenderPage = () => {
                     />
                 </Box>
 
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: "center", mb: 1 }}>
-                    <Typography
-                        variant="body1"
-                        sx={{
-                            color: "#6B6B6B",
-                            fontSize: "16px",
-                            fontFamily: 'Anuphan'
-                        }}
-                    >
+                <Box sx={{ mb: 1, display: 'flex', justifyContent: 'space-between', alignItems: "center", width: "100%", maxWidth: "400px" }}>
+                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan' }}>
                         เลือกเป็นที่อยู่ตั้งต้น :
                     </Typography>
 
@@ -151,26 +147,19 @@ const AddAddressSenderPage = () => {
                         }}
                     />
                 </Box>
-                <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
-                    <Typography
-                        variant="body1"
-                        sx={{
-                            color: "#6B6B6B",
-                            fontSize: "16px",
-                            fontFamily: "Anuphan",
-                        }}
-                    >
+                <Box sx={{ mb: 2, display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", maxWidth: "400px" }}>
+                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: "Anuphan", }} >
                         เลือกที่อยู่เป็น :
                     </Typography>
 
-                    <Box sx={{ display: "flex", gap: 1}}>
+                    <Box sx={{ display: "flex", gap: 1 }}>
                         {["ที่ทำงาน", "บ้าน"].map((label) => (
                             <Button
                                 key={label}
                                 onClick={() => setSelected(label)}
                                 variant="contained"
                                 sx={{
-                                    maxWidth: "90px",
+                                    width: "80px",
                                     height: "30px",
                                     borderRadius: "8px",
                                     backgroundColor: selected === label ? "#BF0005" : "#FFF",
@@ -202,7 +191,7 @@ const AddAddressSenderPage = () => {
                             fontFamily: 'Anuphan',
                             "&:hover": { backgroundColor: "#D53F44", },
                         }}
-                    onClick={handleConfrimAddress}
+                        onClick={handleConfrimAddress}
                     >
                         ยืนยัน
                     </Button>

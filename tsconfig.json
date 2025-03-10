@@ -28,7 +28,7 @@
     "**/*.tsx", 
     ".next/types/**/*.ts",
     "app/assets/**/*.png",
-    "app/assets/**/*.jpg",
+    "app/assets/**/*.jpg", "app/utils/components/sender/Address.tsx",
   ],
   "exclude": ["node_modules"]
 }

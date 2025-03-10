@@ -19,17 +19,7 @@ const DeliveryPage = () => {
     return (
         <>
             <MemberNavbar />
-            <Container 
-                maxWidth="xs"
-                sx={{
-                    pt: 5,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'top',
-                    height: '100vh',
-                    px: 2,
-                }}>
-
+            <Container maxWidth="xs" sx={{ pt: 5, display: 'flex', flexDirection: 'column', justifyContent: 'top', height: '100vh', px: 2, }}>
                 <Button
                     type="submit"
                     variant="contained"
