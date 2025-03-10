@@ -280,7 +280,7 @@ const CreateDeliveryPage = () => {
 
 
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                    {productList.map((product, index) => (
+                    {productList.map((product) => (
                         <Card key={product.p_id}
                             sx={{ p: 2, width: "100%", maxWidth: "400px", border: "1px solid #D2D2D2", borderRadius: "8px", boxShadow: 1, display: "flex", alignItems: "center", justifyContent: "space-between", cursor: "pointer" }}
                             onClick={handleEditProduct}
