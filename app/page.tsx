@@ -20,7 +20,8 @@ const LoginPage = () => {
     })
   }, [])
 
-  const handleLogin = () => {
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
     router.push('/register');
   }
 
@@ -43,95 +44,100 @@ const LoginPage = () => {
         <Image src="/assets/logo/nim.png" alt="Logo" width={200} height={100} />
       </Box>
 
-      <TextField
-        placeholder="เบอร์โทรศัพท์"
-        type="tel"
-        sx={{
-          mb: 2,
-          width: "100%",
-          maxWidth: "400px",
-          "& .MuiOutlinedInput-root": {
-            fontFamily: 'Anuphan',
+      <form onSubmit={handleLogin}>
+        <Box>
+          <TextField
+            placeholder="เบอร์โทรศัพท์"
+            type="tel"
+            sx={{
+              mb: 2,
+              width: "100%",
+              maxWidth: "400px",
+              "& .MuiOutlinedInput-root": {
+                fontFamily: 'Anuphan',
+                height: "50px",
+                borderRadius: "8px",
+                backgroundColor: "white",
+                transition: "background-color 0.3s ease",
+              },
+              "& .MuiOutlinedInput-root.Mui-focused": {
+                backgroundColor: "#f0f0f0",
+              },
+            }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <CallIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
+
+          <TextField
+            placeholder="รหัสผ่าน"
+            type={showPassword ? "text" : "password"}
+            sx={{
+              mb: 1,
+              width: "100%",
+              maxWidth: "400px",
+              "& .MuiOutlinedInput-root": {
+                fontFamily: 'Anuphan',
+                height: "50px",
+                borderRadius: "8px",
+                backgroundColor: "white",
+                transition: "background-color 0.3s ease",
+              },
+              "& .MuiOutlinedInput-root.Mui-focused": {
+                backgroundColor: "#f0f0f0",
+              },
+            }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <LockIcon />
+                </InputAdornment>
+              ),
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    onClick={() => setShowPassword(!showPassword)}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
+
+          <Box sx={{ width: "100%", maxWidth: "400px", display: "flex", justifyContent: "end" }}>
+            <Typography variant="body2"
+              onClick={handleForgetPassword}
+              sx={{ mb: 4, color: "#6B6B6B", cursor: "pointer", fontFamily: 'Anuphan', "&:hover": { textDecoration: "underline" } }}>
+              ลืมรหัสผ่าน
+            </Typography>
+          </Box>
+        </Box>
+
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{
+            mb: 2,
+            width: "100%",
+            maxWidth: "400px",
             height: "50px",
             borderRadius: "8px",
-            backgroundColor: "white",
-            transition: "background-color 0.3s ease",
-          },
-          "& .MuiOutlinedInput-root.Mui-focused": {
-            backgroundColor: "#f0f0f0",
-          },
-        }}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <CallIcon />
-            </InputAdornment>
-          ),
-        }}
-      />
-
-      <TextField
-        placeholder="รหัสผ่าน"
-        type={showPassword ? "text" : "password"}
-        sx={{
-          mb:1,
-          width: "100%",
-          maxWidth: "400px",
-          "& .MuiOutlinedInput-root": {
+            backgroundColor: "#BF0005",
             fontFamily: 'Anuphan',
-            height: "50px",
-            borderRadius: "8px",
-            backgroundColor: "white",
-            transition: "background-color 0.3s ease",
-          },
-          "& .MuiOutlinedInput-root.Mui-focused": {
-            backgroundColor: "#f0f0f0",
-          },
-        }}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <LockIcon />
-            </InputAdornment>
-          ),
-          endAdornment: (
-            <InputAdornment position="end">
-              <IconButton
-                onClick={() => setShowPassword(!showPassword)}
-                edge="end"
-              >
-                {showPassword ? <VisibilityOff /> : <Visibility />}
-              </IconButton>
-            </InputAdornment>
-          ),
-        }}
-      />
+            "&:hover": { backgroundColor: "#D53F44", },
+          }}
+          // onClick={handleLogin}
+        >
+          เข้าสู่ระบบ
+        </Button>
+      </form>
 
-      <Box sx={{ width: "100%", maxWidth: "400px", display: "flex", justifyContent: "end" }}>
-        <Typography variant="body2"
-          onClick={handleForgetPassword}
-          sx={{ mb: 4, color: "#6B6B6B", cursor: "pointer", fontFamily: 'Anuphan', "&:hover": { textDecoration: "underline" } }}>
-          ลืมรหัสผ่าน
-        </Typography>
-      </Box>
-
-      <Button
-        type="submit"
-        variant="contained"
-        sx={{
-          mb: 2,
-          width: "100%",
-          maxWidth: "400px",
-          height: "50px",
-          borderRadius: "8px",
-          backgroundColor: "#BF0005",
-          fontFamily: 'Anuphan',
-          "&:hover": { backgroundColor: "#D53F44", },
-        }}
-        onClick={handleLogin}
-      >
-        เข้าสู่ระบบ
-      </Button>
 
       <Box sx={{ width: "100%", maxWidth: "400px", display: "flex", alignItems: "center" }}>
         <Divider sx={{ flexGrow: 1 }} />

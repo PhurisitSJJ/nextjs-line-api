@@ -15,8 +15,7 @@ const ForgetPasswordPage = () => {
     }
 
     return (
-        <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',  height: '100vh',  px: 2, }}>
-
+        <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',  height: '100vh' }}>
             <Box sx={{ mb: 2, p: 2, display: 'flex', justifyContent: 'center', alignItems: 'center', bgcolor: 'white',}}>
                 <Image
                     src="/assets/logo/nim.png"

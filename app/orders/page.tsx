@@ -71,7 +71,10 @@ const OrdersPage = () => {
                         / สินค้ารอส่ง
                     </Typography>
                 </Box>
-                <Box sx={{ display: "flex", alignItems: 'center', gap: 2, mb: 2 }}>
+                <Box sx={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', mb: 1.5, }}>
+                    <Typography variant="body1" sx={{ mb: 0.5, color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan' }}>
+                        วันที่
+                    </Typography>
                     <TextField
                         type="date"
                         value={searchDate}
@@ -101,6 +104,7 @@ const OrdersPage = () => {
                         }} />
                 </Box>
 
+                <Box sx={{pb: 5}}>
                 {filteredReceipts.map((receipt) => (
                     <Box key={receipt.receipt_id} sx={{ mb: 1, p: 2, border: "1px solid #D2D2D2", borderRadius: "8px", width: "100%", maxWidth: "400px" }}>
                         <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'start', mb: 0.5, gap: 2 }}>
@@ -162,6 +166,7 @@ const OrdersPage = () => {
                         </Box>
                     </Box>
                 ))}
+                </Box>
             </Container>
         </>
     );

@@ -154,7 +154,7 @@ const SelectAddressPage = () => {
             const fullAddress = `${selectedProvince}, ${selectedDistrict}, ${selectedSubdistrict}, ${selectedZipcode}`;
             sessionStorage.setItem("selectedAddress", fullAddress);
 
-            router.replace(`/delivery/address_receiver/add`);
+            router.replace(`/delivery/address_sender/add`);
         }
     }, [selectedZipcode, router, selectedProvince, selectedDistrict, selectedSubdistrict]);
 

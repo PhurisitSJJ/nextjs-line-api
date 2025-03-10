@@ -41,21 +41,49 @@ const MemberNavbar = () => {
     ];
 
     return (
-        <AppBar position="static" sx={{ backgroundColor: '#FFF', borderBottom: '2px solid #BF0005'}}>
-            <Toolbar sx={{ px: 2, display: 'flex', justifyContent: 'space-between'}}>
+        <AppBar position="static" sx={{ backgroundColor: '#FFF', borderBottom: '2px solid #BF0005' }}>
+            <Toolbar sx={{ px: 2, display: "flex", justifyContent: "space-between" }}>
 
                 {isMobile ? (
                     <>
-                        <Box sx={{ display: 'flex', alignItems: 'left', gap: 2, cursor: "pointer" }}>
-                            <IconButton edge="start"  onClick={() => setDrawerOpen(true)}>
-                                <MenuIcon />
-                            </IconButton>
-                            <Image src="/assets/logo/nim.png" alt="Logo" width={70} height={40} onClick={handleHomePage}/>
-                        </Box>
+                        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
+                            <Box sx={{ display: "flex", alignItems: "left", gap: 2, cursor: "pointer" }}>
+                                <IconButton edge="start" onClick={() => setDrawerOpen(true)}>
+                                    <MenuIcon />
+                                </IconButton>
+                                <Image src="/assets/logo/nim.png" alt="Logo" width={70} height={40} onClick={handleHomePage} />
 
+                            </Box>
+                            <Typography variant="h5" sx={{ color: "#BF0005", fontSize: "18px", fontFamily: "Anuphan", textDecoration: "underline"}}>
+                                บริษัทเอบีซีดี จำกัด.
+                            </Typography>
+
+                            {/* รูปแบบมี Background */}
+                            {/* <Typography
+                                variant="h5"
+                                sx={{
+                                    border: "1px solid #BF0005",  // แก้ไขรูปแบบ border ให้ถูกต้อง
+                                    padding: "8px",  // เพิ่ม padding ให้ข้อความไม่ติดขอบ
+                                    background: "#BF0005",
+                                    color: "#FFF",
+                                    fontSize: "16px",
+                                    fontFamily: 'Anuphan',
+                                    borderRadius: "8px" // ถ้าต้องการให้ขอบมน
+                                }}
+                            >
+                                บริษัทเอบีซีดี จำกัด
+                            </Typography> */}
+
+                        </Box>
                         <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-                            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', p: 2, bgcolor: 'white' }}>
+                            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", p: 2, bgcolor: 'white' }}>
                                 <Image src="/assets/logo/nim.png" alt="Logo" width={150} height={100} />
+                            </Box>
+                            <Divider />
+                            <Box sx={{ p: 2, textAlign: "left" }}>
+                                <Typography variant="h5" sx={{ color: "#BF0005", fontSize: "18px", fontFamily: 'Anuphan' }}>
+                                    บริษัทเอบีซีดี จำกัด
+                                </Typography>
                             </Box>
                             <Divider />
                             <List sx={{ width: 250 }}>
@@ -70,7 +98,7 @@ const MemberNavbar = () => {
                                         >
                                             <ListItemText
                                                 primary={item.label}
-                                                primaryTypographyProps={{ sx: { fontFamily: 'Anuphan', textAlign: 'left' } }}
+                                                primaryTypographyProps={{ sx: { fontFamily: 'Anuphan', textAlign: "left" } }}
                                             />
                                         </ListItemButton>
                                     </ListItem>
@@ -78,7 +106,7 @@ const MemberNavbar = () => {
                             </List>
 
                             <Divider />
-                            <Box sx={{ p: 1, textAlign: 'center' }}>
+                            <Box sx={{ p: 1, textAlign: "center" }}>
                                 <Button
                                     variant="contained"
                                     color="secondary"
@@ -97,8 +125,8 @@ const MemberNavbar = () => {
                         </Drawer>
                     </>
                 ) : (
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 4, cursor:"pointer" }}>
-                        <Image src="/assets/logo/nim.png" alt="Logo" width={70} height={40} onClick={handleHomePage}/>
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 4, cursor: "pointer" }}>
+                        <Image src="/assets/logo/nim.png" alt="Logo" width={70} height={40} onClick={handleHomePage} />
 
                         {menuItems.map((item) => (
                             <Typography

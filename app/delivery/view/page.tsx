@@ -1,12 +1,17 @@
 'use client';
 
-import { Box, Card, Container, Divider, Typography } from "@mui/material";
+import { Box, Button, Card, Container, Divider, Typography } from "@mui/material";
 import MemberNavbar from "@/app/utils/components/MemberNavber";
-// import { useRouter } from "next/navigation";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useRouter } from "next/navigation";
 
 
 const ViewDeliveryPage = () => {
-    // const router = useRouter();
+    const router = useRouter();
+
+    const handleBack = () => {
+        router.push('/delivery/create')
+    }
 
     const productList = [
         { name: "ขนม", size: "30x30x40", quantity: 1, weight: "20.02", unit: "กล่อง" },
@@ -18,9 +23,29 @@ const ViewDeliveryPage = () => {
     return (
         <>
             <MemberNavbar />
-            <Container maxWidth="xs" sx={{ pt: 5, display: 'flex', flexDirection: 'column', justifyContent: 'top', height: '100vh', px: 2}}>
-                <Typography variant="h5"
-                    sx={{ mb: 2, color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan'}}>
+            <Container maxWidth="xs" sx={{ pt: 5, display: 'flex', flexDirection: 'column', justifyContent: 'top', height: '100vh', px: 2 }}>
+                <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
+                    <Button
+                        startIcon={<ArrowBackIcon />}
+                        onClick={handleBack}
+                        sx={{
+                            color: "#BF0005",
+                            fontSize: "16px",
+                            fontFamily: 'Anuphan',
+                            "&:hover": { color: "#2200FF" },
+                            "&:hover .MuiTypography-root": { color: "#2200FF" },
+                        }}
+                    >
+                        <Typography variant="h5" sx={{ color: "#BF0005", fontSize: "16px", fontFamily: 'Anuphan', }}>
+                            ย้อนกลับ
+                        </Typography>
+                    </Button>
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                        / รายละเอียดใบสินค้า
+                    </Typography>
+                </Box>
+
+                <Typography variant="h5" sx={{ mt: 2, mb: 2, color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
                     ข้อมูลผู้ส่ง
                 </Typography>
 
@@ -48,14 +73,14 @@ const ViewDeliveryPage = () => {
                         ที่อยู่ :
                     </Typography>
                     <Typography variant="body1"
-                        sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', whiteSpace: "normal", wordBreak: "break-word", flex: 1}}>
+                        sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', whiteSpace: "normal", wordBreak: "break-word", flex: 1 }}>
                         1/10 บ้านสุขใจ ต.แกดำ อ.แกดำ จ.มหาสารคาม 44190
                     </Typography>
                 </Box>
 
                 <Divider sx={{ mt: 2, mb: 2, border: "1px solid #BF0005" }} />
 
-                <Typography variant="h5" sx={{ mb: 2, color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan'}}>
+                <Typography variant="h5" sx={{ mb: 2, color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
                     ข้อมูลผู้รับ
                 </Typography>
 
@@ -63,7 +88,7 @@ const ViewDeliveryPage = () => {
                     <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', minWidth: '100px' }}>
                         ชื่อผู้รับ :
                     </Typography>
-                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', flex: 1}}>
+                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', flex: 1 }}>
                         ขนมปัง ฟาร์มเฮ้า
                     </Typography>
                 </Box>
@@ -72,7 +97,7 @@ const ViewDeliveryPage = () => {
                     <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', minWidth: '100px' }}>
                         เบอร์โทรศัพท์ :
                     </Typography>
-                    <Typography variant="body1"sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', flex: 1 }}>
+                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "14px", fontFamily: 'Anuphan', flex: 1 }}>
                         0895687897
                     </Typography>
                 </Box>

@@ -14,10 +14,10 @@ const AddressSenderPage = () => {
     const router = useRouter();
 
     const addressList = [
-        { name: "สมหญิง สุขใจ", tel: "0891237081", addressDetail: "123/65 บ้านสุขใจ", locationInfo: "ต.แกดำ อ.แกดำ จ.มหาสารคาม 44190", type: "บ้าน" },
-        { name: "สมหญิง สุขใจ", tel: "0891237081", addressDetail: "1/10 บ้านทรายทอง", locationInfo: "ต.ทรายแดง อ.ทรายเข้าตา จ.กรุงเทพมหานคร 10000", type: "ที่ทำงาน" },
-        { name: "ยายชา ตากาแฟ", tel: "0999995566", addressDetail: "99/9 บ้านนี้อยู่แล้วรวย", locationInfo: "ต.นาปรัง อ.ปง จ.พะเยา 56140", type: "ที่ทำงาน" },
-        { name: "สมชาย ใจดี", tel: "0999995566", addressDetail: "99/9 บ้านนี้อยู่แล้วรวย", locationInfo: "ต.นาปรัง อ.ปง จ.พะเยา 56140", type: "บ้าน" },
+        { id: "001", name: "สมหญิง สุขใจ", tel: "0891237081", addressDetail: "123/65 บ้านสุขใจ", locationInfo: "ต.แกดำ อ.แกดำ จ.มหาสารคาม 44190", type: "บ้าน" },
+        { id: "002", name: "สมหญิง สุขใจ", tel: "0891237081", addressDetail: "1/10 บ้านทรายทอง", locationInfo: "ต.ทรายแดง อ.ทรายเข้าตา จ.กรุงเทพมหานคร 10000", type: "ที่ทำงาน" },
+        { id: "003", name: "ยายชา ตากาแฟ", tel: "0999995566", addressDetail: "99/9 บ้านนี้อยู่แล้วรวย", locationInfo: "ต.นาปรัง อ.ปง จ.พะเยา 56140", type: "ที่ทำงาน" },
+        { id: "004", name: "สมชาย ใจดี", tel: "0999995566", addressDetail: "99/9 บ้านนี้อยู่แล้วรวย", locationInfo: "ต.นาปรัง อ.ปง จ.พะเยา 56140", type: "บ้าน" },
     ];
 
     const [searchText, setSearchText] = useState("");

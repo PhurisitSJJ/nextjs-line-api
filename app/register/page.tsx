@@ -14,7 +14,8 @@ const RegisterPage = () => {
     const [showConfrimPassword, setShowConfrimPassword] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
 
-    const handleRegister = () => {
+    const handleRegister = (e: React.FormEvent) => {
+        e.preventDefault();
         if (isChecked) {
             router.push('/confrim_otp');
         } else {
@@ -26,214 +27,161 @@ const RegisterPage = () => {
         setIsChecked(event.target.checked);
     };
 
-
-
     return (
-        <Container maxWidth="xs" sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100vh',
-            px: 2,
-        }}>
+        <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', px: 2 }}>
 
-            <Box
-                sx={{
-                    mb: 2,
-                    p: 2,
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    bgcolor: 'white',
-                }}
-            >
-                <Image
-                    src="/assets/logo/nim.png"
-                    alt="Logo"
-                    width={200}
-                    height={100}
-                />
+            <Box sx={{ mb: 2, p: 2, display: 'flex', justifyContent: 'center', alignItems: 'center', bgcolor: 'white', }}>
+                <Image src="/assets/logo/nim.png" alt="Logo" width={200} height={100} />
             </Box>
 
-            <Typography
-                variant="h5"
-                sx={{
-                    mb: 1.5,
-                    color: "#6B6B6B",
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    fontFamily: 'Anuphan',
-                }}
-            >
+            <Typography variant="h5" sx={{ mb: 1.5, color: "#6B6B6B", width: "100%", display: "flex", justifyContent: "center", fontFamily: 'Anuphan', }}>
                 ลงทะเบียน
             </Typography>
 
-            <TextField
-                placeholder="เบอร์โทรศัพท์"
-                type="tel"
-                sx={{
-                    mb: 2,
-                    width: "100%",
-                    maxWidth: "400px",
-                    "& .MuiOutlinedInput-root": {
-                        fontFamily: 'Anuphan',
-                        height: "50px",
-                        borderRadius: "8px",
-                        backgroundColor: "white",
-                        transition: "background-color 0.3s ease",
-                    },
-                    "& .MuiOutlinedInput-root.Mui-focused": {
-                        backgroundColor: "#f0f0f0",
-                    },
-                }}
-                InputProps={{
-                    startAdornment: (
-                        <InputAdornment position="start">
-                            <CallIcon />
-                        </InputAdornment>
-                    ),
-                }}
-            />
-
-            <TextField
-                placeholder="รหัสผ่าน"
-                type={showPassword ? "text" : "password"}
-                sx={{
-                    mb: 2,
-                    width: "100%",
-                    maxWidth: "400px",
-                    "& .MuiOutlinedInput-root": {
-                        fontFamily: 'Anuphan',
-                        height: "50px",
-                        borderRadius: "8px",
-                        backgroundColor: "white",
-                        transition: "background-color 0.3s ease",
-                    },
-                    "& .MuiOutlinedInput-root.Mui-focused": {
-                        backgroundColor: "#f0f0f0",
-                    },
-                }}
-                InputProps={{
-                    startAdornment: (
-                        <InputAdornment position="start">
-                            <LockIcon />
-                        </InputAdornment>
-                    ),
-                    endAdornment: (
-                        <InputAdornment position="end">
-                            <IconButton
-                                onClick={() => setShowPassword(!showPassword)}
-                                edge="end"
-                            >
-                                {showPassword ? <VisibilityOff /> : <Visibility />}
-                            </IconButton>
-                        </InputAdornment>
-                    ),
-                }}
-            />
-
-            <TextField
-                placeholder="ยืนยันรหัสผ่าน"
-                type={showConfrimPassword ? "text" : "password"}
-                sx={{
-                    mb: 6,
-                    width: "100%",
-                    maxWidth: "400px",
-                    "& .MuiOutlinedInput-root": {
-                        fontFamily: 'Anuphan',
-                        height: "50px",
-                        borderRadius: "8px",
-                        backgroundColor: "white",
-                        transition: "background-color 0.3s ease",
-                    },
-                    "& .MuiOutlinedInput-root.Mui-focused": {
-                        backgroundColor: "#f0f0f0",
-                    },
-                }}
-                InputProps={{
-                    startAdornment: (
-                        <InputAdornment position="start">
-                            <LockIcon />
-                        </InputAdornment>
-                    ),
-                    endAdornment: (
-                        <InputAdornment position="end">
-                            <IconButton
-                                onClick={() => setShowConfrimPassword(!showConfrimPassword)}
-                                edge="end"
-                            >
-                                {showConfrimPassword ? <VisibilityOff /> : <Visibility />}
-                            </IconButton>
-                        </InputAdornment>
-                    ),
-                }}
-            />
-            <Box sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'start',
-                width: '100%',
-                maxWidth: '400px'
-                
-            }}>
-                <Typography
-                    variant="body1"
+            <form onSubmit={handleRegister}>
+                <TextField
+                    placeholder="เบอร์โทรศัพท์"
+                    type="tel"
                     sx={{
-                        color: "#000000",
-                        fontSize: "14px",
-                        fontFamily: 'Anuphan',
+                        mb: 2,
+                        width: "100%",
+                        maxWidth: "400px",
+                        "& .MuiOutlinedInput-root": {
+                            fontFamily: 'Anuphan',
+                            height: "50px",
+                            borderRadius: "8px",
+                            backgroundColor: "white",
+                            transition: "background-color 0.3s ease",
+                        },
+                        "& .MuiOutlinedInput-root.Mui-focused": {
+                            backgroundColor: "#f0f0f0",
+                        },
                     }}
-                >
-                    ข้าพเจ้าได้อ่านเเละยอมรับเงื่อนไขดังกล่าว
-                </Typography>
-                <Typography
-                    variant="body2"
-                    sx={{
-                        color: "#6B6B6B",
-                        fontSize: "12px",
-                        fontFamily: 'Anuphan',
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <CallIcon />
+                            </InputAdornment>
+                        ),
                     }}
-                >
-                    (ข้อกำหนดและเงื่อนไขการบริการ) & ประกาศความเป็นส่วนตัวสำหรับลูกค้า
-                </Typography>
-
-
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            checked={isChecked}
-                            onChange={handleCheckboxChange}
-                            name="agreeCheckbox"
-                            color="primary"
-                        />
-                    }
-                    label={
-                        <Typography variant="body2" sx={{ fontSize: '14px', color: 'black',fontFamily: 'Anuphan', }}>
-                            ยินยอม
-                        </Typography>
-                    }
                 />
-            </Box>
 
-            <Button
-                type="submit"
-                variant="contained"
-                sx={{
-                    mt: 1,
-                    width: "100%",
-                    maxWidth: "400px",
-                    height: "50px",
-                    borderRadius: "8px",
-                    backgroundColor: "#BF0005",
-                    fontFamily: 'Anuphan',
-                    "&:hover": { backgroundColor: "#D53F44", },
-                }}
-                onClick={handleRegister}
-            >
-                ลงทะเบียน
-            </Button>
+                <TextField
+                    placeholder="รหัสผ่าน"
+                    type={showPassword ? "text" : "password"}
+                    sx={{
+                        mb: 2,
+                        width: "100%",
+                        maxWidth: "400px",
+                        "& .MuiOutlinedInput-root": {
+                            fontFamily: 'Anuphan',
+                            height: "50px",
+                            borderRadius: "8px",
+                            backgroundColor: "white",
+                            transition: "background-color 0.3s ease",
+                        },
+                        "& .MuiOutlinedInput-root.Mui-focused": {
+                            backgroundColor: "#f0f0f0",
+                        },
+                    }}
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <LockIcon />
+                            </InputAdornment>
+                        ),
+                        endAdornment: (
+                            <InputAdornment position="end">
+                                <IconButton
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    edge="end"
+                                >
+                                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                            </InputAdornment>
+                        ),
+                    }}
+                />
+
+                <TextField
+                    placeholder="ยืนยันรหัสผ่าน"
+                    type={showConfrimPassword ? "text" : "password"}
+                    sx={{
+                        mb: 6,
+                        width: "100%",
+                        maxWidth: "400px",
+                        "& .MuiOutlinedInput-root": {
+                            fontFamily: 'Anuphan',
+                            height: "50px",
+                            borderRadius: "8px",
+                            backgroundColor: "white",
+                            transition: "background-color 0.3s ease",
+                        },
+                        "& .MuiOutlinedInput-root.Mui-focused": {
+                            backgroundColor: "#f0f0f0",
+                        },
+                    }}
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <LockIcon />
+                            </InputAdornment>
+                        ),
+                        endAdornment: (
+                            <InputAdornment position="end">
+                                <IconButton
+                                    onClick={() => setShowConfrimPassword(!showConfrimPassword)}
+                                    edge="end"
+                                >
+                                    {showConfrimPassword ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                            </InputAdornment>
+                        ),
+                    }}
+                />
+                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start', width: '100%', maxWidth: '400px' }}>
+                    <Typography variant="body1" sx={{ color: "#000000", fontSize: "14px", fontFamily: 'Anuphan', }}>
+                        ข้าพเจ้าได้อ่านเเละยอมรับเงื่อนไขดังกล่าว
+                    </Typography>
+                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "12px", fontFamily: 'Anuphan', }}>
+                        (ข้อกำหนดและเงื่อนไขการบริการ) & ประกาศความเป็นส่วนตัวสำหรับลูกค้า
+                    </Typography>
+
+
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                checked={isChecked}
+                                onChange={handleCheckboxChange}
+                                name="agreeCheckbox"
+                                color="primary"
+                            />
+                        }
+                        label={
+                            <Typography variant="body2" sx={{ fontSize: '14px', color: 'black', fontFamily: 'Anuphan', }}>
+                                ยินยอม
+                            </Typography>
+                        }
+                    />
+                </Box>
+
+                <Button
+                    type="submit"
+                    variant="contained"
+                    sx={{
+                        mt: 1,
+                        width: "100%",
+                        maxWidth: "400px",
+                        height: "50px",
+                        borderRadius: "8px",
+                        backgroundColor: "#BF0005",
+                        fontFamily: 'Anuphan',
+                        "&:hover": { backgroundColor: "#D53F44", },
+                    }}
+                >
+                    ลงทะเบียน
+                </Button>
+            </form>
 
         </Container>
     );

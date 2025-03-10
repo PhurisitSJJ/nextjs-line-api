@@ -6,7 +6,6 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-
 const AddAddressReceiverPage = () => {
     const router = useRouter();
     const [checked, setChecked] = useState(true);
@@ -20,16 +19,10 @@ const AddAddressReceiverPage = () => {
         }
     }, []);
 
-
     const handleBack = () => {
         sessionStorage.removeItem("selectedAddress"); // จำลอง กรณีกดย้อนกลับ 
         router.push('/delivery/address_receiver');
     }
-
-    // const handleConfrimAddress = () => {
-    //     sessionStorage.removeItem("selectedAddress");
-    //     router.push('/delivery/address_receiver');
-    // }
 
     const handleConfrimAddress = (e: React.FormEvent) => {
         sessionStorage.removeItem("selectedAddress"); // จำลอง กรณีที่เพิ่มข้อมูลแล้ว 
@@ -38,7 +31,7 @@ const AddAddressReceiverPage = () => {
     };
 
     const handleAddAddress = () => {
-        sessionStorage.setItem("selectedAddress", address); 
+        sessionStorage.setItem("selectedAddress", address);
         router.push('/delivery/address_receiver/address');
     }
 
@@ -67,7 +60,7 @@ const AddAddressReceiverPage = () => {
                         </Typography>
                     </Button>
                     <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
-                        / เพิ่มที่อยู่ผู้รับใหม่
+                        / เพิ่มที่อยู่ผู้รับ
                     </Typography>
                 </Box>
                 <form onSubmit={handleConfrimAddress}>
@@ -91,6 +84,7 @@ const AddAddressReceiverPage = () => {
                                 },
                             }}
                         />
+
                         <TextField
                             placeholder="เบอร์โทรศัพท์"
                             type="tel"
@@ -110,6 +104,7 @@ const AddAddressReceiverPage = () => {
                                 },
                             }}
                         />
+
                         <TextField
                             placeholder="บ้านเลขที่, ซอย, หมู่, ถนน"
                             type="text"
@@ -216,12 +211,11 @@ const AddAddressReceiverPage = () => {
                                 fontFamily: 'Anuphan',
                                 "&:hover": { backgroundColor: "#D53F44", },
                             }}
-                        // onClick={handleConfrimAddress}
                         >
                             เพิ่มที่อยู่
                         </Button>
                     </Box>
-                    </form>
+                </form>
             </Container>
         </>
     );

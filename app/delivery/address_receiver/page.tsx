@@ -15,7 +15,7 @@ const AddressReceiverPage = () => {
 
     const addressList = [
         { id: "001", name: "ขนมปัง ฟาร์มเฮ้า", tel: "0995512020", addressDetail: "123/65 บ้านวังวง", locationInfo: "ต.วังทอง อ.เมือง จ.เชียงใหม่ 50100", type: "บ้าน" },
-        { id: "001", name: "ขนมปัง ฟาร์มเฮ้า", tel: "0891237081", addressDetail: "1/10 บ้านทรายทอง", locationInfo: " ต.ทรายแดง อ.ทรายเข้าตา จ.กรุงเทพมหานคร 10000", type: "ที่ทำงาน" },
+        { id: "002", name: "ขนมปัง ฟาร์มเฮ้า", tel: "0891237081", addressDetail: "1/10 บ้านทรายทอง", locationInfo: " ต.ทรายแดง อ.ทรายเข้าตา จ.กรุงเทพมหานคร 10000", type: "ที่ทำงาน" },
     ];
 
     const [searchText, setSearchText] = useState("");
