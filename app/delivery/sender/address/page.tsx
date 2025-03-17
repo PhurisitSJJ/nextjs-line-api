@@ -65,7 +65,7 @@ const SelectAddressPage = () => {
                         onChange={(e) => setSearchText(e.target.value)}
                         sx={{
                             width: "100%",
-                            maxWidth: "400px",
+                            maxWidth: "380px",
                             "& .MuiOutlinedInput-root": {
                                 fontFamily: "Anuphan",
                                 fontSize: "14px",
