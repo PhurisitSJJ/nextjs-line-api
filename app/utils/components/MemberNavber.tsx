@@ -1,6 +1,3 @@
-
-
-
 import {
     AppBar, Toolbar, Box, Button, Typography, IconButton, Drawer,
     List, ListItem, ListItemText, ListItemButton, Divider
@@ -17,7 +14,7 @@ import Image from 'next/image';
 const MemberNavbar = () => {
     const router = useRouter();
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const isMobile = useMediaQuery(theme.breakpoints.down(750));
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const handleMenuClick = (path: string) => {
@@ -26,9 +23,14 @@ const MemberNavbar = () => {
     };
 
     const handleLogout = () => {
+        if (!liff.id) {
+            router.push('/');
+            return;
+        }
         liff.logout();
         router.push('/');
     };
+
 
     const handleHomePage = () => {
         router.push('/homepage');
@@ -37,7 +39,7 @@ const MemberNavbar = () => {
     const menuItems = [
         { label: "หน้าหลัก", path: "/homepage" },
         { label: "สมาชิก", path: "/member" },
-        { label: "บัญชี", path: "/profile" },
+        { label: "บัญชี", path: "/profile-line" },
     ];
 
     return (
@@ -54,10 +56,9 @@ const MemberNavbar = () => {
                                 <Image src="/assets/logo/nim.png" alt="Logo" width={70} height={40} onClick={handleHomePage} />
 
                             </Box>
-                            <Typography variant="h5" sx={{ color: "#BF0005", fontSize: "18px", fontFamily: "Anuphan", textDecoration: "underline"}}>
+                            <Typography variant="h5" sx={{ color: "#BF0005", fontSize: "20px", fontFamily: "Anuphan", textDecoration: "underline" }}>
                                 บริษัทเอบีซีดี จำกัด.
                             </Typography>
-
                             {/* รูปแบบมี Background */}
                             {/* <Typography
                                 variant="h5"
@@ -73,6 +74,8 @@ const MemberNavbar = () => {
                             >
                                 บริษัทเอบีซีดี จำกัด
                             </Typography> */}
+
+                            
 
                         </Box>
                         <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
@@ -148,23 +151,31 @@ const MemberNavbar = () => {
                                 {item.label}
                             </Typography>
                         ))}
+
                     </Box>
                 )}
 
                 {!isMobile && (
-                    <Button
-                        variant="contained"
-                        color="secondary"
-                        onClick={handleLogout}
-                        sx={{
-                            fontFamily: 'Anuphan',
-                            backgroundColor: "#BF0005",
-                            "&:hover": { backgroundColor: "#D53F44", },
-                        }}
-                        startIcon={<LogoutIcon />}
-                    >
-                        ออกจากระบบ
-                    </Button>
+
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 5 }}>
+                        <Typography variant="h5" sx={{ color: "#BF0005", fontSize: "20px", fontFamily: "Anuphan", textDecoration: "underline" }}>
+                            บริษัทเอบีซีดี จำกัด.
+                        </Typography>
+
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            onClick={handleLogout}
+                            sx={{
+                                fontFamily: 'Anuphan',
+                                backgroundColor: "#BF0005",
+                                "&:hover": { backgroundColor: "#D53F44" },
+                            }}
+                            startIcon={<LogoutIcon />}
+                        >
+                            ออกจากระบบ
+                        </Button>
+                    </Box>
                 )}
 
             </Toolbar>

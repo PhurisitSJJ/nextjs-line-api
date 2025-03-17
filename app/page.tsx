@@ -26,7 +26,7 @@ const LoginPage = () => {
   }
 
   const handleForgetPassword = () => {
-    router.push('/forget_password');
+    router.push('/forget-password');
   }
 
   const hendleLoginLineLiff = () => {

@@ -33,11 +33,11 @@ const CreateDeliveryPage = () => {
     }
 
     const handleAddAddressSender = () => {
-        router.push('/delivery/address_sender')
+        router.push('/delivery/sender')
     }
 
     const handleAddAddressReceiver = () => {
-        router.push('/delivery/address_receiver')
+        router.push('/delivery/receiver')
     }
 
     const handleAddProduct = () => {
@@ -79,12 +79,12 @@ const CreateDeliveryPage = () => {
                             ย้อนกลับ
                         </Typography>
                     </Button>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
                         / สร้างใบสินค้าใหม่
                     </Typography>
                 </Box>
 
-                <Typography variant="h5" sx={{ mt: 2, mb: 2, color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                <Typography variant="h5" sx={{ mt: 2, mb: 2, color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
                     ข้อมูลผู้ส่ง
                 </Typography>
 
@@ -181,7 +181,7 @@ const CreateDeliveryPage = () => {
 
                     <Divider />
 
-                    <Typography variant="h5" sx={{ mt: 2, mb: 2, color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                    <Typography variant="h5" sx={{ mt: 2, mb: 2, color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
                         ข้อมูลผู้รับ
                     </Typography>
 
@@ -277,7 +277,7 @@ const CreateDeliveryPage = () => {
 
                     <Divider />
 
-                    <Typography variant="h5" sx={{ mt: 2, mb: 2, color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                    <Typography variant="h5" sx={{ mt: 2, mb: 2, color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
                         รายการสินค้า
                     </Typography>
 

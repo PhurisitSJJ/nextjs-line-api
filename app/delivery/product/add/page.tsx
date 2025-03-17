@@ -37,7 +37,7 @@ const AddProductPage = () => {
                             ย้อนกลับ
                         </Typography>
                     </Button>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
                         / เพิ่มสินค้าใหม่
                     </Typography>
                 </Box>

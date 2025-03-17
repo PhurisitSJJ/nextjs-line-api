@@ -9,7 +9,7 @@ const ConfrimOtpPage = () => {
 
     const handleConfrimOTP = (e: React.FormEvent) => {
         e.preventDefault();
-        router.push('/agree_data');
+        router.push('/agree-data');
     }
 
     return (

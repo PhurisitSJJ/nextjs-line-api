@@ -45,7 +45,7 @@ const TemplateDeliveryPage = () => {
                             ย้อนกลับ
                         </Typography>
                     </Button>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
                         / เทมเพรต
                     </Typography>
                 </Box>

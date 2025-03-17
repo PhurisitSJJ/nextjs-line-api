@@ -11,7 +11,7 @@ const OrdersDetailPage = () => {
         <>
             <MemberNavbar />
             <Container maxWidth="xs" sx={{ pt: 5, display: 'flex', flexDirection: 'column', justifyContent: 'top', height: '100vh', px: 2 }}>
-                <Typography variant="h5" sx={{ mt: 2, mb: 2, color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                <Typography variant="h5" sx={{ mt: 2, mb: 2, color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
                     รายการสินค้า/แก้ไข
                 </Typography>
 

@@ -17,7 +17,7 @@ const RegisterPage = () => {
     const handleRegister = (e: React.FormEvent) => {
         e.preventDefault();
         if (isChecked) {
-            router.push('/confrim_otp');
+            router.push('/confrim-otp');
         } else {
             alert("คุณต้องยินยอมก่อนจึงจะสามารถดำเนินการต่อได้");
         }

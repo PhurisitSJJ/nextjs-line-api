@@ -1,79 +1,79 @@
-'use client';
+"use client";
 
 import { Box, Button, Container, Switch, TextField, Typography } from "@mui/material";
 import MemberNavbar from "@/app/utils/components/MemberNavber";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-const EditAddressReceiverPage = () => {
+const AddAddressSenderPage = () => {
     const router = useRouter();
     const [checked, setChecked] = useState(true);
-
-    const [name, setName] = useState('');
-    const [tel, setTel] = useState('');
-    const [addressDetail, setAddressDetail] = useState('');
-    const [locationInfo, setLocationInfo] = useState('');
-    const [type, setType] = useState('');
+    const [selected, setSelected] = useState("บ้าน");
+    const [address, setAddress] = useState("");
 
     useEffect(() => {
-        setName('ขนมปัง ฟาร์มเฮ้า');
-        setTel('0891237081');
-        setAddressDetail('1/10 บ้านทรายทอง');
-        setLocationInfo('ต.ทรายแดง อ.ทรายเข้าตา จ.กรุงเทพมหานคร 10000');
-        setType('ที่ทำงาน');
+        const selectedAddress = sessionStorage.getItem("selectedAddress");
+        if (selectedAddress) {
+            setAddress(selectedAddress);
+        }
     }, []);
 
     const handleBack = () => {
-        router.push('/delivery/address_receiver');
+        router.push("/delivery/sender");
     }
-
-    const handleConfrimAddress = (e: React.FormEvent) => {
-        e.preventDefault();
-        router.push('/delivery/address_receiver');
+    
+    const handleAddAddress = () => {
+        sessionStorage.setItem("selectedAddress", address);
+        router.push("/delivery/sender/address");
     }
-
+    
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setChecked(event.target.checked);
+    };
+    
+    const handleConfrimAddress = (e: React.FormEvent) => {
+        sessionStorage.removeItem("selectedAddress"); // จำลอง กรณีที่เพิ่มข้อมูลแล้ว 
+        e.preventDefault();
+        router.push("/delivery/create");
     };
 
     return (
         <>
             <MemberNavbar />
-            <Container maxWidth="xs" sx={{ pt: 5, display: 'flex', flexDirection: 'column', justifyContent: 'top', height: '100vh', px: 2, }}>
-                <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center', mb: 2 }}>
+            <Container maxWidth="xs" sx={{ pt: 5, display: "flex", flexDirection: "column", justifyContent: "top", height: "100vh", px: 2 }}>
+                <Box sx={{ display: "flex", justifyContent: "start", alignItems: "center", mb: 2 }}>
                     <Button
                         startIcon={<ArrowBackIcon />}
                         onClick={handleBack}
                         sx={{
                             color: "#BF0005",
                             fontSize: "16px",
-                            fontFamily: 'Anuphan',
+                            fontFamily: "Anuphan",
                             "&:hover": { color: "#2200FF" },
                             "&:hover .MuiTypography-root": { color: "#2200FF" },
                         }}
                     >
-                        <Typography variant="h5" sx={{ color: "#BF0005", fontSize: "16px", fontFamily: 'Anuphan', }}>
+                        <Typography variant="h5" sx={{ color: "#BF0005", fontSize: "16px", fontFamily: "Anuphan", }}>
                             ย้อนกลับ
                         </Typography>
                     </Button>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
-                        / แก้ไขที่อยู่
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "18px", fontFamily: "Anuphan" }}>
+                        / เพิ่มที่อยู่ผู้ส่ง
                     </Typography>
                 </Box>
-
                 <form onSubmit={handleConfrimAddress}>
-                    <Box sx={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                    <Box sx={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
                         <TextField
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            placeholder="ชื่อ - นามสกุล"
                             type="text"
                             sx={{
                                 mb: 2,
                                 width: "100%",
                                 maxWidth: "400px",
                                 "& .MuiOutlinedInput-root": {
-                                    fontFamily: 'Anuphan',
+                                    fontFamily: "Anuphan",
+                                    fontSize: "14px",
                                     height: "50px",
                                     borderRadius: "8px",
                                     backgroundColor: "#FFF",
@@ -84,36 +84,17 @@ const EditAddressReceiverPage = () => {
                                 },
                             }}
                         />
+
                         <TextField
-                            value={tel}
-                            onChange={(e) => setTel(e.target.value)}
+                            placeholder="เบอร์โทรศัพท์"
                             type="tel"
                             sx={{
                                 mb: 2,
                                 width: "100%",
                                 maxWidth: "400px",
                                 "& .MuiOutlinedInput-root": {
-                                    fontFamily: 'Anuphan',
-                                    height: "50px",
-                                    borderRadius: "8px",
-                                    backgroundColor: "#FFF",
-                                    transition: "background-color 0.3s ease",
-                                },
-                                "& .MuiOutlinedInput-root.Mui-focused": {
-                                    backgroundColor: "#f0f0f0",
-                                },
-                            }}
-                        />
-                        <TextField
-                            value={addressDetail}
-                            onChange={(e) => setAddressDetail(e.target.value)}
-                            type="text"
-                            sx={{
-                                mb: 2,
-                                width: "100%",
-                                maxWidth: "400px",
-                                "& .MuiOutlinedInput-root": {
-                                    fontFamily: 'Anuphan',
+                                    fontFamily: "Anuphan",
+                                    fontSize: "14px",
                                     height: "50px",
                                     borderRadius: "8px",
                                     backgroundColor: "#FFF",
@@ -126,15 +107,39 @@ const EditAddressReceiverPage = () => {
                         />
 
                         <TextField
-                            value={locationInfo}
-                            onChange={(e) => setLocationInfo(e.target.value)}
+                            placeholder="บ้านเลขที่, ซอย, หมู่, ถนน"
                             type="text"
                             sx={{
                                 mb: 2,
                                 width: "100%",
                                 maxWidth: "400px",
                                 "& .MuiOutlinedInput-root": {
-                                    fontFamily: 'Anuphan',
+                                    fontFamily: "Anuphan",
+                                    fontSize: "14px",
+                                    height: "50px",
+                                    borderRadius: "8px",
+                                    backgroundColor: "#FFF",
+                                    transition: "background-color 0.3s ease",
+                                },
+                                "& .MuiOutlinedInput-root.Mui-focused": {
+                                    backgroundColor: "#f0f0f0",
+                                },
+                            }}
+                        />
+
+                        <TextField
+                            value={address}
+                            placeholder="จังหวัด, เขต/อำเภอ, แขวง/ตำบล, รหัสไปรษณีย์"
+                            type="text"
+                            onClick={handleAddAddress}
+                            InputProps={{ readOnly: true }}
+                            sx={{
+                                mb: 2,
+                                width: "100%",
+                                maxWidth: "400px",
+                                "& .MuiOutlinedInput-root": {
+                                    fontFamily: "Anuphan",
+                                    fontSize: "14px",
                                     height: "50px",
                                     borderRadius: "8px",
                                     backgroundColor: "#FFF",
@@ -147,9 +152,8 @@ const EditAddressReceiverPage = () => {
                         />
                     </Box>
 
-                    <Box sx={{ mb: 1, display: 'flex', justifyContent: 'space-between', alignItems: "center", width: "100%", maxWidth: "400px" }}>
-                        <Typography variant="body1"
-                            sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan' }}>
+                    <Box sx={{ mb: 1, display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", maxWidth: "400px" }}>
+                        <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: "Anuphan" }}>
                             เลือกเป็นที่อยู่ตั้งต้น :
                         </Typography>
 
@@ -167,7 +171,7 @@ const EditAddressReceiverPage = () => {
                         />
                     </Box>
                     <Box sx={{ mb: 2, display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", maxWidth: "400px" }}>
-                        <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: "Anuphan", }}>
+                        <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: "Anuphan", }} >
                             เลือกที่อยู่เป็น :
                         </Typography>
 
@@ -175,14 +179,14 @@ const EditAddressReceiverPage = () => {
                             {["ที่ทำงาน", "บ้าน"].map((label) => (
                                 <Button
                                     key={label}
-                                    onClick={() => setType(label)}
+                                    onClick={() => setSelected(label)}
                                     variant="contained"
                                     sx={{
-                                        maxWidth: "90px",
+                                        width: "80px",
                                         height: "30px",
                                         borderRadius: "8px",
-                                        backgroundColor: type === label ? "#BF0005" : "#FFF",
-                                        color: type === label ? "#FFF" : "#BF0005",
+                                        backgroundColor: selected === label ? "#BF0005" : "#FFF",
+                                        color: selected === label ? "#FFF" : "#BF0005",
                                         border: "1px solid #BF0005",
                                         fontFamily: "Anuphan",
                                         fontSize: "12px",
@@ -207,12 +211,11 @@ const EditAddressReceiverPage = () => {
                                 height: "50px",
                                 borderRadius: "8px",
                                 backgroundColor: "#BF0005",
-                                fontFamily: 'Anuphan',
+                                fontFamily: "Anuphan",
                                 "&:hover": { backgroundColor: "#D53F44", },
                             }}
-                            onClick={handleConfrimAddress}
                         >
-                            ยืนยัน
+                            เพิ่มที่อยู่
                         </Button>
                     </Box>
                 </form>
@@ -221,4 +224,4 @@ const EditAddressReceiverPage = () => {
     );
 };
 
-export default EditAddressReceiverPage;
+export default AddAddressSenderPage;

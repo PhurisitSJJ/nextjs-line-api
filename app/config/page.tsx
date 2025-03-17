@@ -9,11 +9,11 @@ const SettingsPage = () => {
     const router = useRouter();
 
     const handleOpenAddressSender = () => {
-        router.push('/delivery/address_sender');
+        router.push('/delivery/sender');
     }
 
     const handleOpenAddressReceiver = () => {
-        router.push('/delivery/address_receiver');
+        router.push('/delivery/receiver');
     }
 
     const handleOpenAddOrders = () => {

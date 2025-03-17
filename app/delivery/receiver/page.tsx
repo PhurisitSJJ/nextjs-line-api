@@ -10,7 +10,7 @@ import BusinessIcon from '@mui/icons-material/Business';
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const AddressReceiverPage = () => {
+const ReceiverPage = () => {
     const router = useRouter();
 
     const addressList = [
@@ -29,11 +29,11 @@ const AddressReceiverPage = () => {
     }
 
     const handleAddAddressReceiver = () => {
-        router.push('/delivery/address_receiver/add')
+        router.push('/delivery/receiver/add')
     }
 
     const handleEditAddressReceiver = () => {
-        router.push('/delivery/address_receiver/edit')
+        router.push('/delivery/receiver/edit')
     }
 
     const handleSelectAddressReceiver = () => {
@@ -61,7 +61,7 @@ const AddressReceiverPage = () => {
                             ย้อนกลับ
                         </Typography>
                     </Button>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
                         / ที่อยู่ของผู้รับ
                     </Typography>
                 </Box>
@@ -213,4 +213,4 @@ const AddressReceiverPage = () => {
     );
 };
 
-export default AddressReceiverPage;
+export default ReceiverPage;

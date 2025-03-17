@@ -30,17 +30,17 @@ const HomePage = () => {
         {
             title: "พ้สดุของฉัน",
             img: "/assets/icon_page/search_box.png",
-            path: "/my_packges",
+            path: "/my-packages",
         },
         {
             title: "เพิ่มผู้ใช้งาน",
             img: "/assets/icon_page/add_user.png",
-            path: "/add_user",
+            path: "/add-user",
         },
         {
             title: "แสกน เพื่อเข้าร่วม",
             img: "/assets/icon_page/scan_add.png",
-            path: "/scan_join",
+            path: "/scan-join",
         },
     ]
 

@@ -1,9 +1,8 @@
 'use client';
 
 import { useState } from "react";
-import { Box, Button, Container, TextField, Typography, InputAdornment } from "@mui/material";
+import { Box, Button, Container, TextField, Typography, InputAdornment, Divider } from "@mui/material";
 import MemberNavbar from "@/app/utils/components/MemberNavber";
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import PersonIcon from '@mui/icons-material/Person';
 import CallIcon from '@mui/icons-material/Call';
@@ -67,7 +66,7 @@ const OrdersPage = () => {
                             ย้อนกลับ
                         </Typography>
                     </Button>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
                         / สินค้ารอส่ง
                     </Typography>
                 </Box>
@@ -104,68 +103,101 @@ const OrdersPage = () => {
                         }} />
                 </Box>
 
-                <Box sx={{pb: 5}}>
-                {filteredReceipts.map((receipt) => (
-                    <Box key={receipt.receipt_id} sx={{ mb: 1, p: 2, border: "1px solid #D2D2D2", borderRadius: "8px", width: "100%", maxWidth: "400px" }}>
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'start', mb: 0.5, gap: 2 }}>
-                            <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan', minWidth: '60px' }}>
-                                <CalendarMonthIcon /> :
-                            </Typography>
-                            <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
-                                {receipt.receipt_date}
-                            </Typography>
+                <Box sx={{ pb: 5 }}>
+                    {filteredReceipts.length > 0 ? (
+                        filteredReceipts.map((receipt) => (
+                            <Box key={receipt.receipt_id} sx={{ mb: 1, p: 2, border: "1px solid #D2D2D2", borderRadius: "8px", width: "100%", maxWidth: "400px", }}>
+                                <Box sx={{ display: "flex", alignItems: "center", mb: 0.5, gap: 2 }}>
+                                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "17px", fontFamily: "Anuphan" }}>
+                                        วันที่ : {receipt.receipt_date}
+                                    </Typography>
+                                </Box>
+                                <Box sx={{ display: "flex", alignItems: "start", mb: 0.5, gap: 2 }}>
+                                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: "Anuphan" }}>
+                                        <ReceiptIcon />
+                                    </Typography>
+                                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: "Anuphan" }}>
+                                        {receipt.receipt_id}
+                                    </Typography>
+                                </Box>
+                                <Box sx={{ display: "flex", alignItems: "start", mb: 0.5, gap: 2 }}>
+                                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: "Anuphan" }}>
+                                        <PersonIcon />
+                                    </Typography>
+                                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: "Anuphan" }}>
+                                        {receipt.name}
+                                    </Typography>
+                                </Box>
+                                <Box sx={{ display: "flex", alignItems: "start", mb: 0.5, gap: 2 }}>
+                                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: "Anuphan" }}>
+                                        <CallIcon />
+                                    </Typography>
+                                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: "Anuphan" }}>
+                                        {receipt.tel}
+                                    </Typography>
+                                </Box>
+                                <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "start", gap: 2 }}>
+                                    <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: "Anuphan" }}>
+                                        <PlaceIcon />
+                                    </Typography>
+                                    <Typography
+                                        variant="body1"
+                                        sx={{
+                                            color: "#6B6B6B",
+                                            fontSize: "16px",
+                                            fontFamily: "Anuphan",
+                                            whiteSpace: "normal",
+                                            wordBreak: "break-word",
+                                            flex: 1,
+                                        }}
+                                    >
+                                        {receipt.addressDetail}, {receipt.locationInfo}
+                                    </Typography>
+                                </Box>
+                                <Box sx={{ display: "flex", justifyContent: "end", mt: 0.5, mr: 0.5, gap: 2 }}>
+                                    <Button
+                                        variant="contained"
+                                        sx={{
+                                            width: "100%",
+                                            maxWidth: "120px",
+                                            height: "40px",
+                                            borderRadius: "8px",
+                                            backgroundColor: "#FFF",
+                                            color: "#BF0005",
+                                            border: "1px solid #BF0005",
+                                            fontFamily: "Anuphan",
+                                            "&:hover": { backgroundColor: "#BF0005", color: "#FFF" },
+                                        }}
+                                        onClick={handleViewOrders}
+                                    >
+                                        ดูรายละเอียด
+                                    </Button>
+                                    <Button
+                                        variant="contained"
+                                        sx={{
+                                            width: "100%",
+                                            maxWidth: "120px",
+                                            height: "40px",
+                                            borderRadius: "8px",
+                                            backgroundColor: "#BF0005",
+                                            fontFamily: "Anuphan",
+                                            "&:hover": { backgroundColor: "#D53F44" },
+                                        }}
+                                    >
+                                        ยกเลิก
+                                    </Button>
+                                </Box>
+                            </Box>
+                        ))
+                    ) : (
+                        <Box sx={{ mt: 2, width: "100%", maxWidth: "400px", display: "flex", alignItems: "center" }}>
+                            <Divider sx={{ flexGrow: 1 }} />
+                                <Typography variant="body1" sx={{ mx: 2, color: "#BF0005", fontFamily: "Anuphan" }}>
+                                    ไม่พบรายการ
+                                </Typography>
+                            <Divider sx={{ flexGrow: 1 }} />
                         </Box>
-
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'start', mb: 0.5, gap: 2 }}>
-                            <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan', minWidth: '60px' }}>
-                                <ReceiptIcon /> :
-                            </Typography>
-                            <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan' }}>
-                                {receipt.receipt_id}
-                            </Typography>
-                        </Box>
-
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'start', mb: 0.5, gap: 2 }}>
-                            <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan', minWidth: '60px' }}>
-                                <PersonIcon /> :
-                            </Typography>
-                            <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan' }}>
-                                {receipt.name}
-                            </Typography>
-                        </Box>
-
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'start', mb: 0.5, gap: 2 }}>
-                            <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan', minWidth: '60px' }}>
-                                <CallIcon /> :
-                            </Typography>
-                            <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan' }}>
-                                {receipt.tel}
-                            </Typography>
-                        </Box>
-
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'start', gap: 2 }}>
-                            <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan', minWidth: '60px' }}>
-                                <PlaceIcon /> :
-                            </Typography>
-                            <Typography variant="body1"
-                                sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan', whiteSpace: "normal", wordBreak: "break-word", flex: 1 }}>
-                                {receipt.addressDetail}, {receipt.locationInfo}
-                            </Typography>
-                        </Box>
-
-                        <Box sx={{ display: 'flex', justifyContent: 'end', mt: 1, gap: 2 }}>
-                            <Button variant="contained" sx={{ width: "100%", maxWidth: "150px", height: "50px", borderRadius: "8px", backgroundColor: "#FFF", color: "#BF0005", border: "1px solid #BF0005", fontFamily: 'Anuphan', "&:hover": { backgroundColor: "#BF0005", color: "#FFF" } }}
-                                onClick={handleViewOrders}>
-                                ดูรายละเอียด
-                            </Button>
-                            <Button variant="contained" sx={{
-                                width: "100%", maxWidth: "150px", height: "50px", borderRadius: "8px", backgroundColor: "#BF0005", fontFamily: 'Anuphan', "&:hover": { backgroundColor: "#D53F44" }
-                            }}>
-                                ยกเลิก
-                            </Button>
-                        </Box>
-                    </Box>
-                ))}
+                    )}
                 </Box>
             </Container>
         </>

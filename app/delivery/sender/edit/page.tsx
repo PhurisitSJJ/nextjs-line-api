@@ -25,12 +25,12 @@ const EditAddressSenderPage = () => {
     }, []);
 
     const handleBack = () => {
-        router.push('/delivery/address_sender');
+        router.push('/delivery/sender');
     }
 
     const handleConfrimAddress = (e: React.FormEvent) => {
         e.preventDefault();
-        router.push('/delivery/address_sender');
+        router.push('/delivery/sender');
     }
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,7 +57,7 @@ const EditAddressSenderPage = () => {
                             ย้อนกลับ
                         </Typography>
                     </Button>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
                         / แก้ไขที่อยู่
                     </Typography>
                 </Box>

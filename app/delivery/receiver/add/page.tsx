@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Box, Button, Container, Switch, TextField, Typography } from "@mui/material";
 import MemberNavbar from "@/app/utils/components/MemberNavber";
@@ -20,51 +20,51 @@ const AddAddressReceiverPage = () => {
     }, []);
 
     const handleBack = () => {
-        sessionStorage.removeItem("selectedAddress"); // จำลอง กรณีกดย้อนกลับ 
-        router.push('/delivery/address_receiver');
+        router.push("/delivery/receiver");
     }
 
+    
+    const handleAddAddress = () => {
+        sessionStorage.setItem("selectedAddress", address);
+        router.push("/delivery/receiver/address");
+    }
+    
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setChecked(event.target.checked);
+    };
+    
     const handleConfrimAddress = (e: React.FormEvent) => {
         sessionStorage.removeItem("selectedAddress"); // จำลอง กรณีที่เพิ่มข้อมูลแล้ว 
         e.preventDefault();
-        router.push('/delivery/address_receiver');
-    };
-
-    const handleAddAddress = () => {
-        sessionStorage.setItem("selectedAddress", address);
-        router.push('/delivery/address_receiver/address');
-    }
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setChecked(event.target.checked);
+        router.push("/delivery/create");
     };
 
     return (
         <>
             <MemberNavbar />
-            <Container maxWidth="xs" sx={{ pt: 5, display: 'flex', flexDirection: 'column', justifyContent: 'top', height: '100vh', px: 2 }}>
-                <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center', mb: 2 }}>
+            <Container maxWidth="xs" sx={{ pt: 5, display: "flex", flexDirection: "column", justifyContent: "top", height: "100vh", px: 2 }}>
+                <Box sx={{ display: "flex", justifyContent: "start", alignItems: "center", mb: 2 }}>
                     <Button
                         startIcon={<ArrowBackIcon />}
                         onClick={handleBack}
                         sx={{
                             color: "#BF0005",
                             fontSize: "16px",
-                            fontFamily: 'Anuphan',
+                            fontFamily: "Anuphan",
                             "&:hover": { color: "#2200FF" },
                             "&:hover .MuiTypography-root": { color: "#2200FF" },
                         }}
                     >
-                        <Typography variant="h5" sx={{ color: "#BF0005", fontSize: "16px", fontFamily: 'Anuphan', }}>
+                        <Typography variant="h5" sx={{ color: "#BF0005", fontSize: "16px", fontFamily: "Anuphan", }}>
                             ย้อนกลับ
                         </Typography>
                     </Button>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "18px", fontFamily: "Anuphan" }}>
                         / เพิ่มที่อยู่ผู้รับ
                     </Typography>
                 </Box>
                 <form onSubmit={handleConfrimAddress}>
-                    <Box sx={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                    <Box sx={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
                         <TextField
                             placeholder="ชื่อ - นามสกุล"
                             type="text"
@@ -73,7 +73,8 @@ const AddAddressReceiverPage = () => {
                                 width: "100%",
                                 maxWidth: "400px",
                                 "& .MuiOutlinedInput-root": {
-                                    fontFamily: 'Anuphan',
+                                    fontFamily: "Anuphan",
+                                    fontSize: "14px",
                                     height: "50px",
                                     borderRadius: "8px",
                                     backgroundColor: "#FFF",
@@ -93,7 +94,8 @@ const AddAddressReceiverPage = () => {
                                 width: "100%",
                                 maxWidth: "400px",
                                 "& .MuiOutlinedInput-root": {
-                                    fontFamily: 'Anuphan',
+                                    fontFamily: "Anuphan",
+                                    fontSize: "14px",
                                     height: "50px",
                                     borderRadius: "8px",
                                     backgroundColor: "#FFF",
@@ -113,7 +115,8 @@ const AddAddressReceiverPage = () => {
                                 width: "100%",
                                 maxWidth: "400px",
                                 "& .MuiOutlinedInput-root": {
-                                    fontFamily: 'Anuphan',
+                                    fontFamily: "Anuphan",
+                                    fontSize: "14px",
                                     height: "50px",
                                     borderRadius: "8px",
                                     backgroundColor: "#FFF",
@@ -136,7 +139,8 @@ const AddAddressReceiverPage = () => {
                                 width: "100%",
                                 maxWidth: "400px",
                                 "& .MuiOutlinedInput-root": {
-                                    fontFamily: 'Anuphan',
+                                    fontFamily: "Anuphan",
+                                    fontSize: "14px",
                                     height: "50px",
                                     borderRadius: "8px",
                                     backgroundColor: "#FFF",
@@ -149,8 +153,8 @@ const AddAddressReceiverPage = () => {
                         />
                     </Box>
 
-                    <Box sx={{ mb: 1, display: 'flex', justifyContent: 'space-between', alignItems: "center", width: "100%", maxWidth: "400px" }}>
-                        <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan' }}>
+                    <Box sx={{ mb: 1, display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", maxWidth: "400px" }}>
+                        <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: "Anuphan" }}>
                             เลือกเป็นที่อยู่ตั้งต้น :
                         </Typography>
 
@@ -208,7 +212,7 @@ const AddAddressReceiverPage = () => {
                                 height: "50px",
                                 borderRadius: "8px",
                                 backgroundColor: "#BF0005",
-                                fontFamily: 'Anuphan',
+                                fontFamily: "Anuphan",
                                 "&:hover": { backgroundColor: "#D53F44", },
                             }}
                         >

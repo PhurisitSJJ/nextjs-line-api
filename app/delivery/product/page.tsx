@@ -56,7 +56,7 @@ const AddProductPage = () => {
                             ย้อนกลับ
                         </Typography>
                     </Button>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
                         / เพิ่มสินค้า
                     </Typography>
                 </Box>
@@ -128,7 +128,7 @@ const AddProductPage = () => {
                         <Box sx={{ width: "100%", maxWidth: "400px", display: "flex", alignItems: "center" }}>
                             <Divider sx={{ flexGrow: 1 }} />
                             <Typography variant="body1" sx={{ mx: 2, color: "#BF0005", fontFamily: 'Anuphan' }}>
-                                ไม่พบสินค้า
+                                ไม่พบรายการสินค้า
                             </Typography>
                             <Divider sx={{ flexGrow: 1 }} />
                         </Box>

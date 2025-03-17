@@ -40,7 +40,7 @@ const ViewDeliveryPage = () => {
                             ย้อนกลับ
                         </Typography>
                     </Button>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
                         / รายละเอียดใบสินค้า
                     </Typography>
                 </Box>
@@ -120,7 +120,7 @@ const ViewDeliveryPage = () => {
                     sx={{
                         mb: 2,
                         color: "#6B6B6B",
-                        fontSize: "20px",
+                        fontSize: "18px",
                         fontFamily: 'Anuphan'
                     }}
                 >

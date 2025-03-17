@@ -3,36 +3,34 @@
 import { Box, Button, Container, Switch, TextField, Typography } from "@mui/material";
 import MemberNavbar from "@/app/utils/components/MemberNavber";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-const AddAddressSenderPage = () => {
+const EditAddressReceiverPage = () => {
     const router = useRouter();
     const [checked, setChecked] = useState(true);
-    const [selected, setSelected] = useState("บ้าน");
-    const [address, setAddress] = useState("");
+
+    const [name, setName] = useState('');
+    const [tel, setTel] = useState('');
+    const [addressDetail, setAddressDetail] = useState('');
+    const [locationInfo, setLocationInfo] = useState('');
+    const [type, setType] = useState('');
 
     useEffect(() => {
-        const selectedAddress = sessionStorage.getItem("selectedAddress");
-        if (selectedAddress) {
-            setAddress(selectedAddress);
-        }
+        setName('ขนมปัง ฟาร์มเฮ้า');
+        setTel('0891237081');
+        setAddressDetail('1/10 บ้านทรายทอง');
+        setLocationInfo('ต.ทรายแดง อ.ทรายเข้าตา จ.กรุงเทพมหานคร 10000');
+        setType('ที่ทำงาน');
     }, []);
 
     const handleBack = () => {
-        sessionStorage.removeItem("selectedAddress"); // จำลอง กรณีกดย้อนกลับ 
-        router.push('/delivery/address_sender');
+        router.push('/delivery/receiver');
     }
 
     const handleConfrimAddress = (e: React.FormEvent) => {
-        sessionStorage.removeItem("selectedAddress"); // จำลอง กรณีที่เพิ่มข้อมูลแล้ว 
         e.preventDefault();
-        router.push('/delivery/address_sender');
-    };
-
-    const handleAddAddress = () => {
-        sessionStorage.setItem("selectedAddress", address);
-        router.push('/delivery/address_sender/address');
+        router.push('/delivery/receiver');
     }
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,7 +40,7 @@ const AddAddressSenderPage = () => {
     return (
         <>
             <MemberNavbar />
-            <Container maxWidth="xs" sx={{ pt: 5, display: 'flex', flexDirection: 'column', justifyContent: 'top', height: '100vh', px: 2 }}>
+            <Container maxWidth="xs" sx={{ pt: 5, display: 'flex', flexDirection: 'column', justifyContent: 'top', height: '100vh', px: 2, }}>
                 <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center', mb: 2 }}>
                     <Button
                         startIcon={<ArrowBackIcon />}
@@ -59,14 +57,16 @@ const AddAddressSenderPage = () => {
                             ย้อนกลับ
                         </Typography>
                     </Button>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
-                        / เพิ่มที่อยู่ผู้ส่ง
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
+                        / แก้ไขที่อยู่
                     </Typography>
                 </Box>
+
                 <form onSubmit={handleConfrimAddress}>
                     <Box sx={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                         <TextField
-                            placeholder="ชื่อ - นามสกุล"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             type="text"
                             sx={{
                                 mb: 2,
@@ -84,9 +84,9 @@ const AddAddressSenderPage = () => {
                                 },
                             }}
                         />
-
                         <TextField
-                            placeholder="เบอร์โทรศัพท์"
+                            value={tel}
+                            onChange={(e) => setTel(e.target.value)}
                             type="tel"
                             sx={{
                                 mb: 2,
@@ -104,9 +104,9 @@ const AddAddressSenderPage = () => {
                                 },
                             }}
                         />
-
                         <TextField
-                            placeholder="บ้านเลขที่, ซอย, หมู่, ถนน"
+                            value={addressDetail}
+                            onChange={(e) => setAddressDetail(e.target.value)}
                             type="text"
                             sx={{
                                 mb: 2,
@@ -126,11 +126,9 @@ const AddAddressSenderPage = () => {
                         />
 
                         <TextField
-                            value={address}
-                            placeholder="จังหวัด, เขต/อำเภอ, แขวง/ตำบล, รหัสไปรษณีย์"
+                            value={locationInfo}
+                            onChange={(e) => setLocationInfo(e.target.value)}
                             type="text"
-                            onClick={handleAddAddress}
-                            InputProps={{ readOnly: true }}
                             sx={{
                                 mb: 2,
                                 width: "100%",
@@ -150,7 +148,8 @@ const AddAddressSenderPage = () => {
                     </Box>
 
                     <Box sx={{ mb: 1, display: 'flex', justifyContent: 'space-between', alignItems: "center", width: "100%", maxWidth: "400px" }}>
-                        <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan' }}>
+                        <Typography variant="body1"
+                            sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: 'Anuphan' }}>
                             เลือกเป็นที่อยู่ตั้งต้น :
                         </Typography>
 
@@ -168,7 +167,7 @@ const AddAddressSenderPage = () => {
                         />
                     </Box>
                     <Box sx={{ mb: 2, display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", maxWidth: "400px" }}>
-                        <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: "Anuphan", }} >
+                        <Typography variant="body1" sx={{ color: "#6B6B6B", fontSize: "16px", fontFamily: "Anuphan", }}>
                             เลือกที่อยู่เป็น :
                         </Typography>
 
@@ -176,14 +175,14 @@ const AddAddressSenderPage = () => {
                             {["ที่ทำงาน", "บ้าน"].map((label) => (
                                 <Button
                                     key={label}
-                                    onClick={() => setSelected(label)}
+                                    onClick={() => setType(label)}
                                     variant="contained"
                                     sx={{
-                                        width: "80px",
+                                        maxWidth: "90px",
                                         height: "30px",
                                         borderRadius: "8px",
-                                        backgroundColor: selected === label ? "#BF0005" : "#FFF",
-                                        color: selected === label ? "#FFF" : "#BF0005",
+                                        backgroundColor: type === label ? "#BF0005" : "#FFF",
+                                        color: type === label ? "#FFF" : "#BF0005",
                                         border: "1px solid #BF0005",
                                         fontFamily: "Anuphan",
                                         fontSize: "12px",
@@ -211,8 +210,9 @@ const AddAddressSenderPage = () => {
                                 fontFamily: 'Anuphan',
                                 "&:hover": { backgroundColor: "#D53F44", },
                             }}
+                            onClick={handleConfrimAddress}
                         >
-                            เพิ่มที่อยู่
+                            ยืนยัน
                         </Button>
                     </Box>
                 </form>
@@ -221,4 +221,4 @@ const AddAddressSenderPage = () => {
     );
 };
 
-export default AddAddressSenderPage;
+export default EditAddressReceiverPage;

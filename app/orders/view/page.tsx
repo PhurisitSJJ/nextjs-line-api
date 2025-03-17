@@ -5,7 +5,7 @@ import MemberNavbar from "@/app/utils/components/MemberNavber";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useRouter } from "next/navigation";
 
-const ViewDeliveryPage = () => {
+const ViewOrdersDetailPage = () => {
     const router = useRouter();
 
     const handleBack = () => {
@@ -37,12 +37,12 @@ const ViewDeliveryPage = () => {
                             ย้อนกลับ
                         </Typography>
                     </Button>
-                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
-                        / รายละเอียด
+                    <Typography variant="h5" sx={{ color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
+                        / รายละเอียดรายการสินค้า
                     </Typography>
                 </Box>
 
-                <Typography variant="h5" sx={{ mb: 2, color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                <Typography variant="h5" sx={{ mb: 2, color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
                     ข้อมูลผู้ส่ง
                 </Typography>
 
@@ -75,7 +75,7 @@ const ViewDeliveryPage = () => {
 
                 <Divider sx={{ mt: 2, mb: 2, border: "1px solid #BF0005" }} />
 
-                <Typography variant="h5" sx={{ mb: 2, color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }} >
+                <Typography variant="h5" sx={{ mb: 2, color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }} >
                     ข้อมูลผู้รับ
                 </Typography>
 
@@ -109,7 +109,7 @@ const ViewDeliveryPage = () => {
 
                 <Divider sx={{ mt: 2, mb: 2, border: "1px solid #BF0005" }} />
 
-                <Typography variant="h5" sx={{ mb: 2, color: "#6B6B6B", fontSize: "20px", fontFamily: 'Anuphan' }}>
+                <Typography variant="h5" sx={{ mb: 2, color: "#6B6B6B", fontSize: "18px", fontFamily: 'Anuphan' }}>
                     รายการสินค้า
                 </Typography>
 
@@ -146,4 +146,4 @@ const ViewDeliveryPage = () => {
     );
 };
 
-export default ViewDeliveryPage;
+export default ViewOrdersDetailPage;
