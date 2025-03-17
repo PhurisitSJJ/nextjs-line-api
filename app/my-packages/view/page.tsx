@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Button, Card, Container, Divider, Typography } from "@mui/material";
+import { Box, Button, Container, Divider, Typography } from "@mui/material";
 import MemberNavbar from "@/app/utils/components/MemberNavber";
 import PersonIcon from '@mui/icons-material/Person';
 import ReceiptIcon from '@mui/icons-material/Receipt';
