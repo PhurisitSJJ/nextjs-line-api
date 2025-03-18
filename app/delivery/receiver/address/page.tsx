@@ -92,9 +92,10 @@ const SelectAddressPage = () => {
                     value={tabIndex}
                     onChange={(e, newIndex) => setTabIndex(newIndex)}
                     sx={{
+                        justifyContent: "center", 
+                        alignItems: "center",
                         width: "100%",
-                        maxWidth: "380px",
-                        height: "50px",
+                        maxWidth: "400px",
                         "& .Mui-selected": {
                             color: "#BF0005",
                         },
