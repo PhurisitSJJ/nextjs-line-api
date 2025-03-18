@@ -92,9 +92,11 @@ const SelectAddressPage = () => {
                 <Tabs
                     value={tabIndex}
                     onChange={(e, newIndex) => setTabIndex(newIndex)}
+                    variant="fullWidth"
                     sx={{
                         width: "100%",
-                        maxWidth: "400px",
+                        maxWidth: "390px", 
+                        overflow: "hidden",
                         "& .Mui-selected": {
                             color: "#BF0005",
                         },
