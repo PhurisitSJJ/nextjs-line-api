@@ -97,12 +97,12 @@ const SelectAddressPage = () => {
                         width: "100%",
                         maxWidth: "400px", 
                         overflow: "hidden",
-                        "& .Mui-selected": {
-                            color: "#BF0005",
-                        },
-                        "& .MuiTabs-indicator": {
-                            backgroundColor: "#BF0005",
-                        },
+                        // "& .Mui-selected": {
+                        //     color: "#BF0005",
+                        // },
+                        // "& .MuiTabs-indicator": {
+                        //     backgroundColor: "#BF0005",
+                        // },
                     }}
                 >
                     <Tab label="จังหวัด" sx={{ fontFamily: "Anuphan", color: "#000", fontSize: "13px", fontWeight: tabIndex === 0 ? "bold" : "normal" }} />
