@@ -94,7 +94,7 @@ const SelectAddressPage = () => {
                     variant="fullWidth"
                     sx={{
                         width: "100%",
-                        maxWidth: "380px", 
+                        maxWidth: "400px", 
                         overflow: "hidden",
                         "& .Mui-selected": {
                             color: "#BF0005",
