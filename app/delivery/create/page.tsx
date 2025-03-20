@@ -33,14 +33,17 @@ const CreateDeliveryPage = () => {
     }
 
     const handleAddAddressSender = () => {
+        sessionStorage.setItem("prevPage", "/delivery/create");
         router.push('/delivery/sender')
     }
 
     const handleAddAddressReceiver = () => {
+        sessionStorage.setItem("prevPage", "/delivery/create");
         router.push('/delivery/receiver')
     }
 
     const handleAddProduct = () => {
+        sessionStorage.setItem("prevPage", "/delivery/create");
         router.push('/delivery/product')
     }
 

@@ -5,18 +5,21 @@ import MemberNavbar from "@/app/utils/components/MemberNavber";
 import { useRouter } from 'next/navigation';
 
 
-const SettingsPage = () => {
+const ConfigPage = () => {
     const router = useRouter();
 
     const handleOpenAddressSender = () => {
+        sessionStorage.setItem("prevPage", "/config");
         router.push('/delivery/sender');
     }
 
     const handleOpenAddressReceiver = () => {
+        sessionStorage.setItem("prevPage", "/config");
         router.push('/delivery/receiver');
     }
 
     const handleOpenAddOrders = () => {
+        sessionStorage.setItem("prevPage", "/config");
         router.push('/delivery/product');
     }
 
@@ -121,4 +124,4 @@ const SettingsPage = () => {
     );
 };
 
-export default SettingsPage;
+export default ConfigPage;

@@ -25,8 +25,14 @@ const AddProductPage = () => {
     );
 
     const handleBack = () => {
-        router.push('/delivery/create')
-    }
+        const prevPage = sessionStorage.getItem("prevPage");
+        if (prevPage) {
+            router.push(prevPage);
+            sessionStorage.removeItem("prevPage");
+        } else {
+            router.back(); 
+        }
+    };
 
     const handleAddNewProduct = () => {
         router.push('/delivery/product/add')
