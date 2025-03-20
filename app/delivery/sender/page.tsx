@@ -13,7 +13,6 @@ import { useState } from "react";
 const SenderPage = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
-    const previousPage = searchParams.get("from");
 
     const addressList = [
         { id: "001", name: "สมหญิง สุขใจ", tel: "0891237081", addressDetail: "123/65 บ้านสุขใจ", locationInfo: "ต.แกดำ อ.แกดำ จ.มหาสารคาม 44190", type: "บ้าน" },
