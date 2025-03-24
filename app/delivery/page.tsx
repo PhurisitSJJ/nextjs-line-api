@@ -13,7 +13,7 @@ const DeliveryPage = () => {
     }
 
     const handleTemplateDerivery = () => {
-        router.push('/delivery/template');
+        router.push('/template');
     }
 
     return (

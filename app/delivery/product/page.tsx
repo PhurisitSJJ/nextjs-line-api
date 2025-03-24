@@ -35,6 +35,7 @@ const AddProductPage = () => {
     };
 
     const handleAddNewProduct = () => {
+        
         router.push('/delivery/product/add')
     }
 
@@ -107,7 +108,6 @@ const AddProductPage = () => {
                         รายการที่เคยเพิ่ม
                     </Typography>
                     {filteredList.length > 0 ? (
-
                         filteredList.map((product, index) => (
                             <Card
                                 key={index}
@@ -128,7 +128,6 @@ const AddProductPage = () => {
                                     {product.name}
                                 </Typography>
                             </Card>
-
                         ))
                     ) : (
                         <Box sx={{ width: "100%", maxWidth: "400px", display: "flex", alignItems: "center" }}>

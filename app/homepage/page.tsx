@@ -1,10 +1,9 @@
 'use client';
 
-import { Container, TextField, Button, Box, Typography, InputAdornment, Card, Grid, CardMedia, CardContent } from '@mui/material';
+import { Container, TextField, Button, Box, Typography, Card, Grid, CardMedia, CardContent } from '@mui/material';
 import MemberNavbar from '@/app/utils/components/MemberNavber'
-import SearchIcon from '@mui/icons-material/Search';
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 const HomePage = () => {
     const router = useRouter();
@@ -92,6 +91,8 @@ const HomePage = () => {
                 }}>
                     <TextField
                         placeholder="กรุณากรอกเลขพ้สดุของคุณ"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
                         type="text"
                         sx={{
                             width: "100%",
@@ -106,15 +107,6 @@ const HomePage = () => {
                             "& .MuiOutlinedInput-root.Mui-focused": {
                                 backgroundColor: "#f0f0f0",
                             },
-                        }}
-                        value={query}
-                        onChange={(e) => setQuery(e.target.value)}
-                        InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="start">
-                                    <SearchIcon />
-                                </InputAdornment>
-                            ),
                         }}
                     />
                     <Button
@@ -163,7 +155,7 @@ const HomePage = () => {
                                     borderRadius: "8px",
                                     transition: "0.3s",
                                     cursor: "pointer",
-                                    "&:hover": { backgroundColor: "#BF0005", color: "#FFF", border: "1px solid #BF0005"},
+                                    "&:hover": { backgroundColor: "#BF0005", color: "#FFF", border: "1px solid #BF0005" },
                                     "&:hover img": { filter: "brightness(0) invert(1)" },
                                     "&:hover .MuiTypography-root": { color: "#FFF" },
                                 }}
@@ -180,8 +172,8 @@ const HomePage = () => {
                                     }}
                                 />
                                 <CardContent>
-                                    <Typography variant="body1" 
-                                    sx={{ mt: -1, fontFamily: 'Anuphan', fontSize: '14px', color: "#6B6B6B", }}>
+                                    <Typography variant="body1"
+                                        sx={{ mt: -1, fontFamily: 'Anuphan', fontSize: '14px', color: "#6B6B6B", }}>
                                         {item.title}
                                     </Typography>
                                 </CardContent>
