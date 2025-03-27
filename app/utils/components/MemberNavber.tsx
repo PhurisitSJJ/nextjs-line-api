@@ -25,10 +25,11 @@ const MemberNavbar = () => {
     const handleLogout = () => {
         if (!liff.id) {
             router.push('/');
-            return;
+            // return;
+        } else {
+            liff.logout();
+            // router.push('/');
         }
-        liff.logout();
-        // router.push('/');
     };
 
 
