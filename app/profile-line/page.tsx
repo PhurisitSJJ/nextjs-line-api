@@ -83,7 +83,7 @@ const ProfilePage = () => {
                             ชื่อผู้ใช้ : {profile.displayName}
                         </Typography>
                         <Typography variant="body1" color="textSecondary" mt={1}>
-                            ข้อความ : {profile.statusMessage || 'No status message'}
+                            ข้อความ : {profile.statusMessage}
                         </Typography>
                         <Typography
                             variant="body1"
@@ -96,12 +96,12 @@ const ProfilePage = () => {
                                 margin: '0 auto',
                             }}
                         >
-                            IdToken : {idToken || 'ไม่พบ IdToken'}
+                            IdToken : {idToken}
                         </Typography>
                     </Box>
                 ) : (
                     <Typography variant="h6" textAlign="center" mt={4} sx={{fontFamily: 'Anuphan',}}>
-                        กำลังโหลดข้อมูล...
+                        ไม่พบข้อมูล...
                     </Typography>
                 )}
             </Container></>
