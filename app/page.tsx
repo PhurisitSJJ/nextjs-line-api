@@ -22,7 +22,7 @@ const LoginPage = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    router.push('/register');
+    router.push('/homepage');
   }
 
   const handleForgetPassword = () => {
