@@ -28,7 +28,7 @@ const MemberNavbar = () => {
             return;
         }
         liff.logout();
-        router.push('/');
+        // router.push('/');
     };
 
 
