@@ -20,12 +20,17 @@ const EditAddressReceiverPage = () => {
         setName('ขนมปัง ฟาร์มเฮ้า');
         setTel('0891237081');
         setAddressDetail('1/10 บ้านทรายทอง');
-        setLocationInfo('ต.ทรายแดง อ.ทรายเข้าตา จ.กรุงเทพมหานคร 10000');
+        setLocationInfo('ตำบลทรายแดง, อำเภอทรายเข้าตา, จังหวัดกรุงเทพมหานคร, 10000');
         setType('ที่ทำงาน');
     }, []);
 
     const handleBack = () => {
         router.push('/delivery/receiver');
+    }
+
+    const handleEditAddress = () => {
+        sessionStorage.setItem("selectedAddress", locationInfo);
+        router.push("/delivery/receiver/edit/info");
     }
 
     const handleConfrimAddress = (e: React.FormEvent) => {
@@ -74,6 +79,7 @@ const EditAddressReceiverPage = () => {
                                 maxWidth: "400px",
                                 "& .MuiOutlinedInput-root": {
                                     fontFamily: 'Anuphan',
+                                    fontSize: "14px",
                                     height: "50px",
                                     borderRadius: "8px",
                                     backgroundColor: "#FFF",
@@ -94,6 +100,7 @@ const EditAddressReceiverPage = () => {
                                 maxWidth: "400px",
                                 "& .MuiOutlinedInput-root": {
                                     fontFamily: 'Anuphan',
+                                    fontSize: "14px",
                                     height: "50px",
                                     borderRadius: "8px",
                                     backgroundColor: "#FFF",
@@ -114,6 +121,7 @@ const EditAddressReceiverPage = () => {
                                 maxWidth: "400px",
                                 "& .MuiOutlinedInput-root": {
                                     fontFamily: 'Anuphan',
+                                    fontSize: "14px",
                                     height: "50px",
                                     borderRadius: "8px",
                                     backgroundColor: "#FFF",
@@ -128,13 +136,17 @@ const EditAddressReceiverPage = () => {
                         <TextField
                             value={locationInfo}
                             onChange={(e) => setLocationInfo(e.target.value)}
+                            placeholder="จังหวัด, เขต/อำเภอ, แขวง/ตำบล, รหัสไปรษณีย์"
                             type="text"
+                            onClick={handleEditAddress}
+                            InputProps={{ readOnly: true }}
                             sx={{
                                 mb: 2,
                                 width: "100%",
                                 maxWidth: "400px",
                                 "& .MuiOutlinedInput-root": {
-                                    fontFamily: 'Anuphan',
+                                    fontFamily: "Anuphan",
+                                    fontSize: "14px",
                                     height: "50px",
                                     borderRadius: "8px",
                                     backgroundColor: "#FFF",

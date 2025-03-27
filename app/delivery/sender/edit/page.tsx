@@ -20,12 +20,17 @@ const EditAddressSenderPage = () => {
         setName('สมหญิง สุขใจ');
         setTel('0891237081');
         setAddressDetail('123/65 บ้านสุขใจ');
-        setLocationInfo('ต.แกดำ อ.แกดำ จ.มหาสารคาม 44190');
+        setLocationInfo('ตำบลแกดำ, อำเภอแกดำ, จังหวัดมหาสารคาม, 44190');
         setType('บ้าน');
     }, []);
 
     const handleBack = () => {
         router.push('/delivery/sender');
+    }
+
+    const handleEditAddress = () => {
+        sessionStorage.setItem("selectedAddress", locationInfo);
+        router.push("/delivery/sender/edit/info");
     }
 
     const handleConfrimAddress = (e: React.FormEvent) => {
@@ -74,6 +79,7 @@ const EditAddressSenderPage = () => {
                                 maxWidth: "400px",
                                 "& .MuiOutlinedInput-root": {
                                     fontFamily: 'Anuphan',
+                                    fontSize: "14px",
                                     height: "50px",
                                     borderRadius: "8px",
                                     backgroundColor: "#FFF",
@@ -94,6 +100,7 @@ const EditAddressSenderPage = () => {
                                 maxWidth: "400px",
                                 "& .MuiOutlinedInput-root": {
                                     fontFamily: 'Anuphan',
+                                    fontSize: "14px",
                                     height: "50px",
                                     borderRadius: "8px",
                                     backgroundColor: "#FFF",
@@ -114,6 +121,7 @@ const EditAddressSenderPage = () => {
                                 maxWidth: "400px",
                                 "& .MuiOutlinedInput-root": {
                                     fontFamily: 'Anuphan',
+                                    fontSize: "14px",
                                     height: "50px",
                                     borderRadius: "8px",
                                     backgroundColor: "#FFF",
@@ -128,13 +136,17 @@ const EditAddressSenderPage = () => {
                         <TextField
                             value={locationInfo}
                             onChange={(e) => setLocationInfo(e.target.value)}
+                            placeholder="จังหวัด, เขต/อำเภอ, แขวง/ตำบล, รหัสไปรษณีย์"
                             type="text"
+                            onClick={handleEditAddress}
+                            InputProps={{ readOnly: true }}
                             sx={{
                                 mb: 2,
                                 width: "100%",
                                 maxWidth: "400px",
                                 "& .MuiOutlinedInput-root": {
-                                    fontFamily: 'Anuphan',
+                                    fontFamily: "Anuphan",
+                                    fontSize: "14px",
                                     height: "50px",
                                     borderRadius: "8px",
                                     backgroundColor: "#FFF",

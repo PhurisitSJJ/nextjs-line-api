@@ -20,13 +20,13 @@ const AddAddressReceiverPage = () => {
     }, []);
 
     const handleBack = () => {
+        sessionStorage.removeItem("selectedAddress");
         router.push("/delivery/receiver");
     }
-
     
     const handleAddAddress = () => {
         sessionStorage.setItem("selectedAddress", address);
-        router.push("/delivery/receiver/address");
+        router.push("/delivery/receiver/add/info");
     }
     
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
