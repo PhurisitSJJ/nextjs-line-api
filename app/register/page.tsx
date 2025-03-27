@@ -4,9 +4,17 @@ import { Box, Button, Checkbox, Container, FormControlLabel, IconButton, InputAd
 import CallIcon from '@mui/icons-material/Call';
 import LockIcon from '@mui/icons-material/Lock';
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image'
+import liff from '@line/liff';
+
+interface Profile {
+    userId: string;
+    displayName: string;
+    statusMessage?: string;
+    pictureUrl?: string;
+}
 
 const RegisterPage = () => {
     const router = useRouter();
@@ -26,6 +34,53 @@ const RegisterPage = () => {
     const handleCheckboxChange = (event: { target: { checked: boolean | ((prevState: boolean) => boolean); }; }) => {
         setIsChecked(event.target.checked);
     };
+
+    const [profile, setProfile] = useState<Profile | null>(null);
+        const [idToken, setIdToken] = useState<string | null>(null);
+    
+        useEffect(() => {
+            try {
+                initLine();
+            } catch (err) {
+                console.log("Error: ", err)
+            }
+        }, []);
+    
+        const initLine = async () => {
+            if (liff.id === null) {
+                liff.ready.then(() => {
+                    checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
+                })
+                setTimeout(() => {
+                    checkSession();  // ตรวจสอบ session เมื่อเริ่มต้น
+                }, 1000)
+                liff.init({ liffId: '2006781477-NzeKaxpL' });
+            } else {
+                checkSession();
+    
+            }
+        }
+    
+        // // ฟังก์ชันตรวจสอบ session
+        const checkSession = async () => {
+            if (!liff.isLoggedIn()) {
+                console.log('User is not logged in.');
+                // liff.login(); // ถ้าไม่ได้เข้าสู่ระบบ ให้เรียก login
+            } else {
+                try {
+                    const userProfile = await liff.getProfile();
+                    setProfile(userProfile);
+    
+                    const token = liff.getIDToken(); // ดึง IdToken
+                    setIdToken(token);
+    
+                    console.log('User Profile:', userProfile);
+                    console.log('IdToken:', token); // แสดง IdToken
+                } catch (e) {
+                    console.error('Error during profile retrieval:', e);
+                }
+            }
+        };
 
     return (
         <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', px: 2 }}>
